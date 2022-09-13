@@ -1,0 +1,26 @@
+GFF:-   https://practice.geeksforgeeks.org/problems/search-a-node-in-bst/1
+
+CODING NINJA:-  https://www.codingninjas.com/codestudio/problems/find-a-value-in-bst_1170063
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+bool findNode(TreeNode <int> * root, int key) {
+    // Write your code here.
+    if(root==NULL)
+    {
+        return false;
+    }
+    
+   if(root->data==key)
+    {
+        return true;
+    }
+    else if(root->data>key)
+    {
+        findNode(root->left,key);
+    }
+    else
+    {
+        findNode(root->right,key);
+    }
+}
