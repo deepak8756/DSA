@@ -1,0 +1,48 @@
+CODESTUDIO:-  https://www.codingninjas.com/codestudio/problems/normal-bst-to-balanced-bst_920472
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+step 1=pehle given tree ka inorder nika lo 
+fir vector jissme inorder rkhe ho usko 0 index par start ko rkho aur last index par end ko rkho 
+fir middle nikal lo mid =start+end/2;
+
+aur uss mid ko root bnado aur start see mid-1 left ree build krnege
+aur mid+1 see leke ned taak right subtree build krenge
+
+
+
+
+
+
+
+*************************************************************/
+void findorder(TreeNode<int>* root, vector<int> &inorder)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    findorder(root->left,inorder);
+    inorder.push_back(root->data);
+    findorder(root->right,inorder);
+}
+TreeNode<int>* make(vector<int> &inorder,int start,int end)
+{
+    if(start>end)
+    {
+        return NULL;
+    } 
+    int mid=(start+end)/2;
+    
+    TreeNode<int>* root=new TreeNode<int>(inorder[mid]);
+    
+    root->left=make(inorder,start,mid-1);
+    root->right=make(inorder,mid+1,end);
+    return root;
+}
+TreeNode<int>* balancedBst(TreeNode<int>* root) {
+    // Write your code here.
+    vector<int> inorder;
+    findorder(root,inorder);
+    return make(inorder,0,inorder.size()-1);
+}
