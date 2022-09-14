@@ -1,4 +1,6 @@
 
+LEETCODE:- https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
+
 Input: preorder = [8,5,1,7,10,12]
 preorder matlab shuru see root ko uthao aur insert krte jao left right chotta bdda dekh ke
 
