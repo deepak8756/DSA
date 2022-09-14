@@ -4,7 +4,7 @@ GFG :-   https://practice.geeksforgeeks.org/problems/check-for-bst/1
 APPROACH:-
 
 inorder traversal kro aur start meeh to prev NULL hoga to nhi chlega har baar prev=root krdo aur har baar check krlo ki kya root meri chotti hai kya prev
-see simple see baat hai root hmesha bddi hogi har baar prev=root krdo jha root jae usse prev krdo aur check krdo agar khi aissa hua ki head chotta hai 
+see simple see baat hai root hmesha bddi hogi har baar prev=root krdo jha root jae usske prev  krdo aur check krdo agar khi aissa hua ki root chotta hai prev see
 to false return krdo nhi to pura inordertraversal krke bahar ajao aur return krdo flag ko
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
