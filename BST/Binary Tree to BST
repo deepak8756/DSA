@@ -1,0 +1,65 @@
+  gfg:-   https://practice.geeksforgeeks.org/problems/binary-tree-to-bst/1
+  
+          1
+       /    \
+     2       3
+   /        
+ 4   
+ 
+Q:- tree diya hai BT hai isse BST bnao par binna structure change kiye sirf andar value fill krdo
+1. pehle inorder nikal lo tree ka ek vector meeh   [4  2  1  3 ]
+2. uss vector ko sort krdo to wo kya hogya BST hogya kyuki bst sorted rehta hai na  [1  2  3  4]
+3.inorder lgao aur jiss root par bhi jao usse change krdo jaise inorder lgae binary tree par wo chla gya ekdum left end meeh jab taak null na ho to 
+jo last value hai usse v[i] see change krdo i=0; root->data=v[i];
+i ko bdha do i++;
+aisse hi krte rho jaise inorder hota har root par jake vakue change krdega 
+aisssa ho jaega   
+                        3
+                     /    \
+                   2       4  
+                 /        
+               1       
+
+
+baan gya bst binna structure change kiye
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+class Solution{
+  public:
+    // The given root is the root of the Binary Tree
+    // Return the root of the generated BST
+    void solve(Node* root,vector<int> &in)
+    {
+        if(root==NULL)
+        {
+            return;
+        }
+        solve(root->left,in);
+        in.push_back(root->data);
+        solve(root->right,in);
+    }
+    
+    Node* fill(Node* root,vector<int> in,int &i)
+    {
+        if(root==NULL)
+        {
+            return NULL;
+        }
+        fill(root->left,in,i);
+        root->data=in[i];
+        i++;
+        fill(root->right,in,i);
+        return root;
+    }
+    Node *binaryTreeToBST (Node *root)
+    {
+        //Your code goes here
+        vector<int>in;
+        solve(root,in);
+        sort(in.begin(),in.end());
+        int i=0;
+        return fill(root,in,i);
+    }
+};
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
