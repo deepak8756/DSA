@@ -1,0 +1,40 @@
+
+Input: preorder = [8,5,1,7,10,12]
+preorder matlab shuru see root ko uthao aur insert krte jao left right chotta bdda dekh ke
+
+
+
+
+
+
+class Solution {
+public:
+    TreeNode* make(TreeNode * &root,int x)
+    {
+        if(root==NULL)
+        {
+            root=new TreeNode(x);
+            return root;
+        }
+        
+        if(x>root->val)
+        {
+            root->right=make(root->right,x);
+        }
+        else{
+            root->left=make(root->left,x);
+        }
+        return root;
+    }
+    TreeNode* bstFromPreorder(vector<int>& pre) {
+        
+        TreeNode* root=NULL;
+        
+        for(auto it:pre)
+        {
+            make(root,it);
+        }
+        return root;
+        
+    }
+};
