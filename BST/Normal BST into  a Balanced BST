@@ -6,8 +6,8 @@ step 1=pehle given tree ka inorder nika lo
 fir vector jissme inorder rkhe ho usko 0 index par start ko rkho aur last index par end ko rkho 
 fir middle nikal lo mid =start+end/2;
 
-aur uss mid ko root bnado aur start see mid-1 left ree build krnege
-aur mid+1 see leke ned taak right subtree build krenge
+aur uss mid ko root bnado aur start see mid-1 left see build krnege
+aur mid+1 see leke end taak right subtree build krenge
 
 
 
