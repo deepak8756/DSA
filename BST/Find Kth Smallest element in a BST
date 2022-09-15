@@ -9,37 +9,34 @@ TC:- O(n) hai kyuki hum inorder nikal kr vector meeh bhar rhe hai har item par e
 SC:- O(n) kyuki ek vector li liya
 
 
-APPROACH 2:- k=3 diya hai manlo to inorder traversal kro aur ek counter bnalo jo 1 hai (counter<k)rhega jha end hoga whi value hogi ans
+APPROACH 2:- k=3 diya hai manlo to inorder traversal kro aur --k krte jao agar kisi point par k==0 hogya mtlb whi value nikalni hai
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 class Solution {
   public:
-  void check(Node* root,int &counter,int &ans,int k)
-  {
-      if(root==NULL)
-      {
-          return;
-      }
-      
-      check(root->left,counter,ans,k);
-      if(counter==k)
-      {
-          ans=root->data;
-        counter++;// ans milne ke baad isse isliye bdhaya kyuki return hote time khi ye fir kisi see counter match na ho jae already counter bdha hua hai
-          return;
-      }
-      else{
-          counter++;
-      }
-      check(root->right,counter,ans,k);
-  }
     // Return the Kth smallest element in the given BST
+    void check(Node* root,int &ans,int &k)
+    {
+        if(root==NULL)
+        {
+            return;
+        }
+        
+        check(root->left,ans,k);
+        if(--k==0)
+        {
+            ans=root->data;
+            return;
+        }
+        
+        check(root->right,ans,k);
+    }
     int KthSmallestElement(Node *root, int K) {
         // add code here.
         int ans=-1;
-        int counter=1;
-        check(root,counter,ans,K);
+        check(root,ans,K);
         return ans;
     }
 };
