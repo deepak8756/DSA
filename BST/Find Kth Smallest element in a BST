@@ -25,7 +25,7 @@ class Solution {
         }
         
         check(root->left,ans,k);
-        if(--k==0)
+        if(--k==0)//   k manlo 3 hai to jab yha aega to pehle minus minus hoga fir check krega ki 0 hai ya nhi pre kehte agar pehle symbol milla to
         {
             ans=root->data;
             return;
