@@ -1,0 +1,91 @@
+step1:- dono root ka inorder nika lo ek function meeh
+
+step2:- fir do vector meeh inorder hoga dono ka to unhe merge krdo ek meeh sorted manner meeh (merge 2 sorted arrays)
+
+step3:- fir tree bnado balnce bst uss vector meeh start aur end rkho by 2 kro aur middle nikal lo ussko root bnado aur left meeh jao start,mid-1
+       right meeh jao mid+1,end ) hogya
+
+
+
+
+
+
+
+
+void inorder(TreeNode<int> *root,vector<int> &r)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    inorder(root->left,r);
+    r.push_back(root->data);
+    inorder(root->right,r);
+}
+vector<int> merge( vector<int> r1,vector<int> r2)
+{
+    vector<int>ans(r1.size()+r2.size());
+    int i=0;
+    int j=0;
+    int k=0;
+    while(i<r1.size() && j<r2.size())
+    {
+        if(r1[i]<r2[j])
+        {
+            ans[k]=r1[i];
+            k++;
+            i++;
+        }
+       else{
+           ans[k]=r2[j];
+           k++;
+           j++;
+       }
+    }
+       while(i<r1.size())
+       {
+           ans[k]=r1[i];
+           k++;
+           i++;
+       }
+     while(j<r2.size())
+       {
+           ans[k]=r2[j];
+           k++;
+           j++;
+       }
+    return ans;
+}
+
+
+TreeNode<int> *make(vector<int> r,int start,int end)
+{
+    if(start>end)
+    {
+        return NULL;
+    }
+    int middle=(start+end)/2;
+     TreeNode<int> *root=new TreeNode<int>(r[middle]);
+    
+    root->left=make(r,start,middle-1);
+    root->right=make(r,middle+1,end);
+    return root;
+}
+TreeNode<int> *mergeBST(TreeNode<int> *root1, TreeNode<int> *root2){
+    // Write your code here.
+    vector<int> r1,r2;
+    //inorder nikal lo dono tree ka
+    inorder(root1,r1);
+    inorder(root2,r2);
+    
+    
+    //ek vector lo aur usme merge krdo dono ko sorted form meeh
+   vector<int> mergedArray= merge(r1,r2);
+    
+    //abb jaise balance bst bnate hai waise bna denge
+    int end= mergedArray.size()-1;
+    int s=0;
+   return  make(mergedArray,s,end);
+    
+    
+}
