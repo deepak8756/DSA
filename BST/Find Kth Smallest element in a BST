@@ -1,0 +1,45 @@
+
+
+
+kth smallest mtlb ek no diya hoga uspe btana hai kuan saa element hai tree ka uss kth place par smallest mtlb agee seee jaoge na bst hai sorted order meeh 
+approach 1:-   tree ka inorder traversal nikal lo bst ka vector meeh inorader hai bst ka to sorted hi hoga 
+abb manlo aissa kuch aya  v=[ 1  2  3  4  5  6  7]   aur k=2 diya hai   mtlb 
+v[2] index return krdo 3 ho jaega ans kth smallest element
+TC:- O(n) hai kyuki hum inorder nikal kr vector meeh bhar rhe hai har item par ek ek baar traverse kr rhe hai n item par n time to O(n).
+SC:- O(n) kyuki ek vector li liya
+
+
+APPROACH 2:- k=3 diya hai manlo to inorder traversal kro aur ek counter bnalo jo 1 hai (counter<k)rhega jha end hoga whi value hogi ans
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+class Solution {
+  public:
+  void check(Node* root,int &counter,int &ans,int k)
+  {
+      if(root==NULL)
+      {
+          return;
+      }
+      
+      check(root->left,counter,ans,k);
+      if(counter==k)
+      {
+          ans=root->data;
+        counter++;// ans milne ke baad isse isliye bdhaya kyuki return hote time khi ye fir kisi see counter match na ho jae already counter bdha hua hai
+          return;
+      }
+      else{
+          counter++;
+      }
+      check(root->right,counter,ans,k);
+  }
+    // Return the Kth smallest element in the given BST
+    int KthSmallestElement(Node *root, int K) {
+        // add code here.
+        int ans=-1;
+        int counter=1;
+        check(root,counter,ans,K);
+        return ans;
+    }
+};
