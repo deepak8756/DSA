@@ -1,3 +1,7 @@
+CODING NINJA :-https://www.codingninjas.com/codestudio/problems/h_920474
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 step1:- dono root ka inorder nika lo ek function meeh
 
 step2:- fir do vector meeh inorder hoga dono ka to unhe merge krdo ek meeh sorted manner meeh (merge 2 sorted arrays)
