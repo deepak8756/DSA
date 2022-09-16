@@ -1,0 +1,30 @@
+GFG:-   https://practice.geeksforgeeks.org/problems/palindrome-string0817/1
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution{
+public:	
+	
+	
+	int isPalindrome(string S)
+	{
+	    // Your code goes here
+	    int start=0;
+	    int end=S.length()-1;
+	    
+	    bool flag=1;
+	    
+	    while(start<end)
+	    {
+	        if(S[start]!=S[end])
+	        {
+	            flag=0;
+	            break;
+	        }
+	        start++;
+	        end--;
+	    }
+	    return flag;
+	}
+
+};
