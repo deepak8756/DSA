@@ -1,0 +1,30 @@
+
+
+
+ex:1   a b c
+ all possible subsequences are:-  a ab abc ac b bc c
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+#include <bits/stdc++.h> 
+void fun(int index,string &str,vector<string> &ans,string s)
+{
+    if(index>=str.length())
+    {
+        if(s.size()>0)//ek substring empty wali bhi hoti hai na jisme koi nhi hota wo yha ni lena hai
+        ans.push_back(s);
+        return;
+    }
+    //take
+    s.push_back(str[index]);
+    fun(index+1,str,ans,s);
+    //not take
+    s.pop_back();
+    fun(index+1,str,ans,s);
+}
+vector<string> subsequences(string str){
+	// Write your code here
+    vector<string>ans;
+    string s="";
+    fun(0,str,ans,s);
+    return ans;
+}
