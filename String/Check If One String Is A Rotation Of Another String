@@ -1,0 +1,41 @@
+
+pta kro agar pehli wali string ko cyclically rotate krke kya wo dusre wale ki jaisi ho rhi hai ya nhi.
+
+step 1:- dono ki size nikal kr check kro pehle ki same size hai ya nhi agar nhi hai to koi chance hi nhi ki rotate krke wo dusre ki jaisi hogi
+
+step 2:- agar upar wala case nhi hai to kya kro pehli string ko new string bnake do baad add krke likh do same string ko do baar 
+
+step 3:- uske andar check kralo ki kya dusri wali string exist krti hai agar mill gya mtlb rotate wgera krne par pehli dusre ke jaisi ho skti hai 
+
+
+ex::-  abac
+       baca
+       size same hai to abb kya krenge pehli wali ko do baar add krdo   temp= abacabac   ab isme check kro baca khi arhi hai kya
+             if(temp.find(q)!=string::npos)  
+              {
+                  return 1;
+              }
+# npos ka mtlb string::npos is a constant (probably -1) representing a non-position. It's returned by method find when the pattern was not found.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+int isCyclicRotation(string &p, string &q) 
+{
+    //    Write your code here
+   int p1=p.length();
+    int q1=q.length();
+    
+    if(p1!=q1)
+    {
+        return 0;
+    }
+    
+   string temp=p+p;
+      if(temp.find(q)!=string::npos)
+      {
+          return 1;
+      }
+    else{
+        return 0;
+    }
+}
