@@ -1,0 +1,26 @@
+CODE STUDIO:-   https://www.codingninjas.com/codestudio/problems/duplicate-characters_3189116
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+APPROACH 1:- 
+ONE SOLUTION USING HASHING BUT PARTIALLY EXCEPTED 10/11 TEST CASE RUN ONLY  (BUT SEE THE LOGIC)
+
+vector<pair<char,int>> duplicate_char(string s, int n){
+    // Write your code here.
+    vector<pair<char,int>> ans;
+    map<char,int>m;
+    
+    for(int i=0;i<s.length();i++)
+    {
+        m[s[i]]++;
+    }
+    
+       for(auto it:m)
+       {
+           if(it.second>1)
+           {
+               ans.push_back({it.first,it.second});
+           }
+       }
+    return ans;
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
