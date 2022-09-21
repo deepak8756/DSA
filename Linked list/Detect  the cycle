@@ -1,0 +1,30 @@
+
+
+
+
+
+Code Studio:- https://www.codingninjas.com/codestudio/problems/cycle-detection-in-a-singly-linked-list_628974?leftPanelTab=0
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+bool detectCycle(Node *head){
+	//	Write your code here.
+    Node* fast=head;
+    Node* slow=head;
+    
+    while(fast!=NULL && fast->next!=NULL)
+    {
+        fast=fast->next->next;
+        slow=slow->next;
+        if(fast==slow)
+        {
+            return true;
+            break;
+        }
+    }
+    return false;
+    
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
