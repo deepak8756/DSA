@@ -1,0 +1,43 @@
+
+
+
+GFG:- https://practice.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1
+
+
+
+
+
+
+
+GFG solution:-
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution
+{
+    public:
+    struct node *reverse (struct node *head, int k)
+    { 
+        // Complete this method
+        int count=0;
+        
+         node *current=head;
+         node *prev=NULL;
+         node *forward=NULL;
+        
+        while(current!=NULL && count<k)
+        {
+            forward=current->next;
+            current->next=prev;
+            prev=current;
+            current=forward;
+            count++;
+        }
+        if(current!=NULL)
+        {
+            head->next=reverse(current,k);
+        }
+        return prev;
+        
+        
+        
+    }
+};
