@@ -1,0 +1,27 @@
+
+
+Code Studio:- https://www.codingninjas.com/codestudio/problems/reverse-the-singly-linked-list_799897
+
+
+
+Code Studio Solution:- 
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+LinkedListNode<int> *reverseLinkedList(LinkedListNode<int> *head) 
+{
+    // Write your code here
+    LinkedListNode<int> * current=head;
+    LinkedListNode<int> * prev=NULL;
+    LinkedListNode<int> * forward=NULL;
+    
+    while(current!=NULL)
+    {
+        forward=current->next;
+        current->next=prev;
+        prev=current;
+        current=forward;
+    }
+    return prev;
+    
+    
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
