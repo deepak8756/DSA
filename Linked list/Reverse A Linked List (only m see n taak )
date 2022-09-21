@@ -1,0 +1,59 @@
+
+
+
+
+
+Code Studio:-  https://www.codingninjas.com/codestudio/problems/reverse-a-ll_2271431
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Node *reverseLL(Node *head, int low, int high) {
+	// Write your code here.
+    
+    Node* startprev=head;
+    Node* start=head;
+    
+    int count=1;
+    while(start->next!=NULL && count<low)
+    {
+        startprev=start;
+        start=start->next;
+        count++;
+    }
+    
+    count=1;
+    Node* end=head;
+    
+    while(end!=NULL && count<high)
+    {
+        end=end->next;
+        count++;
+    }
+    Node* endnext=NULL;
+    endnext=end->next;
+    end->next=NULL;
+    
+    Node* current=start;
+    Node* forward=NULL;
+    Node* prev=NULL;
+    
+    while(current!=NULL)
+    {
+        forward=current->next;
+        current->next=prev;
+        prev=current;
+        current=forward;
+    }
+    
+    if(startprev==start)
+    {
+       head=prev;
+    }
+    else{
+        startprev->next=prev;
+    }
+    start->next=endnext;
+    
+    return head;
+    
+}
