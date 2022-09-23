@@ -1,0 +1,58 @@
+
+code studio:- https://www.codingninjas.com/codestudio/problems/detect-the-first-node-of-the-loop_1112628
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Node* detect(Node* head)
+{
+    if(head==NULL)
+    {
+        return NULL;
+    }
+    
+    Node* slow=head;
+    Node* fast=head;
+    
+    while(fast!=NULL && fast->next!=NULL)
+    {
+        fast=fast->next->next;
+        slow=slow->next;
+        
+        if(fast==slow)
+        {
+            return slow;
+        }
+    }
+    return NULL;
+}
+Node* startpoint(Node* head)
+{
+    if(head==NULL)
+    {
+        return NULL;
+    }
+    
+    Node* intersection=detect(head);
+    if(intersection==NULL)
+    {
+        return NULL;
+    }
+    
+    Node* temp=head;
+    
+    while(temp!=intersection)
+    {
+        temp=temp->next;
+        intersection=intersection->next;
+    }
+    return temp;
+}
+Node *firstNode(Node *head)
+{
+	//    Write your code here.
+    if(head==NULL)
+    {
+        return NULL;
+    }
+    return startpoint(head);
+    
+}
