@@ -1,0 +1,30 @@
+
+
+
+
+
+
+Middle Of Linked List:-https://www.codingninjas.com/codestudio/problems/middle-of-linked-list_973250
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Node *findMiddle(Node *head) {
+    // Write your code here
+    if(head==NULL || head->next==NULL)
+    {
+        return head;
+    }
+    if(head->next->next==NULL)
+    {
+        return head->next;
+    }
+    
+    Node* slow=head;
+    Node* fast=head;
+    
+    while(fast!=NULL && fast->next!=NULL)
+    {
+        fast=fast->next->next;
+        slow=slow->next;
+    }
+    return slow;
+}
