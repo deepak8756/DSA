@@ -1,0 +1,70 @@
+
+
+
+code studio:- https://www.codingninjas.com/codestudio/problems/detect-and-remove-cycle_920523
+
+
+
+
+Node* detect(Node* &head)//pta kr rha hai cycle baan rhi hai ki nhi
+{
+    Node* slow=head;
+    Node* fast=head;
+    
+    while(fast!=NULL && fast->next!=NULL)
+    {
+        fast=fast->next->next;
+        slow=slow->next;
+        
+        if(slow==fast)
+        {
+            return slow;
+        }
+    }
+    return NULL;
+}
+
+Node* detectstartloop(Node* &head)//pta kr rha hai kha see cycle bann na start ho rhi hai
+{
+    if(head==NULL)
+    {
+        return NULL;
+    }
+    Node* intersection=detect(head);
+    if(intersection==NULL)
+    {
+        return NULL;
+    }
+    Node* temp=head;
+    
+    while(temp!=intersection)
+    {
+        temp=temp->next;
+        intersection=intersection->next;
+    }
+   return temp;
+}
+
+bool detectAndRemoveCycle(Node* head)//cycle ko remove kr rha hai mtlb ki next wale ko null kr derha hai last meeh
+{
+    // Write your code here
+  if(head==NULL)
+  {
+      return NULL;
+  }
+   Node* startnode=detectstartloop(head);
+    if(startnode==NULL)
+    {
+        return false;
+    }
+   Node* endnode=startnode;
+    
+    while(endnode->next!=startnode)
+    {
+        endnode=endnode->next;
+    }
+    
+  endnode->next=NULL;
+    
+  
+}
