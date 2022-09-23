@@ -1,0 +1,70 @@
+
+
+CodeStudio:-  https://www.codingninjas.com/codestudio/problems/remove-duplicates-from-unsorted-linked-list_1069331?leftPanelTab=0
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+# UNOPTIMIZED CODE:-
+for optimized see below: after this code
+
+
+Node *removeDuplicates(Node *head)
+{
+    Node* temp=head;
+    
+    while(temp!=NULL)
+    {
+        Node* dup=temp->next;
+         Node* prev=temp;
+        while(dup!=NULL)
+        {
+            if(temp->data==dup->data)
+            {
+                Node* del=dup;
+                prev->next=del->next;
+                dup=del->next;
+                delete(del);
+            }
+            else{
+                prev=prev->next;
+                dup=dup->next;
+            }
+        }
+        temp=temp->next;
+    }
+    return head;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+##OPTIMIZED CODE
+Expected Time Complexity: O(N)
+Expected Auxiliary Space: O(N)
+
+Node *removeDuplicates(Node *head)
+{
+    // Write your code here
+    if(head==NULL)
+    {
+        return head;
+    }
+    unordered_set<int>seen;//  unordered set lelo
+    Node* current=head;
+    //set duplicate check kr rha hai agar hua to current ko ek skip kra rha hai
+    
+    
+    seen.insert(current->data);//pehla element daal lo wo to kisi ki copy nhi hoga na uske baad wale hi same ho skte hai
+    while(current!=NULL && current->next!=NULL)
+    {
+        if(seen.find(current->next->data)!=seen.end())//abb current ke next ko find kr rhe hai set meeh agar wo seen.end ke brabar nhi hua mtlb ki mill gya
+        {//khi par set meeh tbhi last taak nhi ja paya to current ka next apne agle ke agle par point krega
+            current->next=current->next->next;
+        }
+        else{//else set meeh find krne par nhi milla wo no to usse set meeh daal do aur current ko bhi agee bdha do 
+            seen.insert(current->next->data);
+            current=current->next;
+        }
+    }
+    return head;
+}
+
+
