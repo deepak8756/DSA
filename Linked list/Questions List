@@ -1,13 +1,22 @@
+----------------------------------------------------------Type 1- Reverse-----------------------------------------------------------------------------------
 Question 1:- Write a Program to reverse the Linked List. 
 CodeStudio:-  https://www.codingninjas.com/codestudio/problems/reverse-the-singly-linked-list_799897
----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question 2:- Reverse a Linked List in group of Given Size K.
 GFG:- https://practice.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1
 
 Question 3:- Reverse A Linked List (only m see n taak )
 Code Studio:- https://www.codingninjas.com/codestudio/problems/reverse-a-ll_2271431
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 Question 4:- Cycle Detection in a Singly Linked List
 Code Studio:- https://www.codingninjas.com/codestudio/problems/cycle-detection-in-a-singly-linked-list_628974?leftPanelTab=0
+
+Question 5:- Detect And Remove Cycle or Remove loop
+Code studio:- https://www.codingninjas.com/codestudio/problems/detect-and-remove-cycle_920523
+
+Question 6:- Find the starting point of the loop. 
+Code Studio:- https://www.codingninjas.com/codestudio/problems/detect-the-first-node-of-the-loop_1112628
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
