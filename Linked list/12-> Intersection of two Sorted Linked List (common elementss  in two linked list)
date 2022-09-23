@@ -1,0 +1,56 @@
+
+ek new linked list bnake  return kro wo element iss new linked list meeh add kro jo given dono linked list meeh common ho unhe isme add krdo
+
+L1=  1  ->  2 ->  3 ->  4 ->  7
+L2=  2->    4 ->   6 ->  7
+
+return 2 -> 4  -> 7
+
+using 2 pointer 
+niche comments pdho
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Node* intersect_ll(Node* head1, Node *head2){
+
+    // Write your code here.
+    Node* ptr1=head1;
+    Node* ptr2=head2;
+    Node* head=NULL;
+    Node* current=NULL;
+    
+    while(ptr1!=NULL && ptr2!=NULL)//jab taak indono meeh see koi ek null nhi hojata tab taak chlega while
+    {
+        if(ptr1->data==ptr2->data)//agar ye dono same ho gae
+        {
+            if(head==NULL)//agar head null hai pehli baar ekdum jab first time koi aega new linked list meeh add hone tab chlega bass ye uss new node ko head aur current bnaega
+            {
+                Node* temp=new Node(ptr1->data);
+                head=temp;
+                current=head;
+            }
+            else{//pehli baar ke badd ya head null nhi hai to hmesha ye part chlega jab bhi koi do element same honge
+                Node* temp=new Node(ptr1->data);
+                current->next=temp;
+                current=current->next;
+            }
+            ptr1=ptr1->next;//dono same ho gae hai to dono ko agee bdhao ek ek
+            ptr2=ptr2->next;
+        }
+        else{//agar same nhi hue to check kro kaun saa wala chotta hai usse agee bdhao kyuki sorted hai na to agar koi choota hai usse agee bdhao
+            if(ptr1->data<ptr2->data)
+            {
+                ptr1=ptr1->next;
+            }
+            else{
+                ptr2=ptr2->next;
+            }
+        }
+    }
+    return head;//jo new linked list bnai hai uska head return krdo
+}
