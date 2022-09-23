@@ -1,0 +1,42 @@
+
+given linked list
+2  ->  5  ->  3 -> 11  ->  1
+
+deleting last node
+2  ->  5  ->  3 -> 11  ||  1
+
+add to front
+1  ->  2  ->  5  ->  3 -> 11  -> -1
+
+Result:- 
+1  ->  2  ->  5  ->  3 -> 11  -> -1
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Node *delAddLastNode(Node *head){
+	// Write your code here.
+    if(head==NULL || head->next==NULL)
+    {
+        return head;
+    }
+    
+    Node* prev=head;
+    Node* temp=head;
+    
+    while(temp->next!=NULL)//jab taak temp ka next null na ho jae tab taak chlega 
+    
+    {                                                         prev     temp     NULL
+        prev=temp;              2    ->    5    ->    3   ->  11    ->  1     -> -1
+        temp=temp->next;
+    } 
+                                                                            (temp)   
+                                                                  prev      (save) 
+    Node* save=prev->next;        2    ->    5    ->    3   ->     11    ->  1     -> -1
+    prev->next=temp->next;
+                             save
+    save->next=head;          1->     2    ->    5    ->    3   ->  11     -> -1
+                  head
+    head=save;     1->     2    ->    5    ->    3   ->  11     -> -1
+    return head;
+    
+}
