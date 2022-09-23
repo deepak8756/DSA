@@ -1,0 +1,103 @@
+
+
+
+Intersection of Two Linked Lists:- ye nhi hai yha pr ki dono ka data jha same ho jae wo intersection point baan jaega yha hum address dekh rhe hai jha 
+dono ka address same hua wo intersection point hoga mtlb headA==headB hai kya  ye kr rhe ye nhi headA->data==headB->data ye nhi kr rhe
+
+
+STEPS :-
+1->aur isme pehle dono linked list ki length nikal lo theek
+2-> fir dono minus krke diff nikal lo abs use krlo mujhe nhi pta kaun saa bdda hai length kaun saa chotta
+
+3->fir if else lgao usko agee bdhao jo wala badda hai utna jitna difference aya hai ab dono ki length same ho gai hogi hai na abb check krlo headA==headB
+hai kya gar hai to kisi ka bhi headA ya headB ka data return krdo nhi to -1 return krdo.. bass yhi hai 
+------------------------------------------------------------------------------------------------------------------------------
+
+example:-   
+
+
+head A:-         4 ->  1->   \
+                              \
+                                --->   8  ->  4  ->  5
+                              /  
+head B:- 5  ->  6  ->  1->   /
+
+
+headA ki length1= 5 hogai 4 -> 1 -> 8-> 4 -> 5
+headB ki length2= 6 hogai 5 -> 6 -> 1-> 8-> 4 -> 5
+
+difference nikal lo abs(length1-length2)=5-6= 1
+
+abb if lgake check krlo agar length 1 bdda hai to headA ko uttna difference agee bdhao jitna aya hai
+else length2  bdda hai to headB ko uttna difference agee bdhao jitna aya hai
+
+example meeh length2 badda hai to headB ko agee bdhao                                   headB
+difference 1 aya tha na to headB ko ek agee bdhao to abb head B (6) par agya hoga  5  ->  6  ->  1 -> 8  ->  4  ->  5
+
+ab dono ki length same ho gai hogi 
+                                        headA= 4  ->  1 -> 8  ->  4  ->  5
+                                        headB= 6  ->  1 -> 8  ->  4  ->  5
+                                        ab match krao but 1 nhi aega ans hum address match kra rhe hai na ki node ko aissa kuch hoga
+                                        
+                                        
+                                         4  ->  1 ->
+                                                     \
+                                                      -> 8  ->  4  ->  5
+                                                     /  
+                                         6  ->  1 -> 
+                                         
+                                         8 pr match krr rha hai yii hai intersection point
+                                        
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+int findIntersection(Node *headA, Node *headB)
+{
+    //Write your code here
+    int lengthA=0,lengthB=0;
+    
+    Node* tempA=headA;
+    while(tempA!=NULL)//headA ki length nikal rha hai
+    {
+        lengthA++;
+        tempA=tempA->next;
+    }
+    Node* tempB=headB;
+    while(tempB!=NULL)//headB ki length nikal rha hai
+    {
+        lengthB++;
+        tempB=tempB->next;
+    }
+    int difference=abs(lengthA-lengthB);
+    
+    if(lengthA>lengthB)//mtlb mera headA ki length bddi hai usse skip krao diff jitna hai utna count agee bdhao
+    {
+        int count=0;
+        while(count<difference)
+        {
+            count++;
+            headA=headA->next;
+        }
+    }
+    else{//mtlb mere headB ki length bddi hai usse diff jitna hai utna count agee bdhao
+          int count=0;
+        while(count<difference)
+        {
+            count++;
+            headB=headB->next;
+        }
+    }
+    
+    while(headA!=NULL && headB!=NULL)//dono ke adress ko match kr rha hu jha same hua whi hai uska data return krdo
+    {
+        if(headA==headB)
+        {
+            return headB->data;
+        }
+        else{
+            headA=headA->next;
+            headB=headB->next;
+        }
+    }
+    return -1;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
