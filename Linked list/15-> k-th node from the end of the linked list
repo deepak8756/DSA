@@ -1,0 +1,34 @@
+
+Code Studio:-  https://www.codingninjas.com/codestudio/problems/k-th-node-from-the-end-of-the-linked-list_1171164
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+node *findKthFromLast(node *head, int k)
+{
+	//Write your Code Here
+    node* temp=head;
+    int count=0;
+    while(temp!=NULL)
+    {
+        count++;
+        temp=temp->next;
+    }
+    
+    int n=count-k;
+    if(n==0)
+    {
+        return head;
+    }
+    
+    count=0;
+    temp=head;
+    while(count<n)
+    {
+        count++;
+        temp=temp->next;
+    }
+    return temp;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
