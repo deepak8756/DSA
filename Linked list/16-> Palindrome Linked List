@@ -1,0 +1,65 @@
+
+
+Code Studio:- https://www.codingninjas.com/codestudio/problems/palindrom-linked-list_799352
+
+Approach 1:- ya to vector meeh bhar lo aur palindrome check krlo 2 pointer see
+Approach 2:- ya to linked list ko beech meeh see partition krdo aur wha ke baad see sab ko reverse krdo aur bcchi hui linked list see join krdo aur jha see 
+partition kiya hai wha ke just baad pr head2 lgado aur start wale ko aur usko match krte jao jab taak wo null na ho jae head 2 aur check krte jao
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+LinkedListNode<int> *mid(LinkedListNode<int> *head)
+{
+    LinkedListNode<int> *slow=head;
+    LinkedListNode<int> *fast=head->next;
+    
+    while(fast!=NULL && fast->next!=NULL)
+    {
+        fast=fast->next->next;
+        slow=slow->next;
+    }
+    return slow;
+}
+LinkedListNode<int> *reverse(LinkedListNode<int> *head)
+{
+    LinkedListNode<int> *current=head;
+    LinkedListNode<int> *prev=NULL;
+    LinkedListNode<int> *forward=NULL;
+    
+    while(current!=NULL)
+    {
+        forward=current->next;
+        current->next=prev;
+        prev=current;
+        current=forward;
+    }
+    return prev;
+}
+bool isPalindrome(LinkedListNode<int> *head) {
+    // Write your code here.
+    if(head==NULL || head->next==NULL)
+    {
+        return true;
+    }
+    
+    LinkedListNode<int> *middle=mid(head);
+    LinkedListNode<int> *temp=middle->next;
+    middle->next=reverse(temp);
+    
+    LinkedListNode<int> *head1=head;
+    LinkedListNode<int> *head2=middle->next;
+    
+    while(head2!=NULL)
+    {
+        if(head1->data!=head2->data)
+        {
+            return false;
+        }
+        else{
+            head1=head1->next;
+            head2=head2->next;
+        }
+    }
+    temp=middle->next;
+    middle->next=reverse(temp);
+    return 1;
+}
