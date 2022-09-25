@@ -1,0 +1,29 @@
+Code Studio:- https://www.codingninjas.com/codestudio/problems/split-a-circular-linked-list_1071003
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+void splitCircularList(Node *head)
+{
+    // Write your code here.
+    if(head==NULL)
+    {
+        return;
+    }
+    
+    Node* slow=head;
+    Node* fast=head->next;
+    
+    while(fast!=head && fast->next!=head)
+    {
+        slow=slow->next;
+        fast=fast->next->next;
+    }
+    
+    if(fast->next==head)
+    {
+        fast->next=slow->next;
+        slow->next=head;
+    }
+
+}
