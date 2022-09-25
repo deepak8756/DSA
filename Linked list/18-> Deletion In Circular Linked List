@@ -1,0 +1,54 @@
+
+
+Code Studio:-  https://www.codingninjas.com/codestudio/problems/deletion-in-circular-linked-list_630409
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Node* deleteNode(Node* head, int key) 
+{
+    // Write your code here.
+    if(head==NULL)
+    {
+        return head;
+    }
+    
+    //CASE 1:-
+    //agar head ka next head ko point kr rha hai aur head ko hi htana hai (mtlb ek node hai aur whi ko htana hai to)
+    if(head->data==key && head->next==head)
+    {
+        return NULL;
+    }
+
+//CASE 2:- agar list lambi hai aur head ko htana hai to temp ko head ke piche tak le jao pura traversal krake aur temp ko bool do head ke next par point kre ab
+    
+    Node* prev=head;//yha prev le liya hai bass naam kaam nhi kr rha hai prev wala sirf head ko aisse hi prev meeh store krae hai
+    
+    if(key==prev->data)
+    {
+        while(prev->next!=head)
+        {
+            prev=prev->next;
+        }
+        prev->next=head->next;
+        head=head->next;
+        return head; 
+    }
+   
+   //CASE 3:- agar beech meeh see kisi ko htana hai ya last meeh see kisi ko htana hai
+   Node* temp=head->next;//temp ko head ke next see isliye stsrt kiye hai kyuki agar key == head hota to upar hi handle ho chuka hota agar yha taak aya hai
+   //mtlb ki head to mera key ke brabar nhi hai to head ke next see check krna chalu kro
+    while(temp!=head)
+    {
+        if(temp->data==key)
+        {
+            Node* del=temp;
+            prev->next=del->next;
+            delete(del);
+        }
+        else{
+            prev=temp;
+            temp=temp->next;
+        }
+    }
+    return head;
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
