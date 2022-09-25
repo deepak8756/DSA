@@ -1,0 +1,44 @@
+   A = 1 -> 2 -> 3 -> 4 ->5 ->6
+ans:-    1 -> 6 -> 3 -> 4 ->5 -> 2
+
+
+Interview Bit:- https://www.interviewbit.com/problems/even-reverse/
+
+
+
+
+
+
+
+ListNode* Solution::solve(ListNode* head) {
+ 
+      if(head==NULL ||head->next==NULL||head->next->next==NULL) pehle 3 node taak check krlo null to nhi
+    {
+        return head;
+    }
+       ListNode* temp=head;
+    ListNode* even=NULL;
+
+    while(temp!=NULL && temp->next!=NULL)
+    {
+        ListNode* odd=temp->next;// temp ke next par odd ko set krdo
+        temp->next=odd->next;// abb temp ko direct point krade apne ek agee wale ki node par mtlb beech wali no even hai usse skip kre 1-> 3
+        odd->next=even; //even NULL hai starting meeh to odd jo ki 2 hai usse point krao even par 2->NULL
+        even=odd;  abb even odd ko point kregi 2->null
+        temp=temp->next; temp ko agee bdhao 3par
+    }
+
+    temp=head; temp wo waaps see head par le aaoo
+  
+
+    while(even!=NULL && temp!=NULL)
+    {
+        ListNode* evenforwardsave=even->next; //even ke ek agee wale puree list ko bccha kr rkhega
+        ListNode* tempforwardsave=temp->next; //temp ke ek agee wale puree list ko bccha kr rkhega
+        even->next=temp->next;
+        temp->next=even;
+        even=evenforwardsave;
+        temp=tempforwardsave;
+    }
+    return head;
+}
