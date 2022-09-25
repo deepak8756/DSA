@@ -1,6 +1,10 @@
 
 Code Studio:- https://www.codingninjas.com/codestudio/problems/find-pair-with-a-given-sum-in-a-doubly-linked-list_1164172
 
+BRUTEFORCE :- meeh sabko vector meeh bhar lo sare element ko fir check kralo yhi 2 pointer approach see ye array ka question bhi hai ek
+TC:- O(n) ho jaegi pura vector traverse krke dekhenge hi OPTIIMIZED :- isme bhi O(n) hogi kyuki last taak traverse krna hi pdega pointer2 ko last node 
+pr set krenge tbhi to wo left ki traf aega
+ SC:- O(n) vector bnaliya na to auxillary stack space liya  OPTIMIZED:- isme O(1) constant koi extra space nhi liya hai
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 bool findPair(Node* head, int k)
