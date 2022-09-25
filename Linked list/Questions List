@@ -71,7 +71,22 @@ Question 16:- Write a Program to check whether the Singly Linked list is a palin
 Code Studio:- https://www.codingninjas.com/codestudio/problems/palindrom-linked-list_799352
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-----------------------------------------------------Type 7:- Doubly Linked list----------------------------------------------------------------------------
+----------------------------------------------------Type 7:- Doubly Linked list,Circular Linked list----------------------------------------------------------------------------
 Qustion 17:- Reverse a Doubly Linked list.
 Code Studio:- https://www.codingninjas.com/codestudio/problems/reverse-a-doubly-linked-list_1116098
 
+Question 18:- Deletion In Circular Linked List
+Code Studio:- https://www.codingninjas.com/codestudio/problems/deletion-in-circular-linked-list_630409
+
+Question 19:-  Rotate DoublyLinked list by N nodes.
+Code Studio:- https://www.codingninjas.com/codestudio/problems/rotate-dll_1115782
+
+Question 20:- Check if a linked list is a circular linked list.
+Code Studio:- https://www.codingninjas.com/codestudio/problems/is-it-a-circular-linked-list_981265
+
+
+Question 21:- Split A Circular Linked List
+Code Studio:- https://www.codingninjas.com/codestudio/problems/split-a-circular-linked-list_1071003
+
+Question 22:- Find pairs with a given sum in a DLL.
+Code Studio:-  https://www.codingninjas.com/codestudio/problems/find-pair-with-a-given-sum-in-a-doubly-linked-list_1164172
