@@ -1,0 +1,66 @@
+
+Code Studio:- https://www.codingninjas.com/codestudio/problems/segregate-even-and-odd-nodes-in-a-linked-list_1116100
+refrence:-  https://www.youtube.com/watch?v=Gm8gHjYyNwo
+
+1. even odd do new Nodes bnao khali 
+2.head ko bdhate jao aur check krate jao kaun sii even hai kaun sii odd jo even ho even wali meeh daldo jo odd ho odd wali meeh daldo 
+3.merge krdo abb even ko odd see.
+
+case->  aissa bhi ho skta hai ki even null hi reh jae ya odd null hi reh jao to ye check krna hoga
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Node* segregateEvenOdd(Node* head)
+{
+    // Write your code here
+    if(head==NULL)
+    {
+        return head;
+    }
+    Node* even=NULL;
+    Node* odd=NULL;
+    Node* e=NULL;
+    Node* o=NULL;
+    
+    Node* temp=head;
+    
+    while(temp!=NULL)
+    {
+        int n=temp->data;
+        if(n%2==0)
+        {
+            if(even==NULL)
+            {
+                even=temp;
+                e=even;
+            }
+            else
+            {
+                e->next=temp;
+                e=e->next;
+            }
+        }
+        else
+        {
+            if(odd==NULL)
+            {
+                odd=temp;
+                o=odd;
+            }
+            else
+            {
+               o->next=temp;
+                o=o->next;
+            }
+        }
+        temp=temp->next;
+    }
+    
+   if(even!=NULL) e->next=odd; //agar even null nhi hai tbhi to join krunga na e (e mera tail manlo jo add krwa rha hai element ko) e mera odd ko point krega
+   if(odd!=NULL) o->next=NULL; //agar odd null nhi hai tbhi to join krunga na o (o mera tail manlo jo add krwa rha hai element ko) o mera NULL ko point krega uske agee koi nhi hai na
+    if(even!=NULL) return even;//ab return krte time bhi puch lo agar even null nhi hai to to upar even ko set kr hi diya hai join wgera krke odd see return krdo
+    return odd;//agar even null hai to ispr aega odd ko bhi upar set krhi diya tha odd ka jo tail bna tha o uske next ko NULL krhidiya tha odd return krdo
+}
