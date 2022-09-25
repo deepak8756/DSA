@@ -1,0 +1,49 @@
+
+Code Studio:- https://www.codingninjas.com/codestudio/problems/rotate-dll_1115782
+
+refrence:- https://www.youtube.com/watch?v=fUs3B2ti97M
+
+1-> yha par k jo bhi diya hai utna temp ko bdha do exact ussi pr 2 bola to dusri node pr chle jao
+2-> jiss node par phuche ho wha node bnadiya breakpoint ke naam see uspr lgado 
+3-> uske baad ka jitna bhi hai breakpoint ke baad jitni node hai wo pehle ajaegi aur start see leke brakpoint taak jitni bhi node hai wo last meeh chli jaegi
+4->ab connection krado doubly linnked list hai to dhyan see connect krao isme prev ko bhi point krta hai aur next ko bhi but khi na khi agee null hogi circular nhi hai
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DLLNode* rotateDLL(DLLNode* head, int k) 
+{
+    // Write your code here.
+    if(k==0)
+    {
+        return head;
+    }
+    DLLNode* temp=head;
+    int count=1;
+    //jha ke baad see reverse krna hai pehle wha puch kr ek node ko point krao ki iske baad see rotate hoga
+    //1   2   3   4   5  (k=3)  1   2  3 (3 par breakpoint lgado)
+    while(count<k && temp!=NULL)
+    {
+        temp=temp->next;
+        count++;
+    }
+    
+    DLLNode* breakpoint=temp;//ye lga diya breakpoint temp jha b hai 
+    
+    //ab temp ko last taak lejao jan taak next null na hojae aur fir connect krao
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+    
+    //ab mera head head par hai -> breakpoint bhi laag chuka hai jiske baad see rotate krna hai -> temp bhi mera ekdum last meeh ja chuka hai
+    
+    temp->next=head;//last wali node ko head see connect krao
+    head->prev=temp;//head ke prev ko last meeh jo temp hai usse connect krao head ka prev 
+    head=breakpoint->next;//jha breakpoint lgaya hai uske agee wale ko hed bnao
+    head->prev=NULL;//abb link too do jisko nya head abhi bnaya uske piche null krdo
+    breakpoint->next=NULL;//breakpoint ka bhi link tood do null krdo next ko.
+    //aissa kuch hogya hoga agar k=2 hoga tab  3 4 5 1 2 
+    
+    return head;
+
+}
