@@ -1,0 +1,36 @@
+
+Code Studio:- https://www.codingninjas.com/codestudio/problems/find-pair-with-a-given-sum-in-a-doubly-linked-list_1164172
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+bool findPair(Node* head, int k)
+{
+    // Write your code here.
+    Node* ptr1=head;
+    Node* ptr2=head;
+    
+    //2 pointer lga rhe hai doubly linked list meeh piche bhi traverse kr skte hai to uske liye pointer 2 ko list ke ekdum last meeh bhejna hoga
+    while(ptr2->next!=NULL)
+    {
+        ptr2=ptr2->next;
+    }
+    
+    
+ //abb 2 pointer chlao pointer 1 pointer 2 ke equal na ho aur pointer 2 pointer 1 ki traf bdhega to wo uske brabar na ho jao
+    while(ptr1!=ptr2 && ptr2->next!=ptr1)
+    {
+        int sum=ptr1->data+ptr2->data;
+        if(sum==k)
+        {//agar pucha hota return bhi krao wo do pair to vector<pair<int,int> > ans ; lelete isme dalte jate ptr1 ka data aur ptr2 ka data aur ye return kr dete
+            return true;
+        }
+        else if(sum>k)//agar sum jada hai k see too piche wale pointer 2 ko agee bdhao mtlb ki left ki traf
+        {
+            ptr2=ptr2->prev;
+        }
+        else{//agar given sum chotta hai to pointer 1 bdhao pointer 2 ki traf mtlb right ki traf 
+            ptr1=ptr1->next;
+        }
+    }
+    return false;
+}
