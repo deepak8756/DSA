@@ -1,0 +1,21 @@
+
+
+Code Studio:-  https://www.codingninjas.com/codestudio/problems/is-it-a-circular-linked-list_981265
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+bool circularLL(Node* head)
+{
+    // Write your code here
+    Node* temp=head;
+    
+    while(temp->next!=head)
+    {
+        if(temp->next==NULL)
+        {
+            return false;
+        }
+        temp=temp->next;
+    }
+    return true;
+}
