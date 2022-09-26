@@ -23,11 +23,12 @@ Node *copyList(Node *head)
         current=head;
         while(current!=NULL)//abb current null na ho
         {
-            if(current->arb!=NULL)//current(har node) ke pass 2 pointer hai next aur arb(arb mtlb random pointer khi bhi point kr rha hoga agee piche NULL khi bhi)
-            {       //current ke next ka arb mtlb har current ke agee copy lgaya hai uske jaisa dikhne wala uske copy ke pass bh 2 pointer hoga next aur arb kisse 
-//point krega jisse current ka arb  point kr rha hoga agee piche null same uska copy bhi ussi current ke copy ko point krega copy copy ko point krega current 
-       //current ko uske next ko current apni original node meeh hi kisi ko kr rha hoga point to jo copy hai current ka wo kisse krega jisse current kr rha hoga uske 
-            //next ko kyu next ko kyuki hmne har node ke agee copy bnai hai na ek upar wale while meeh to copy copy ko hi point krega
+            if(current->arb!=NULL)//current(har node) ke pass 2 pointer hai next aur arb(arb mtlb random pointer khi bhi point kr rha hoga agee piche NULL
+            khi bhi)
+            {//current ke next ka arb mtlb har current ke agee copy lgaya hai uske jaisa dikhne wala uske copy ke pass bh 2 pointer hoga next aur arb kisse 
+//point krega jisse current ka arb  point kr rha hoga agee piche null same uska copy bhi ussi current ke copy ko point krega copy copy ko point krega  
+//jaise current apni original node meeh hi kisi ko kr rha hoga point to jo copy hai current ka wo kisse krega jisse current kr rha hoga uske 
+            //next ko kyu next ko kyuki hmne har node ke agee copy bnai hai na  to wo uss current ko copy ko point krega arb or random 
             
                 current->next->arb=current->arb->next;
             }
