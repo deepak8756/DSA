@@ -1,0 +1,290 @@
+SAME TYPE:---------------------------------------------PART 1:---------------------------------------------------------------------------------------------
+QUESTION 1:- INORDER TRAVERSAL   https://leetcode.com/problems/binary-tree-inorder-traversal/     ITERATIVE INKA LEETCODE PAR SUBMIT HAI
+
+QUESTION 2 :- PREORDER TRAVERSAL   https://leetcode.com/problems/binary-tree-preorder-traversal/     ITERATIVE INKA LEETCODE PAR SUBMIT HAI
+
+QUESTION 3:- POSTORDER TRAVERSAL   https://leetcode.com/problems/binary-tree-postorder-traversal/      ITERATIVE INKA LEETCODE PAR SUBMIT HAI
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+SAME TYPE:---------------------------------------------PART 2:-----------------------------------------------------------------------------------------------------
+QUESTION 4:- HEIGHT OF TREE or MAXIMUM DEPTH OF TREE (VIEW BOTH RECURSIVE SUBMISSION)  https://leetcode.com/problems/maximum-depth-of-binary-tree/
+
+QUESTION 5: DIAMETER OF BINARY TREE
+leetcode LINK:-  https://leetcode.com/problems/diameter-of-binary-tree/
+gfg LINK:-  https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+SAME TYPE:------------------------------------------PART 3:------------------------------------------------------------------------------------------------
+QUESTION 6:- SAME TREE (VIEW BOTH COORECT SUBMISSION)  
+LEETCODE:-  https://leetcode.com/problems/same-tree/
+
+QUESTION 7:- Identical Binary Trees   
+INTERVIEWBIT:-   https://www.interviewbit.com/problems/identical-binary-trees/
+
+QUESTION 8:-   Symmetric Tree  
+LEETCODE:-    https://leetcode.com/problems/symmetric-tree/
+  
+QUESTION 9:- FOLDABLE BINARY TREE
+  GFG PR HAI :-   https://practice.geeksforgeeks.org/problems/foldable-binary-tree/1
+  
+QUESTION 10:-   Merge two Binary Tree  ****(Do revise)****
+  INTERVIEWBIT:-   https://www.interviewbit.com/problems/merge-two-binary-tree/
+  
+QUESTION 11:- Invert the Binary Tree(VIEW NORMAL SWAP using recursion   AS WELL AS by iteration using queue  
+IB:-https://www.interviewbit.com/problems/invert-the-binary-tree/
+-----------------------------------------------------------------------------------------------------------------------------------------------------------  
+
+
+SAME TYPE :---------------------------------------PART 4:-------------------------------------------------------------------------------------------------
+QUESTION 12:- LEVEL ORDER TRAVERSAL BOTH METHOD PRINT THIS BY USING SINGLE VECTOR OR PRINT THIS BY USING 2D VECTOR MEANS LEVEL WISE LEETCODE(2D HAI) GFG(1D)
+gfg LINK ->   https://practice.geeksforgeeks.org/problems/level-order-traversal/1
+leetcode LINK ->  https://leetcode.com/problems/binary-tree-level-order-traversal/
+
+QUESTION 13:-  ZIG ZAG TRAVERSAL  (practice on both platform differ hai)
+leetcode LINK:-   https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
+gfg LINK:-  https://practice.geeksforgeeks.org/problems/level-order-traversal-in-spiral-form/1
+
+QUESTION 14:-  Right Side view of Binary Tree  (practice on both platform differ hai)
+leetcode LINK:-  https://leetcode.com/problems/binary-tree-right-side-view/
+gfg LINK:-  https://practice.geeksforgeeks.org/problems/right-view-of-binary-tree/1
+
+
+QUESTION 15:-  Left Side view of Binary Tree  (ye sirf gfg par hai left side ka)
+
+gfg LINK:-  https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1
+
+QUESTION 16:- Diagonal Traversal of Binary Tree
+GFG:-        https://practice.geeksforgeeks.org/problems/diagonal-traversal-of-binary-tree/1
+INTERVIEWBIT:-        https://www.interviewbit.com/problems/diagonal-traversal/
+
+QUESTION 17:-Reverse Level Order
+INTERVIEWBIT:-      https://www.interviewbit.com/problems/reverse-level-order/
+
+QUESTION 18:- Populating Next Right Pointers in Each Node
+LEETCODE:-   https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+
+
+QUESTION 19:- BOUNDARY TRAVERSAL OF A BINARY TREE
+GFG :-    https://practice.geeksforgeeks.org/problems/boundary-traversal-of-binary-tree/1
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+SAME TYPE:-----------------------------------------------------------PART 5:--------------------(MORE REVISE) NHI ATA HAI ACCHE SEE-------------------------------------------------------------
+
+ QUESTION 20:-  Sum of the Longest Bloodline of a Tree (Sum of nodes on the longest path from root to leaf node)
+ Another name of this question is:- Sum of Nodes on the Longest path from root to leaf node (OR) longest path
+  GFG:-    https://practice.geeksforgeeks.org/problems/sum-of-the-longest-bloodline-of-a-tree/1
+  
+QUESTION 21:- K SUM PATH   OR  iss question meeh sirf count btana hai ki kitne aisse path hai jo iske brabar hai k kee..path nhi pucha ki path b btao
+but solution meeh dono ka solution hai 
+GFG:-      https://practice.geeksforgeeks.org/problems/k-sum-paths/1
+code studio:-  https://www.codingninjas.com/codestudio/problems/number-of-ways-for-the-sum-k_1164407
+
+QUESTION 22:- PATH SUM 
+INTERVIEWBIT :- https://www.interviewbit.com/problems/path-sum/
+
+QUESTION 23:- CHILDREN SUM TREE   https://practice.geeksforgeeks.org/problems/children-sum-parent/1  (MORE REVISE)
+
+
+QUESTION 24(i):- SUM TREE  https://practice.geeksforgeeks.org/problems/sum-tree/1  (isko check krke btao sum tree hai ya nhi)
+
+Question 24(ii):- Transform to SumTree(isko sum tree meeh bnana hai)
+gfg:-  https://practice.geeksforgeeks.org/problems/transform-to-sum-tree/1
+
+Question 25(iii):-  Maximum Subtree Sum
+CODESTUDIO:-  https://www.codingninjas.com/codestudio/problems/maximum-subtree-sum_1082330
+
+
+QUESTION 25:-  Balanced Binary Tree  (practice on both platform differ hai) 
+leetcode LINK:-   https://leetcode.com/problems/balanced-binary-tree/
+gfg LINK:-  https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+SAME TYPE:--------------------------------------------------------PART 6:-----------------------------------------------------------------------------------
+
+QUESTION 26(i):-   Construct Binary Tree from Preorder and Inorder Traversal (JAB LOOP LGAKE DHUNDTE HAI INORDER MEEH USKI JGAH MAP WALA BHI KRKE DEKHO DO BOTH)
+MAP USE KRNE SEE TIME COMPLEXITY KAAM HOJAEGI AISSE HAR BAAR TRAVERSAL KRNA PAAD RHA HAI INORDER MEEH DHUNDNE KE LIYE(DONO TRIKE KRO REVISION AUR HOGA)
+LEETCODE-:      https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+INTERVIEWBIT:-     https://www.interviewbit.com/problems/construct-binary-tree-from-inorder-and-preorder/
+
+Question 26(ii):-  Construct Tree from Inorder & Preorder
+GFG:-   https://practice.geeksforgeeks.org/problems/construct-tree-1/1
+
+
+QUESTION 27:-   Construct Binary Tree from Postorder and Inorder Traversal(JAB LOOP LGAKE DHUNDTE HAI INORDER MEEH USKI JGAH MAP WALA BHI KRKE DEKHO DO BOTH)
+MAP USE KRNE SEE TIME COMPLEXITY KAAM HOJAEGI AISSE HAR BAAR TRAVERSAL KRNA PAAD RHA HAI INORDER MEEH DHUNDNE KE LIYE(DONO TRIKE KRO REVISION AUR HOGA)
+INTERVIEWBIT:-     https://www.interviewbit.com/problems/binary-tree-from-inorder-and-postorder/
+
+
+QUESTION 28:- Inorder Traversal of Cartesian Tree
+interviewbit:-   https://www.interviewbit.com/problems/inorder-traversal-of-cartesian-tree/
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+SAME TYPE:--------------------------------------------------PART 7:---------------------------------------------------------------------------------------
+QUESTION 29: Lowest Common Ancestor of a Binary Tree *****(BoOkMaRk)*****VVVVVVVVVVVV IMPORTANT
+DO THIS QUESTION ON LEETCODE AND GFG ALsO(dono alag hai swal) 
+leetcode LINK:-  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+gfg LINK:- https://practice.geeksforgeeks.org/problems/lowest-common-ancestor-in-a-binary-tree/1
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+SAME TYPE:-------------------------------------------PART 8:----------------------------------------------------------------------------------------------
+
+QUESTION 30: Vertical Width of a Binary Tree (sirf vertical width btao kitni hai vertical width ka data nhi)
+gfg link:-https://practice.geeksforgeeks.org/problems/vertical-width-of-a-binary-tree/1
+
+
+THEORY OF QUESTION := 31,32,33
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^EXPLAINATION OF VERTICAL ORDER TRAVERSAL^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+VERTICAL TRAVERSAL MEEH---> TRIKA WHI HAI TEENO MEEH BASS MAP MEEH map<int,vector<int>>m VECTOR LE LERHA HAIiss wale meeh TO AGAR HORIZONTAL
+//DISTANCE FIR SAME HUI KISI AUR KI TO USSE MAP MEEH BHAR LEGA TO VERTICALLY SAB ELEMENT LINE SEE A JAENGE EX :-
+                      20(0)                           hashmap :- map<int,vector<int>>m;                        key||value
+                    /      \                                         0->20,3,4                                  -2->5
+             (-1) 8         22(+1)                                  -1->8,10                                    -1->8,10
+               /    \      /    \                                   +1->22,14 =>(ye map hai to key sort hogi)    0->20,3,4
+         (-2) 5     3(0)|| 4(0)  25(+2)                             -2->5                                        1->22,14
+                     /     \                                        +2->25                                       2->25 
+              (-1) 10         14(1)                      ||  abb at last map ko push krdo vector meeh 
+                                                              //vector mera ans naam ka hai ||   
+                                                                for(auto i:m)
+                                                              {
+                                                                  for(auto j:i.second)
+                                                                  ans.push_back(j);  ------->    ans=5,8,10,20,3,4,22,12,25
+                                                              }
+                                                              return ans;
+
+               
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^EXPLAINATION OF TOP VIEW^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TOP VIEW :- TOP VIEW BHI EKDUM SAME VERTICAL ORDER KI TRAH HI HAI BASS ISME map meeh vector na leke integer lenge dono ko key value dono ko wha par 
+vector isliye lerhe the kyuki jinka jinka horizontal distance same tha unko ek sath rkhna tha jaise ki upar btaya par yha sirf top view btana hai to map ke
+value part vector lene ki jrurat nhi level order lgao jo key ek baar agai map meeh ab wo key agar fir seee aegi to usse ane hi nhi denge
+
+              if(m.find(hd)==m.end())
+            {
+                m[hd]=newtemp->data;--------------> ye agar ek baar koi key agai to dobara nhi lenge whi kr rha hai agar horizontal distance(hd) nhi milta hai 
+            }                                    wo m.end ke brabar hai mtlb wo value abhi ek bhi baar nhi aai hai to usse map meeh anee denge
+                                                 agar wo value fir see aai to wo m.end ke brabar hogi hi nhi to wo andar bhi nhi jaegi loop meeh
+            niche dekho iss code a representation
+                    
+
+
+//jitne bracket meeh likhe hai wo horizontal distance hai ki kaun kitni duur hai left side minus kro right side plus kro
+
+                  10(0)
+               /         \                              koi bhi horizontal distance fir see aya to ye nhi lega jaise 0 upar pehli bbar 10 laya to leliya
+          (-1)20        30(1)k                          0 fir se 60 laega to map meeh 0 naam ka kuch pda hai to nhi lega 0 ke value ko jo pda hai map
+          /    \       /    \                           meeh whi rhne dega same for fir see 0 ..90 ko laega to koi update nhi   
+     (-2)40   (0)60  (0)90  100(2)                    
+                                                       hashmap :-map<int,int>m;                               key||value
+                                                                     0->10                                     `-2->40
+                                                                    -1->20                                      -1->20
+                                                                    +1->30 =>(ye map hai to key sort hogi)       0->10
+                                                                    -2->40                                       1->30
+                                                                    +2->100                                      2->100
+                                                    
+
+                                                              for(auto it:m)
+                                                              {
+                                                                  ans.push_back(it.second);-----> ans=[40,20,10,30,100]
+                                                              }
+                                                              return ans;
+                                                             
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^EXPLAINATION OF BOTTOM VIEW^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 
+BOTTOM VIEW :- BOTTOM VIEW BHI EKDUM SAME VERTICAL ORDER KI TRAH HI HAI BASS ISME map meeh vector na leke integer lenge dono ko key value dono ko wha par 
+vector isliye lerhe the kyuki jinka jinka horizontal distance same tha unko ek sath rkhna tha jaise ki upar btaya par yha sirf bottom view btana hai to map
+meeh value part vector lene ki jrurat nhi level order lgao key baar baar value update krti rhegi jo last meeh reh jaega whi hai bottom view
+
+                                                                    
+                                                        hashmap :-map<int,int>m;                                       key||value
+                                                                     0->20,3,4                                         `-2->5
+                                                                    -1->8,10                                            -1->10
+                                                                    +1->22,25,14=>(ye map hai to key sort hogi)          0->4
+                                                                    -2->5                                                1->14
+                                                                    +2->25                                               2->25
+                                                         yha value update horhi hai        m[hd]=newtemp->data;
+                                                         bass dikhane ke liye likha hu 
+                                                         jha 2,,2,,3,,3 value hai wha sirf last 
+                                                         wali manno vector thodi hai jo store krta chla jaega
+                                                         int hai map mera key bhi aur value bhi har baar uss key ke liye int ki value change hogi
+                                                         samne dekho iske pta chleha 
+                                                          for(auto it:m)
+                                                          {
+                                                              ans.push_back(it.second);---->ans[5,10,4,14,25] bottom view
+                                                          }
+                                                          return ans;
+                                                                    
+      
+                        
+                       20(0)
+                    /         \
+            (-1) 8            22(1)
+              /    \           /   \
+        (-2)5      3(0)    (0)4     25(2)
+                  /            \      
+               10(-1)           14(1)
+                  0 wala pehle 20
+                  fir 0 meeh 3
+                  fir 0 meeh 4 to niche see dekhoge to 4 dikhega 20 nhi sabka horizontal distance same hai teeno ka root wale ki verticak i baat kr rha hu
+
+
+
+
+
+QUESTION 31: VERTICAL TRAVERSAL OF A BINARY TREE
+GFG:-       https://practice.geeksforgeeks.org/problems/print-a-binary-tree-in-vertical-order/1
+INTERVIEWBIT:-   https://www.interviewbit.com/problems/vertical-order-traversal-of-binary-tree/
+
+question 32:- TOP VIEW OF A BINARY TREE
+GFG:-  https://practice.geeksforgeeks.org/problems/top-view-of-binary-tree/1
+CODE STUDIO:- https://www.codingninjas.com/codestudio/problems/top-view-of-the-tree_799401
+
+Question 33:-BOTTOM VIEW OF A BINARY TREE
+GFG:-  https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 34:- Check if Tree is Isomorphic(Not done)
+
+GFG:-   https://practice.geeksforgeeks.org/problems/check-if-tree-is-isomorphic/1
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 35:- Binary tree to Doubly linked list
+GFG:-  https://practice.geeksforgeeks.org/problems/binary-tree-to-dll/1
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+  
+  
+ 
+
+
+
+
