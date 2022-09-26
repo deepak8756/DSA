@@ -1,0 +1,71 @@
+
+
+Code Studio:- https://www.codingninjas.com/codestudio/problems/merge-two-sorted-linked-lists_800332?leftPanelTab=0
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Node<int>* merge(Node<int>* &first, Node<int>* &second)
+{
+//koi ek list null ho skti hai to uske liye ye condtion hai
+    if(first==NULL)
+    {
+        return second;
+    }
+    if(second==NULL)
+    {
+        return first;
+    }
+    
+    Node<int>* result=new Node<int>(-1);//ek new khali linked list bnali isi meeh add kraenge sort krke -1 daal diya hai iske agee see add krenge last res next krdenge
+    Node<int>* temp=result;
+    
+    while(first!=NULL && second!=NULL)//first aur second meeh see agar koi bhi null hua pehle to ye while loop nhi chlega
+    {
+        if(first->data<second->data)//first wali linked list ka data chota hai second wali linked list see to
+        {
+            temp->next=first;//temp ke next pr first wali list ko add kro
+            temp=first;//ab temp ko agee bdhao uspr jo new list add kiya ho ye bhi likh skte hai temp=temp->next;
+            first=first->next;//first ko agee iterate krdo ab;
+        }
+        else
+        {
+            temp->next=second;//agar first manlo badda ho jata hai to second chotta hai mtlb ki to use temp->next par add krdo
+            temp=second;//ab temp ko agee bdhao uspr jo new list add kiya ho ye bhi likh skte hai temp=temp->next;
+            second=second->next;//second ko agee iterate krdo ab;
+        }
+    }
+    
+    //upar conditiom ye thi na ki agar first second meeh see koi bhi null hua to ye exit kr jaega upar wala manlo koi ek ki vjah see while loop nhi chla
+    //aur dusre wale meeh abhi bhi value bacchi hui ho to ye kro
+    
+    //agar second ki list over ho gai ho aur first baacha ho abhi kuch.. tooh simply puri list ko uthakr temp meeh add krdo sorted hi hog wo
+    while(first!=NULL)
+    {
+        temp->next=first;//temp ke next pr add kro first ke remaining elements
+        temp=first;//temp=temp->next bhi likh skte hai 
+        first=first->next;//first ko agee bdhao agee agar aur element hai to add kro nhi to null aya  to exit hi ho jaega
+    }
+    
+     //agar first ki list over ho gai ho aur second baacha ho abhi kuch.. tooh simply puri list ko uthakr temp meeh add krdo sorted hi hog wo
+    while(second!=NULL)
+    {
+        temp->next=second;//temp ke next pr add kro second ke remaining elements
+        temp=second;//temp=temp->next bhi likh skte hai 
+        second=second->next;//second ko agee bdhao agee agar aur element hai to add kro nhi to null aya  to exit hi ho jaega
+    }
+    return result->next;//return krdo result ka next see kyu kiye dhyan do upar -1 wdale the result ko jab bnae the start meeh aur uske agee sorted list add thi isliye result->next;
+}
+
+Node<int>* sortTwoLists(Node<int>* first, Node<int>* second)
+{
+    // Write your code here.
+    Node<int>* ans=merge(first,second);//dono ko bhej do upar 
+    return ans;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
