@@ -1,0 +1,66 @@
+
+
+gfg :-   https://practice.geeksforgeeks.org/problems/clone-a-linked-list-with-next-and-random-pointer/1
+
+Reftrence:- 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Node *copyList(Node *head)
+    {
+        //Write your code here
+        Node* temp;
+        Node* current=head;
+        
+        while(current!=NULL)//har node ke agee uska duplicate lga rhe hai      currrent ke agee ek uske jaisa dikhne wala ek copy clone
+        {                       //ye diya hai mannlo   1-> 2 ->3 -> 4 -> 5 ->6 is while loop meeh ye hora 1 -> 1-> 2->2->3->3->4->4->5->5->6->6->
+            temp=current->next;
+            current->next=new Node(current->data);
+            current->next->next=temp;
+            current=temp;
+        }
+        
+        current=head;
+        while(current!=NULL)//abb current null na ho
+        {
+            if(current->arb!=NULL)//current(har node) ke pass 2 pointer hai next aur arb(arb mtlb random pointer khi bhi point kr rha hoga agee piche NULL khi bhi)
+            {       //current ke next ka arb mtlb har current ke agee copy lgaya hai uske jaisa dikhne wala uske copy ke pass bh 2 pointer hoga next aur arb kisse 
+//point krega jisse current ka arb  point kr rha hoga agee piche null same uska copy bhi ussi current ke copy ko point krega copy copy ko point krega current 
+       //current ko uske next ko current apni original node meeh hi kisi ko kr rha hoga point to jo copy hai current ka wo kisse krega jisse current kr rha hoga uske 
+            //next ko kyu next ko kyuki hmne har node ke agee copy bnai hai na ek upar wale while meeh to copy copy ko hi point krega
+            
+                current->next->arb=current->arb->next;
+            }
+            else{                (yha NUll likh skte niche) ek hi baat hui agar upar nhi chla mtlb wo khi point nhi kr rha current to NULL hi manlo whi krra hoga
+                current->next->arb=current->arb;//agar koi node par nhi kr rha hoga to null hoga ya jo bhi hoga jisse current krr rha point usse copy bhi krega 
+            }
+      
+            current=current->next->next;
+        }
+        
+        Node* original=head;
+        Node* copy=head->next;
+        temp=copy;//ye return krenge islye isse copy ka head manlo 
+        
+    //1-> upar pehle while meeh copy bna diya sab node ki aur unke agee lga diya
+    //2-> dusre while meeh current ka arb ya random pointer ek hi baat hai jisse point kr rhe the usse point kra diya copy ko ab clone hoga bass alag krna hai
+        
+        while(original!=NULL && copy!=NULL)//dono ko chlao 
+        {
+            original->next=original->next->next;//original =original ke next ka next mtlb beech meeh to copy hai na to usse nhi krega point apne original ko point krega 
+            if(copy->next!=NULL)//agar copy next null nhi mtlb copy ke agee koi current hai to ye bhi hai ki uss current ki copy bhi hogi 
+            {
+                copy->next=copy->next->next;//to copy ke agee current aur uss current ke agee ussi current ki copy isliye copy=copy->next->next;
+            }
+            else{//          (yha NUll likh skte niche) ek hi baat hui agee koi nhi hai to next kro ya null
+                 copy->next= copy->next;//agar copy ke agee koi nhi mtlb current nhi hai to current ki copy bhi nhi hogi to copy next NULL manlo
+            }
+             original=original->next;
+        copy=copy->next;
+        }
+        
+        return temp;//temp meeh copy ke head ko rkhe the whi return
+        
+    }
+
+};
