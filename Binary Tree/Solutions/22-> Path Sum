@@ -1,0 +1,40 @@
+
+Given the below binary tree and sum = 22,
+
+              5
+             / \
+            4   8
+           /   / \
+          11  13  4
+         /  \      \
+        7    2      1
+return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
+
+
+Interview bit:- https://www.interviewbit.com/problems/path-sum/
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+int Solution::hasPathSum(TreeNode* root, int B) {
+    if(root==NULL)
+    {
+        return 0;
+    }
+    if(root->left==NULL && root->right==NULL)
+    {
+        if(B-root->val==0)
+        {
+            return true;
+        }
+        return false;
+    }
+    bool l=hasPathSum(root->left,B-root->val);
+    bool r=hasPathSum(root->right,B-root->val);
+    
+    if(l || r)
+    {
+        return true;
+    }
+    return false;
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
