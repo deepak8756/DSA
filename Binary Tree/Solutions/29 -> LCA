@@ -1,0 +1,62 @@
+
+
+                    3
+                 /     \
+               5        1
+             /   \    /   \
+            6    2   0     8
+          /  \  /  \
+               7    4
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 4, q = 8
+Output: 3
+Explanation: The LCA of nodes 4 and 8 is 3.
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+public:
+    bool found(TreeNode* root, vector<TreeNode*>&path,TreeNode* n)
+    {
+        if(root==NULL)
+        {
+            return false;
+        }
+        path.push_back(root);
+        if(root==n)
+        {
+            return true;
+        }
+        bool l=found(root->left,path,n);
+        bool r=found(root->right,path,n);
+        
+        if(l==true||r==true)
+        {
+            return true;
+        }
+        path.pop_back();
+        return false;
+    }
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q)    {
+        vector<TreeNode*>path1,path2;
+        
+        if(!found(root,path1,p)||!found(root,path2,q))
+        {
+            return NULL;
+        }
+        
+        TreeNode* ans=NULL;
+        
+        for(int i=0;i<path1.size()&& i<path2.size();i++)
+        {
+            if(path1[i]==path2[i])
+            {
+                ans=path2[i];
+            }
+        }
+        return ans;
+    }
+};
+--------------------------------------------------------------------------------------------------------------------------------------------------------
