@@ -1,0 +1,101 @@
+Refrence :-   https://www.youtube.com/watch?v=_Ng486jJu80
+
+isss question meeh Wo wo path btao jo k ke brabar hai 
+Input : k = 5  
+        Root of below binary tree:
+           1
+        /     \
+      3        -1
+    /   \     /   \
+   2     1   4     5                        
+        /   / \     \                    
+       1   1   2     6    
+                       
+Output :
+3 2 
+3 1 1 
+1 3 1 
+4 1 
+1 -1 4 1 
+-1 4 2 
+5 
+1 -1 5 
+
+to count hogya 8 :- hme count btana hai generally but agar khi puch liya ki btao path bhi mtlb jo upar output meeh likha hai wo puch to vector meeh bhar lunga
+ek for loop lgake generally question meeh sirf count btana hai par ki kitne aisse path hai jo k ke brabar hai unko count krlo aur btado
+
+dono method niche likhe hai dekho;
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+void find(TreeNode < int > * root,vector<int> &v, int k,int &count)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    v.push_back(root->data);//root null nhi hai to vector ke andar root ko push krte jao inorder traversal lga hai
+    find(root->left,v,k,count);//left jao 
+    find(root->right,v,k,count);//right jao
+    
+    int f=0;//iske andar jood kr dekhenege ki kya ye k ke brbar ho rha hai 
+    for(int i=v.size()-1;i>=0;i--) loop chla diya piche see (piche see kyu kyuki root ke niche see upar ki traf check krte hue aenge kiska sum k ke equal hai
+    {
+        f+=v[i];//yha f meeh add kr rhe hai ek path ko jo inorder see milla hoga pehle left gya hoga jab taak null ni hua hoga aur add krta gya sab value vector meeh
+        if(f==k)//agar f brabar hua to andar jake count bdha do
+        {
+            count++;
+        }
+    }
+    v.pop_back();last meeh pop krdo last wali node ko 1 3 2 tha abb 1 3 reh gya 
+}
+int noWays(TreeNode < int > * root, int k) {
+    // Write your code here.
+    vector<int> v;
+    int count=0;
+    find(root,v,k,count);
+    return count;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//agar print bhi krani hai values ki kaun saa path ki value k ke brabar hai 
+
+
+
+
+void find(TreeNode < int > * root,vector<int> &v, int k)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    v.push_back(root->data);
+    find(root->left,v,k);
+    find(root->right,v,k);
+    
+    int f=0;
+    for(int i=v.size()-1;i>=0;i--)
+    {
+        f+=v[i];
+        if(f==k)
+        {
+            for(int m=i;m<v.size();m++)//upar i see path baana rha hoga wha see ye print kradega dry run kro 
+            {
+              cout<<v[m]<<" ";
+            }
+            count<<endl;
+        }
+    }
+    v.pop_back();
+}
+int noWays(TreeNode < int > * root, int k) {
+    // Write your code here.
+    vector<int> v;
+  
+    find(root,v,k);
+    
+}
