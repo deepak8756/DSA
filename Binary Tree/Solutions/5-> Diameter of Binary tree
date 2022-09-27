@@ -1,0 +1,62 @@
+
+
+Leetcode:- https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1
+
+
+
+GFG solution hai :- yha node btani hai
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Solution {
+  public:
+    // Function to return the diameter of a Binary Tree.
+    int find(Node* root,int &ans)
+    {
+        if(root==NULL)
+        {
+            return 0;
+        }
+        int l=find(root->left,ans);
+        int r=find(root->right,ans);
+        
+        int ht=max(l,r)+1;//ye height nikal rha hai l side ya r side ki fir wo ht uar bhej de rha hai ki uske niche ke subtree ki ye height hai issi see diameter arha hai
+        ans=max(ans,l+r+1);//diameter nikal ha hai
+        return ht;
+    }
+    int diameter(Node* root) {
+        // Your code here
+        int ans=0;
+         find(root,ans);
+         return ans;
+    }
+};
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+LEETCODE solution:- ya path btana hai same rhega bass -1 krdo last meeh ans meeh see
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+public:
+    int find(TreeNode* root,int &ans)
+    {
+        if(root==NULL)
+        {
+            return 0;
+        }
+        int l=find(root->left,ans);
+        int r=find(root->right,ans);
+        
+        int ht=max(l,r)+1;
+        
+        ans=max(ans,l+r+1);
+        return ht;
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        int ans=0;
+        find(root,ans);
+        return ans-1;
+    }
+};
+------------------------------------------------------------------------------------------------------------------------------------------------------------
