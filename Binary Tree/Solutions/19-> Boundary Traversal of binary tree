@@ -1,0 +1,82 @@
+
+
+GFG:-  https://practice.geeksforgeeks.org/problems/boundary-traversal-of-binary-tree/1
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+public:
+void leftside(Node* root,vector<int> &ans)
+{
+    if(root==NULL || root->left==NULL && root->right==NULL)
+    {
+        return;
+    }
+    
+    ans.push_back(root->data);
+    if(root->left!=NULL)
+    {
+        leftside(root->left,ans);
+    }
+    else
+    {
+        leftside(root->right,ans);    
+    }
+}
+
+void leaf(Node* root,vector<int> &ans)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    if(root->left==NULL && root->right==NULL)
+    {
+        ans.push_back(root->data);
+        return;
+    }
+    leaf(root->left,ans);
+    leaf(root->right,ans);
+}
+
+void rightside(Node* root,vector<int> &ans)
+{
+    if(root==NULL || root->left==NULL && root->right==NULL)
+    {
+        return;
+    }
+    if(root->right!=NULL)
+    {
+        rightside(root->right,ans);
+    }
+    else{
+        rightside(root->left,ans);
+    }
+    ans.push_back(root->data);
+}
+    vector <int> boundary(Node *root)
+    {
+        //Your code here
+        vector<int>ans;
+        if(root==NULL)
+        {
+            return ans;
+        }
+        
+        ans.push_back(root->data);
+        
+        leftside(root->left,ans);
+        
+        leaf(root->left,ans);
+        
+        leaf(root->right,ans);
+        
+        
+        rightside(root->right,ans);
+        
+        return ans;
+        
+    }
+};
+----------------------------------------------------------------------------------------------------------------------------------------------------------19->
