@@ -1,0 +1,23 @@
+
+
+
+
+
+
+Interview Bit:-  https://www.interviewbit.com/problems/invert-the-binary-tree/
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+TreeNode* Solution::invertTree(TreeNode* A) {
+    if(A==NULL || A->left==NULL && A->right==NULL)
+    {
+        return A;
+    }
+    
+    swap(A->left,A->right);
+    invertTree(A->left);
+    invertTree(A->right);
+    
+    return A;
+}
