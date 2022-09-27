@@ -1,0 +1,49 @@
+
+
+Interview Bit:- https://www.interviewbit.com/problems/reverse-level-order/
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+vector<int> Solution::solve(TreeNode* root) {
+    vector<int>ans;
+    if(root==NULL)
+    {
+        return ans;
+    }
+    
+    queue<TreeNode*>q;
+    q.push(root);
+    
+    while(!q.empty())
+    {
+        int size=q.size();
+        vector<int>store;
+        
+        while(size>0)
+        {
+            TreeNode* temp=q.front();
+            q.pop();
+            
+            store.push_back(temp->val);
+            
+            if(temp->left!=NULL)
+            {
+                q.push(temp->left);
+            }
+            if(temp->right!=NULL)
+            {
+                q.push(temp->right);
+            }
+            size--;
+        }
+        reverse(store.begin(),store.end());
+        for(auto it:store)
+        {
+            ans.push_back(it);
+        }
+    }
+      reverse(ans.begin(),ans.end());
+      return ans;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
