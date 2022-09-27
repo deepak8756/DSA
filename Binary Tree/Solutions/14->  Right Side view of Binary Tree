@@ -1,0 +1,53 @@
+
+
+
+
+
+
+LeetCode:- https://leetcode.com/problems/binary-tree-right-side-view/
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+public:
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int> ans;
+        
+        if(root==NULL)
+        {
+            return ans;
+        }
+        
+        queue<TreeNode*>q;
+        q.push(root);
+        
+        while(!q.empty())
+        {
+            int size=q.size();
+            int data=0;
+            while(size>0)
+            {
+                TreeNode* temp=q.front();
+                q.pop();
+                
+                data=temp->val;
+                
+                if(temp->left!=NULL)
+                {
+                    q.push(temp->left);
+                }
+                if(temp->right!=NULL)
+                {
+                    q.push(temp->right);
+                }
+                size--;
+            }
+            ans.push_back(data);
+        }
+        return ans;
+    }
+};
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
