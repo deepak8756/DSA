@@ -1,0 +1,30 @@
+
+
+
+Interview Bit:-  https://www.interviewbit.com/problems/identical-binary-trees/
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+int Solution::isSameTree(TreeNode* A, TreeNode* B) {
+    if(A==NULL && B==NULL)
+    {
+        return true;
+    }
+     if(A==NULL || B==NULL)
+    {
+        return false;
+    }
+    
+    bool c=A->val==B->val;
+     bool l=isSameTree(A->left,B->left);
+     
+     bool r=isSameTree(A->right,B->right);
+     
+     if(c && l && r)
+     {
+         return true;
+     }
+     return false;
+    
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
