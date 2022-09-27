@@ -1,0 +1,46 @@
+
+
+
+Leetcode:-  https://leetcode.com/problems/symmetric-tree/
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+public:
+    bool check(TreeNode* root1,TreeNode* root2)
+    {
+        if(root1==NULL && root2==NULL)
+        {
+            return true;
+        }
+        
+        if(root1==NULL || root2==NULL)
+        {
+            return false;
+        }
+        
+        bool c=root1->val==root2->val;
+        
+        bool l=check(root1->left,root2->right);
+        bool r=check(root1->right,root2->left);
+        
+        if(c && l && r)
+        {
+            return true;
+        }
+        return false;
+        
+    }
+    bool isSymmetric(TreeNode* root) {
+        if(root==NULL)
+        {
+            return true;
+        }
+        
+        return check(root->left,root->right);
+        
+    }
+};
+------------------------------------------------------------------------------------------------------------------------------------------------------------
