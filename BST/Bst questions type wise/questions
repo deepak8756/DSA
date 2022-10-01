@@ -1,18 +1,14 @@
----------------------------------------------------------------PART-1----------------------------------------------------------------------------------------
-Question 1:- Normal BST To Balanced BST
-Coding ninja :-    https://www.codingninjas.com/codestudio/problems/normal-bst-to-balanced-bst_920472?leftPanelTab=0
+------------------------------------------------------Type 1:-----------------------------------------------------------------------------------------------
+previous lo ek root ke piche lgado aur krte jao:- 
 
-Question 2:- Merge 2 BST's
-Coding ninja:-  https://www.codingninjas.com/codestudio/problems/h_920474
----------------------------------------------------------------PART 2-------------------------------------------------------------------------------------------------
+Question 1:- Check if a tree is a BST or not
+CODING NINJA:-  https://www.codingninjas.com/codestudio/problems/check-if-a-binary-tree-is-bst_5975?leftPanelTab=0 
+GFG:-   https://practice.geeksforgeeks.org/problems/check-for-bst/1
 
-QUESTION 3:-Kth smallest element in BST
-gfg:- https://practice.geeksforgeeks.org/problems/find-k-th-smallest-element-in-bst/1
 
-QUESTION 4:- Kth largest element in BST
-gfg:-  https://practice.geeksforgeeks.org/problems/kth-largest-element-in-bst/1
+Question 2:- Populate Inorder successor of all nodes
+Code Studio:- https://www.codingninjas.com/codestudio/problems/populate-inorder-successor-of-all-nodes-of-a-binary-tree_1118625
+GFG:- https://practice.geeksforgeeks.org/problems/populate-inorder-successor-for-all-nodes/1
 
--------------------------------------------------------------PART 3----------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-QUESTION 5:- Populate Inorder Successor for all nodes
-gfg:-   https://practice.geeksforgeeks.org/problems/populate-inorder-successor-for-all-nodes/1
