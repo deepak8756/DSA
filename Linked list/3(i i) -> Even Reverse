@@ -35,8 +35,8 @@ ListNode* Solution::solve(ListNode* head) {
     {
         ListNode* evenforwardsave=even->next; //even ke ek agee wale puree list ko bccha kr rkhega
         ListNode* tempforwardsave=temp->next; //temp ke ek agee wale puree list ko bccha kr rkhega
-        even->next=temp->next;
-        temp->next=even;
+        even->next=temp->next;//even wale ko pehle temp wale list ke next see jodo ||ye do line meeh ye likh skte temp ke next ne point kiya even ko niche pdho  pdho
+        temp->next=even; //temp->next=even;                                     || even ke next ne point kiya tempforwardsave ko mtlb temp ka next jisme save krke rkhe the                                      
         even=evenforwardsave;
         temp=tempforwardsave;
     }
