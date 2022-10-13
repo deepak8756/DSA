@@ -10,6 +10,81 @@ Code Studio:-  https://www.codingninjas.com/codestudio/problems/sort-linked-list
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+#OPTIMIZED HAI YII WALA SEEKHO 
+
+
+Node* sortList(Node *head)
+{
+            //.creating new node named ZERO,ONE,TWO, which is insert firstly at -1 why? because jab join
+            // krenge to probl na ho isliye sabko -1 see start meeh initialize krdo aur isi ko tail bnado
+            //kyuki tail see hi insert krenge agee inme.
+   
+    Node* zero=new Node(-1);
+    Node* zerotail=zero;
+    Node* one=new Node(-1);
+    Node* onetail=one;
+    Node* two=new Node(-1);
+    Node* twotail=two;
+    
+    
+    Node* temp=head;
+    
+    while(temp!=NULL)
+    {
+        int value=temp->data;
+        if(value==0)
+        {
+            zerotail->next=temp;
+            zerotail=zerotail->next;
+        }
+        else if(value==1)
+        {
+            onetail->next=temp;
+            onetail=onetail->next;
+        }
+        
+        else if(value==2)
+        {
+            twotail->next=temp;
+            twotail=twotail->next;
+        }
+        temp=temp->next;
+    }
+    
+    
+            //hmne sari node  0's ,1's , 2's ko bna liya hai ab merge krdo sbko
+            //.  check krlo one khali to nhi warna zerotail one ko point krega jo khali hai  
+            
+            
+    if(one->next!=NULL)
+    {
+        zerotail->next=one->next;
+    }
+    else{
+        zerotail->next=two->next;
+    }
+    
+    onetail->next=two->next;
+    twotail->next=NULL;
+    
+    head=zero->next;
+    
+        //ye zero ,one,two mere -1 ko point kr rhe hai jo start meeh dala
+        //tha node bnate time maine -1 daal lo baad meeh merge krane meeh asani rehti hai
+        //usse yha delete kr rhe hai.
+    delete(zero);
+    delete(one);
+    delete(two);
+    
+    return head;
+
+}
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 Node* sortList(Node *head)
 {
     // Write your code here.
