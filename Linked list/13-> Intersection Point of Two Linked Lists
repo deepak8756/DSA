@@ -2,7 +2,8 @@
 
 
 Intersection of Two Linked Lists:- ye nhi hai yha pr ki dono ka data jha same ho jae wo intersection point baan jaega yha hum address dekh rhe hai jha 
-dono ka address same hua wo intersection point hoga mtlb headA==headB hai kya  ye kr rhe ye nhi headA->data==headB->data ye nhi kr rhe
+dono ka address same hua wo intersection point hoga mtlb headA==headB hai. yha ye nhi kr rhe kii headA->data==headB->data ye nhi kr rhe(data,data)
+nhi same ho (address,adress same ho ) wo hoga intersection point
 
 
 STEPS :-
