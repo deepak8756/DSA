@@ -41,9 +41,9 @@ bool isPalindrome(LinkedListNode<int> *head) {
         return true;
     }
     
-    LinkedListNode<int> *middle=mid(head);
-    LinkedListNode<int> *temp=middle->next;
-    middle->next=reverse(temp);
+    LinkedListNode<int> *middle=mid(head);  |ya ye likho|  LinkedListNode<int> *middle=mid(head);
+    LinkedListNode<int> *temp=middle->next;  |ye line na likho direct niche reverse ko parameter dedenge middle ka next|
+    middle->next=reverse(temp);     | ya ye likho | middle->next=reverse(middle->next);
     
     LinkedListNode<int> *head1=head;
     LinkedListNode<int> *head2=middle->next;
@@ -59,7 +59,7 @@ bool isPalindrome(LinkedListNode<int> *head) {
             head2=head2->next;
         }
     }
-    temp=middle->next;
-    middle->next=reverse(temp);
+    temp=middle->next;                   |ye line na likho|
+    middle->next=reverse(temp);             |ye likho seedha reverse ko parameter do middle->next| middle->next=reverse(middle->next);
     return 1;
 }
