@@ -1,11 +1,15 @@
-
+9
 Code Studio:-  https://www.codingninjas.com/codestudio/problems/sort-linked-list-of-0s-1s-2s_1071937
 
 
 
 
 
-
+//yha node bnake kr rhe hai data replacement nhi kr rhe(optimized ke niche wale code meeh dekho lo) mujhe pta hai linked list meeh zero one aur two 
+//hi hai .... to 3 new linked list bnali
+//zero,one aur two ki fir unme -1 see intialize krdo kyuki last meeh merge krne meeh asani hogi abb main wali linked list see jo bhi value aegi
+//zero one ya two unhe meeh jaisi value aegi waise meeh daal dung zero aai main wali linked ist see to zero wali linked list meeh next krke add krdunga
+//fir last meeh merge krdung isse mera data nhi replace hua maine point kra krake swal krliya aur upar wale meeh daa replace krderhe the
 
 
 
