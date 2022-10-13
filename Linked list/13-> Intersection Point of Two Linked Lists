@@ -11,7 +11,7 @@ STEPS :-
 2-> fir dono minus krke diff nikal lo abs use krlo mujhe nhi pta kaun saa bdda hai length kaun saa chotta
 
 3->fir if else lgao usko agee bdhao jo wala badda hai utna jitna difference aya hai ab dono ki length same ho gai hogi hai na abb check krlo headA==headB
-hai kya gar hai to kisi ka bhi headA ya headB ka data return krdo nhi to -1 return krdo.. bass yhi hai 
+hai kya agar hai to kisi ka bhi headA ya headB ka data return krdo nhi to -1 return krdo.. bass yhi hai 
 ------------------------------------------------------------------------------------------------------------------------------
 
 example:-   
