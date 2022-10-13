@@ -2,7 +2,7 @@
 ek new linked list bnake  return kro wo element iss new linked list meeh add kro jo given dono linked list meeh common ho unhe isme add krdo
 
 L1=  1  ->  2 ->  3 ->  4 ->  7
-L2=  2->    4 ->   6 ->  7
+L2=  2  ->  4 ->  6 ->  7
 
 return 2 -> 4  -> 7
 
