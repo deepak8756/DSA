@@ -1,0 +1,87 @@
+
+main opeartion hai isme push ka ->  agar size - topp bdda hai 1 see mtlb ek jgah hai push kr skte hai kaise 
+
+start meeh topp -1 hai 
+size: 5 hai
+
+  pehli baar ->   5-(-1)=6  (size - topp) >1 hona chahiye ha hai 6 aya to topp ko ++ kro top++ (top )hogya 0 abb arr ke 0 th index par daldo value
+  dusri baar ->   5- 0=5  (size - topp) >1 hona chahiye ha hai 5 aya to topp ko ++ kro top++ (top )hogya 1 iss abb arr ke 1 th index par daldo value
+  third baar ->   5- 1=4  (size - topp) >1 hona chahiye ha hai 4 aya to topp ko ++ kro top++ (top )hogya 2 iss abb arr ke 2 th index par daldo value
+  fourth baar ->  5- 2=3(size - topp) >1 hona chahiye ha hai 3 aya to topp ko ++ kro top++ (top )hogya 3 iss abb arr ke 3 th index par daldo value
+ fifth baar ->    5- 3=2(size - topp) >1 hona chahiye ha hai 2 aya to topp ko ++ kro top++ (top )hogya 4 iss abb arr ke 4 th index par daldo value
+  sixth baar ->   5- 4=1(size - topp) >1 hona chahiye nhi hai 1 aya to condition fail karr gai ruuk jao
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+class Stack {
+    int *arr; // implement using array isliye ye array bnaya hai
+    int topp;//index maanlo kiss index par value jaegi
+    int size;//size kya hogi uss array ki 
+public:
+    
+    Stack(int capacity) {
+        // Write your code here.
+        this->size=capacity; //size ko btarha hai ki kitni hogi stack ki size
+        arr=new int[size];//itne size ke array ko memory intialize krwa di dynamically new int[size] mtlb dynamically horha hai
+        topp=-1;//
+    }
+
+    void push(int num) {
+        // Write your code here.
+        if(size-topp>1)//atleast ek see upar hai agar mtlb ki khali space hai 
+        {              //insert kr skta hai array 0 th index see chalu hota
+            topp++;//top ko agee bdhao to first time meeh abb wo 0 hua hoga
+            arr[topp]=num;//abb yha daldo value uss index par
+        }
+    }
+
+    int pop() {
+        // Write your code here.
+        if(topp>=0)//topp mera zero ya usse bdda rhe tbhi to pta chlega ki 
+        {           //kaam see kaam ek value to hai hi stack meeh
+            int x=arr[topp];
+            topp--;//simply top ko -- krdo to uss index ki value b haat gai
+            return x;
+        }
+        else{
+            return -1;
+        }
+    }
+    
+    int top() {
+        // Write your code here.
+        if(topp>=0 && topp<size)
+        {
+            return arr[topp];
+        }
+        else{
+            return -1;
+        }
+    }
+    
+    int isEmpty() {
+        // Write your code here.
+        if(topp==-1)
+        {
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+    
+    int isFull() {
+        // Write your code here.
+        if(size-topp==1)
+        {
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+    
+};
