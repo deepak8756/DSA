@@ -13,6 +13,10 @@ size: 5 hai
 
 
 
+IMPORTANT:-   jab bhi pop krte hai to likh dete hai topp>=0 mtlb ki element hai isme to topp-- krdete hai genrally hum topp pice chla gya hai par wo element
+abhi bhi whi hai  maanlo  1->10, 2->20, 3->30 hai   abhi topp(3) hai to arr[topp] krenge to 30 dega na    abb manlo maine krdiya topp--;  mtlb ki topp 2 hogya
+par 30 wala abhi bhi array meeh hai hi wo hta nhi hai bass hmara topp agee piche ho rha hai abb manlo maine kha topp++ kro aur 40 krdo to ye 30 ko overwrite
+krdega aur wha 40 daldega 3->40   ek trah see dekho to top ek pointer hai basss
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
