@@ -1,0 +1,86 @@
+
+array ke left side see top1 start horha hai
+array ki last see top2 start ho rha hai abb left right smjhlo isme top1 left see right ki traf jaega push krane  aur pop meeh right see left wapas lautega
+
+ SAME   array ke right see top2 start hoga another end of the array
+ top2 last see start horha aur push krate hue left ki traf jarha aur pop karte time whii wapas right ki traf
+
+    push operation meeh->  yha top1 agee see chlega   aur top2 piche size see chlega dono ye condition check krake hi push krenge chahe jiss seee psuh kro
+    top1 see ya top2 see condition hai (top2-top1 >1) hai to agar top1 see push kr rhe ho to top++ kro fir array meeh daldo aur yii agaar top2 see kr rhe 
+    to yhji condtion check kro aur top2-- kro kyuki wo equal to size hai piche aega wo to minus minus krke fir insert kro
+    
+    
+    pop meeh bhi yii ya to top1==-1 mtlb koi element nhi push liya gya top1 seee agar -1 nhi hai to top-- krdo;
+    top2==size hai mtlb koi opeartion nhi hua hai push ka top2 see agar size ke brabar nhi hai mtlb ki element push kiya gya hai top2 see to top2 ko plus plus
+    kro top2++; usse wapas size ki traf lejao
+    
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class TwoStack {
+        int *arr;
+        int top1;
+        int top2;
+        int size;
+public:
+
+    // Initialize TwoStack.
+    
+    
+    TwoStack(int s) {
+        // Write your code here.
+        this->size=s;
+        top1=-1;
+        top2=s;
+        arr=new int[s];
+    }
+    
+    // Push in stack 1.
+    void push1(int num) {
+        // Write your code here.
+        if(top2-top1>1)
+        {
+            top1++;
+            arr[top1]=num;
+        }
+    }
+
+    // Push in stack 2.
+    void push2(int num) {
+        // Write your code here.
+        if(top2-top1>1)
+        {
+            top2--;
+            arr[top2]=num;
+        }
+    }
+
+    // Pop from stack 1 and return popped element.
+    int pop1() {
+        // Write your code here.
+        if(top1==-1) return -1;
+        else{
+            int x=arr[top1];
+            top1--;
+            return x;
+        }
+    }
+
+    // Pop from stack 2 and return popped element.
+    int pop2() {
+        // Write your code here.
+        if(top2==size) return -1;
+        else{
+            int x=arr[top2];
+            top2++;
+            return x;
+        }
+    }
+};
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
