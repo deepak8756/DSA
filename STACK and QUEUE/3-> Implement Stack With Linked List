@@ -1,0 +1,72 @@
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Stack
+{
+    //Write your code here
+    Node* head;
+    int size;
+
+public:
+    Stack()
+    {
+        //Write your code here 
+        head=NULL;
+        size=0;
+    }
+
+    int getSize()
+    {
+        //Write your code here
+        return size;
+    }
+
+    bool isEmpty()
+    {
+        //Write your code here  
+        if(head==NULL)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
+
+    void push(int data)
+    {
+        //Write your code here
+        Node* temp=new Node(data);
+        temp->next=head;
+        size++;
+        head=temp;
+    }
+
+    void pop()
+    {
+        //Write your code here
+        if(head!=NULL)
+        {
+            Node* del=head;
+            head=head->next;
+            delete(del);
+            size--;
+        }
+    }
+
+    int getTop()
+    {
+        //Write your code here
+        if(head!=NULL)
+        {
+            return head->data;
+        }
+        else{
+            return -1;
+        }
+    }
+};
