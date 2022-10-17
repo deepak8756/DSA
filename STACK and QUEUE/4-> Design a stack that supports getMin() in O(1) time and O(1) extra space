@@ -1,0 +1,86 @@
+
+
+ex:-    5  , 8  ,  4  ,6  ,1  ,7
+
+paper pen par dry kro tabhi aega smjh
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include<stack>
+class SpecialStack {
+    // Define the data members.
+    stack<int>s;
+    int mini=99999;
+    /*----------------- Public Functions of SpecialStack -----------------*/
+    public:
+        
+    void push(int data) {
+        // Implement the push() function.
+        if(s.empty())
+        {
+            mini=data;
+            s.push(data);
+        }
+        else{
+            if(data<mini)
+            {                       // jo value mini see chotti hai unhe formula ki help see encrypt kr rha hai fir stack meeh push kr rha hai
+                int val=2*data-mini;   //encrypt kr rha hai  haar baar  chotta rhega mini see to nikalte time agar stack ki koi value mini see chotti hui                s.push(val);
+                mini=data;  //        to smjh jaega ki isse decrypt krna hai
+            }
+            else{
+                s.push(data);
+            }
+        }
+    }
+
+    int pop() {
+        // Implement the pop() function.
+        if(s.empty())
+        {
+            return -1;
+        }
+        int curr=s.top();
+        s.pop();
+        if(curr>mini)
+        {
+            return curr;
+        }
+        else{
+            int prevmini=mini;
+            int val=2*mini-curr;   //value ko decrypt kr rha hai aur mini ko update kr rha hai aur jo purana prev tha usse return kr rha hai
+            mini=val;
+            return prevmini;
+        }
+    }
+
+    int top() {
+        // Implement the top() function.
+        if(s.empty())
+        {
+            return -1;
+        }
+        int curr=s.top();
+        if(curr<mini)   //yha par top to derha hai but kuch value encrypt kri hui hai na jo value stack meeh mini see chotti hai smjh jao encrypt hai wo
+        {               // to mini ki value return kro
+            return mini;
+        }
+        else{
+            return curr;
+        }
+    }
+
+    bool isEmpty() {
+        // Implement the isEmpty() function.
+        return s.empty();
+    }
+
+    int getMin() {
+        // Implement the getMin() function.
+        if(s.empty())
+        {
+            return -1;
+        }
+        else{
+            return mini;
+        }
+    }  
+};
