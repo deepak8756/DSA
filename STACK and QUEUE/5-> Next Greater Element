@@ -25,3 +25,53 @@ AISSA KUCH BAAN GYA JUST NEXT GREATER ELEMENT WALA ARRAY
 
                                 
 
+APPROACH 2:- 
+
+
+ex:-  iss input ke liye chlao copy meeh 
+N = 4, arr[] = [1 3 2 4]
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public:
+    //Function to find the next greater element for each element of the array.
+    vector<long long> nextLargerElement(vector<long long> arr, int n){
+        // Your code here
+        vector<long long>ans;  //ISME STORE KRENGE next greater wale ans ko 
+        stack<long long>s;   //stack hai ye input bddi hai gfg par isliye long long liya hai
+        
+        for(int i=n-1;i>=0;i--)   //piche see loop chlaenge N = 4, arr[] = [1 3 2 4] (4 ke liye chlega i=4 hai)
+        {
+            if(s.size()==0)  sabse pehle stack meeh koi element nhi hai to size zero hai mtlb last wala index 4 see bdda uske right meeh to koi hai nhi to -1 krdo vector meeh
+            {
+                ans.push_back(-1);
+            }
+            
+            else if(s.size()>0 && s.top()>arr[i])  abb manlo dusri baar loop chla hai aur i=2 hai mtlb i=2 par 2 hai 2 ke right par 4 hai aur 4 stack meeh bhi bhej diya hai
+            {                                                                jab bhi ye pura for loop ke andar ka sarri if else chal jaengi to last meeh wo i'th element stack meeh push hoga                                   
+                ans.push_back(s.top());         i=2 par 2 hai to uske hisab see 4 uske rightwala bdda hai to wo vector meeh push krdo 
+            }
+            
+            else if(s.size()>0 && s.top()<=arr[i])   abb i=1 pe agae i=1 pr 3 hai aur stack meeh 2 eleemnt abhi taak push kr chuka hu 2 aur 4 top 2 hai jo ki chotta hai arr[i] see
+            {
+                while(s.size()>0 && s.top()<=arr[i]) // ye loop chlegi ya to size zero ho jae pop krate krate ya pop krane par stack meeh koi aissa element ho jo arr[i]see bdda ho to ye loop terminate hogi
+                {
+                    s.pop();
+                }
+                if(s.size()==0) //abb check krlo upr wali while loop kiss vjah see terminate hui ya to koi bdda element nhi milla stack meeh arr[i] see sab choote homge aur pop krke stck ki size zero hogai 
+                {
+                    ans.push_back(-1);  to aisse meeh -1 push krdo mtlb uss element see bdda uske right meeh koi milla hi nhi 
+                }
+                else{        aur ya to pop krne baaad koi aissa element milla ho jo ki arr[i] see bdda ho to usse push krdo ans meeh 
+                    ans.push_back(s.top());
+                }
+            }
+            s.push(arr[i]);  //har array ke i;th index ko stack meeh bhejte jao jisse ki jo piche see i-- ho to wo compare kr pae stack meeh koi bdda hai ki nhi ex:- i=4 par manlo 3 hai push krdo stack meeh abb i-- kiya i=3 par 3 aya to3 ke right meeh bdda element 4 hi hua na  
+        }
+        reverse(ans.begin(),ans.end());  jo vector wala ans ready kiya hai wo piche see kiya hai na ulta loop chlae hai upar kyuki right meeh dekhna tha kaun bdda hai just isliye isse wapas see reverse krdo 
+        return ans;
+    }
+};
