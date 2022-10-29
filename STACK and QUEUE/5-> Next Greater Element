@@ -1,0 +1,27 @@
+Approach 1:- BRUTEFORCE:-
+
+Next greater element btaana uske right meeh usse just bdda kaun saa hai
+
+ex:- 4  5  2  25  7  8       ->  O(n)2  jaega 
+manlo i=5 ke liye uska next greater element pta krna hai to dusra wala for loop andar wala j=i+1;j<n taak jaega aur jo bhi element just bdda hua 5 see wo 
+dedega .. aisse hi sab ke liye hoga doo for loop honge andar wala upar wale ke ek agee see chlega aur uss value see agee ki value ko compare kraega just
+next bddi value jo bhi milegi usse return kradega
+
+4  5  2  25  7   8
+
+4 ke liye ->5 bdda hai just next greater right meeh
+5 ke liye ->25 bdda hai just next greater right meeh
+2 ke liye ->25  bdda hai just next greater right meeh
+25 ke liye -> -1  agar usske right koi bhi ek aissa element nhi hai jo usse bdda hai to -1 likhdo
+7 ke liye ->8  bdda hai just next greater right meeh
+8 ke liye -> -1  
+
+AISSA KUCH BAAN GYA JUST NEXT GREATER ELEMENT WALA ARRAY      
+                                                      4    5   2    25   7   8
+    next greater element wala array                   5    25  25   -1   8  -1
+    
+    ye to hogya O(n)2 approach stack ki help see dekho ab  
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                
+
