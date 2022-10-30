@@ -1,0 +1,81 @@
+
+
+Code Studio:-   https://www.codingninjas.com/codestudio/problems/queue-using-array-or-singly-linked-list_2099908
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Queue {
+    int *arr;
+    int size;
+    int rear;
+    int qfront;
+public:
+    Queue() {
+        // Implement the Constructor
+        size=100001;
+        arr=new int[size];
+        rear=0;
+        qfront=0;
+    }
+
+    /*----------------- Public Functions of Queue -----------------*/
+
+    bool isEmpty() {
+        // Implement the isEmpty() function
+        if(qfront==rear)
+        {
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+
+    void enqueue(int data) { //insertion is known as enqueue/insert O(1)
+        // Implement the enqueue() function
+        if(rear==size)
+        {
+            return;
+        }
+        else{
+            arr[rear]=data;
+            rear++;
+        }
+    }
+
+    int dequeue() {//deletion is known as dequeue/remove
+        // Implement the dequeue() function
+        if(qfront==rear)
+        {
+            return -1;
+        }
+        else{
+            int ans=arr[qfront];
+            arr[qfront]=-1;
+            qfront++;
+            if(qfront==rear)
+            {
+                qfront=0;
+                rear=0;
+            }
+            return ans;
+        }
+        
+    }
+
+    int front() {
+        // Implement the front() function
+        if(qfront==rear)
+        {
+            return -1;
+        }
+        return arr[qfront];
+        
+    }
+};
+------------------------------------------------------------------------------------------------------------------------------------------------------------
