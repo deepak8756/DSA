@@ -10,17 +10,17 @@ Code Studio:-   https://www.codingninjas.com/codestudio/problems/queue-using-arr
 #include <bits/stdc++.h> 
 class Node{
     public:
-    int data;
-    Node* next;
-    
-    Node(int d){
-        data=d;
-        next=NULL;
+    int data;                    // ye node wali class ke andar ki cheeze public hai to khi bhi call ho ksta hai ye niche 
+    Node* next;                                              AUR     
+                                       iss class ka mtlb hai ki jab bhi node likhunga niche mtlb iss class ko call kiya 
+    Node(int d){                                    to data wale part meeh d chla jaega aur next pointer NULL dedega ek base contruct krke dedega
+        this->data=d;                                   constructor hai ye
+        this->next=NULL;
     }
 };
 class Queue {
-    Node* qfront=NULL;
-    Node* rear=NULL;
+    Node* qfront=NULL;                          qfront jisse pop krenge hum
+    Node* rear=NULL;                                rear jisse insertion krenge hum abhi dono NULL hai kyuki koi node nhi bni hai
 public:
     Queue() {
         // Implement the Constructor
@@ -30,7 +30,7 @@ public:
 
     bool isEmpty() {
         // Implement the isEmpty() function
-        if(qfront==NULL && rear==NULL)
+        if(qfront==NULL && rear==NULL)        agar qfront bhi null hai aur rear bhi null hai mtlb koi node nhi hai abhi queue meeh to empty hai
         {
             return true;
         }
@@ -39,36 +39,36 @@ public:
         }
     }
 
-    void enqueue(int data) {
+    void enqueue(int data) {                        //insertion kr rha hai ye isme enqueue ka mtlb
         // Implement the enqueue() function
-        Node* temp=new Node(data);
-        if(qfront==NULL)
+        Node* temp=new Node(data); //ye new node bna diya jo upar wali class meeh gya hoga jisme data aur next part hai data meeh data daal dega aur next meeh null daldega
+        if(qfront==NULL)           iska mtlb pehli node koi insert hui hai queue meeh    BUT ye sirf ek baar chlega jab first node insert hogi queue meeh aur return ho jaega   
         {
-            qfront=temp;
-            rear=temp;
+            qfront=temp;     to uss newly insert node par qfront bhi point krega
+            rear=temp;         AUR rear bhi point krega   
             return;
         }
-        rear->next=temp;
+        rear->next=temp;   abb agaar koi new node insert hui hai lekin pehle see bhi koi node hai queue meeh to ye chlega rear ko agee bdhaega kyuki whi insertion kr rha hai qfront to first node par baitha hai jab pop hoga tab uska kaam aega
         rear=temp;
         
     }
 
     int dequeue() {
         // Implement the dequeue() function
-        if(qfront==NULL)
+        if(qfront==NULL)   mtlb ki qfront agee nhi bdha null hi hai mtlb ki queue meeh koi node hi nhi to pop kisko kroge
         {
             return -1;
         }
         else{
-            Node* temp=qfront;
-            qfront=qfront->next;
-            if(qfront==NULL)
+            Node* temp=qfront; ek new node bnake usme qfront ko add krlo isko pop krenge
+            qfront=qfront->next;   qfront ko uske agee wale ke pass bhej do
+            if(qfront==NULL)   qfront jo agee wale ke pass gya hai check krlo khi wo NULL to nhi iska mtlb ek hi node thi jisse pop kr rhe hai agee wala null hai agar to
             {
-                rear=NULL;
+                rear=NULL;    rear ko bhi null krdo rear ho skta hai ussi pop wali node pr na ho ab jab iss node ko htana hi hai to rear ko bhi null krdo
             }
-            int deq=temp->data;
-            delete(temp);
-            return deq;
+            int deq=temp->data;     deq meeh temp ka data daal diya jo bhi koi element uske anadar hoga
+            delete(temp);   abb delete krdiya temp ko
+            return deq;   aur jo node delete ki uska data return krdo question meeh kha hai
         }
     }
 
