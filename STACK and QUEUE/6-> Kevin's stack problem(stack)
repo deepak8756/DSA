@@ -1,0 +1,28 @@
+
+Code Studio:-   https://www.codingninjas.com/codestudio/problems/kevin-s-stack-problem_1169465
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <bits/stdc++.h> 
+string kevinStackProblem(string &s)
+{
+	// Write your code here.
+    stack<char>st;
+    string ans="";
+    
+    for(int i=0;i<s.size();i++)
+    {
+        char ch=s[i];
+        st.push(ch);
+    }
+    while(!st.empty())
+    {
+        char ch=st.top();
+        st.pop();
+        ans+=ch;
+        
+    }
+    return ans;
+    
+}
