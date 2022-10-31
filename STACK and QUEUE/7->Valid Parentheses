@@ -1,0 +1,80 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+jab koi bhi open bracket aegi string see to uss ek char ko check krlo open hai ki nhi agar open hui to stack meeh daal do nhi to close aai agar to check krlo 
+stack ka top wala ek char meeh lelo aur 3 trah ke bracket hai uske corresponds check krlo ki inme see koi hai kya aisse
+   if(ch==')' &&  top=='(' ||
+                  ch==']' &&  top=='[' ||
+                  ch=='}' &&  top=='}')    agar hua to pop krdo tabhi stack ke top ko aur jab bhi stack ke top see value match karoge pehle ye puchlena ki
+                  khi stack empty to nhi agar empty hua char top=st.top() kiye to segmentation error bhi dega 
+                  
+BASICALLY KYA KIYA HAI JAB BHI OPEN BRACKET AEGA TO  STACK MEEH DALO JAB BHI CLOSE AYA STACK KE TOP SEE MATH KRAO AGAR MATCH KR GYA TO POP KRDO LAST
+MEEH CHECK KRLO KI STACK EMPTY HAI KI NHI 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+int Solution::solve(string A) {
+    stack<char>st;
+    
+    char ch;
+    for(int i=0;i<A.length();i++)
+    {
+      //string see ek char uthaya ch ne basically koi trah ka bracket 
+        ch=A[i];
+        
+        //stack meeh psuh kr rha ye dekh ke ki kya koi open bracket hai kya hai to push krdo
+        if(ch=='(' || ch=='{' ||ch=='[')
+        {
+            st.push(ch);
+        }
+        
+        else
+        {
+         // char ch ne aisse value uthai hai string see jo close bracket type ki hai tabhi yha aya pehle to check krlo stack bhra hai ki nhi khali hai to 
+         //jab top meeh value dalenge st.top() to error aegi
+           if(!st.empty())
+           {
+           //stack top see value utha kr rkh liya apne meeh copy krliya
+               char top=st.top();
+               
+               //check kra rha ki ch jo bracket leke yha aya hai string see uska closing type kya stack ke top meeh hai ki nhi sare bracket meeh see ko b
+               //hua agar top pe match kiya to pop krdo
+               if(ch==')' &&  top=='(' ||
+                  ch==']' &&  top=='[' ||
+                  ch=='}' &&  top=='}')
+                  {
+                      st.pop();
+                  }
+                  else  //agar koi bhi bracket match nhi kiya to false 
+                  {     
+                      return false;
+                  }
+           }
+           else{ //agar stack khali hua aur jo bracket aya wo closing type ka hai to not a balance paranthesis iske liye koi open rehna chahiye 
+                    // tabhi balance manna jaega
+               return false;
+           }   
+        }
+    }
+    if(st.empty())
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
