@@ -1,0 +1,72 @@
+iss question meeh ek party meeh celebrity hai jisko sab jante hai par celebrity kisi ko nhi janti hai jha jha 1 likha hai mtlb wo insaan usse janta hai
+
+Input:
+N = 3 
+           0 1 2
+M[][] =  0{0 1 0}
+         1{0 0 0}
+         2{0 1 0} 
+         
+     -> zero 1 ko janta hai kyu kyuki (0,1) par 1 hai jha jha 1 hai mtlb wo insaan usse janta hai
+     -> zero 2 ko nhi janta par
+     ------
+     ->one 0 ko nhi janta hai
+     ->one 1 ko jane chahe na jana wo to khud hai dusro ko janta hai ki nhi ye dekho
+     ->one 2 ko nhi janta hai  Hence 1 kisiko nhi janta 
+     -----------
+     ->two 0 ko nhi janta hai
+     ->two 1 ko janta hai 
+      AT THE END one ko haar koi jaan rha hai par one kisi ko nhi janta mtlb ki 1 hi celebrity hai
+      
+      
+     Array wala solution meeh in aur out naam ka array bnao in wo hai ki usko kitne loog jante hai out wo hai ki wo kitno ko janta hai
+
+refrence video isse smjho acche see:-   https://www.youtube.com/watch?v=Z5AEc12ieOs
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Approach 1:- time :- O(N)2 &  O(N) space  <-Appraoch  using Array not stack hai ye wala
+
+
+optimized iske niche hai ye
+----------------------------------------------------------------
+
+class Solution 
+{
+    public:
+    //Function to find if there is a celebrity in the party or not.
+    #Input:
+    #N = 3
+    #M[][] = {{0 1 0},
+    #        {0 0 0}, 
+    #        {0 1 0}}
+    int celebrity(vector<vector<int> >& M, int n) 
+    {
+        // code here 
+        int in[n]={0};    in naam ka array bnao n ki size ka usme sbme zero daldo  (n hmari size of 2d matrix hai )
+        int out[n]={0};    in naam ka array bnao n ki size ka usme sbme zero daldo
+        
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(M[i][j]==1)
+                {               final meeh upar wali input ke hisab see aissa bnega kuch in ur out
+                    in[j]++;   0   2   0
+                    out[i]++;  1   0   1
+                }
+            }
+        }
+        
+        for(int i=0;i<n;i++)
+        {
+            if(in[i]==n-1 && out[i]==0)   yha par dekh rha hai jitne loog hai utno meeh see celebrity ko htado to n-1 loog bcche jo celebrity ko jante rhe
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+};
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
