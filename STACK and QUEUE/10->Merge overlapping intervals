@@ -1,0 +1,81 @@
+
+
+
+
+refrence :-   https://www.youtube.com/watch?v=UZde3ApgsUc
+
+
+Code Studio:-  https://www.codingninjas.com/codestudio/problems/merge-overlapping-intervals_1082151
+gfg:-  https://practice.geeksforgeeks.org/problems/8a644e94faaa94968d8665ba9e0a80d1ae3e0a2d/1
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+bool compare(vector<int>v1,vector<int>v2)
+{
+    return v1[0]<v2[0];
+}
+
+vector<vector<int>> mergeIntervals(vector<vector<int>> intervals)
+{
+    // Write your code here
+    sort(intervals.begin(),intervals.end(),compare);   pehle sort krlo vector ke andar jitne bhi sub vectors hai wo arrange ho jaenge compare bhi lga skte uske binna bhi hojaega normal sort likhdo
+    
+    stack<vector<int>>st;  //stack bnalo jisme pura pura vector push hoga
+    st.push(intervals[0]);   // intervals 2D vector hai to iske andar kaffi sarre vector honge to pehle wale vector ko push krdo stack meeh {{1,3},{2,4},{6,8},{9,10}} || (1,3) ko push krdo 2D vector size hai 4
+    
+    for(int i=1;i<intervals.size();i++) // abb i=0 to push krdiya hai stack meeh 2D vector(intervals) ki size 4 thi to abb i=1 see loop chlao 
+    {                    
+    
+        //compare krna hai isliye ye do vector bnaya hai 
+    
+    
+        vector<int>cp=intervals[i];  //cp (current point)ke andar 2D vector meeh see ek ek vector ko uthake dalte jao
+        vector<int>lp=st.top();  //jo bhi vector stack meeh hoga top meeh (wo lp meeh ajaega lastpoint meeh)
+        
+        //0 th index means starting point 
+        //1 th index means ending point 
+        //hme first aur last see hi mtlb hai beech walo see koi mtlb nhi to 
+        //jab bhi starting point chahiye vector ka to 0 dalo aur ussi vector ke last 
+        //index par jana hai to ending point.
+        //lp=last point jo stack meeh hai||cp=current point jo vector see liya compare ke liye
+        
+        
+        //imp**  iss question meeh agar koi vector 2d vector meeh see uthaya aur uss vector ke pehle index pr jana hai to 0th index ka use kro 
+        //aur last index par jana hai to 1 ka use kro kyuki overlap meeh pehla aur akhiri hi dekhte hai 
+        //manlo ye hai for ex:- v1=[1 3 5 7 9]  v2=[2 5 10] to check krlo v1[1] mtlb ki 9 (1th index par gae to wo last ko denote krega) har jgah 1d vector meeh question meeh bhi diya hai
+        
+        if(lp[1] >= cp[0]){ //mtlb overlap condition hai aur merge bhi hoga tab  agar lp[1] ka index manlo bdda ya brabar hai cp[0] see to wo uske andar aega
+            st.pop(); //pop krdo stack meeh jo hai aur ab merge krdo 
+            vector<int> merge={lp[0],max(lp[1],cp[1])};  lp ka aur cp ka last index dekho kiska max hai jo max hai wo last index baanjaega overlapping ka
+            st.push(merge); //abb stack meeh push krdo
+            
+        }
+        else{ //overlap nhi hai direct push krdo stack meeh current point ko jo vector see liya tha
+            st.push(cp);   
+        }
+    }
+    
+    //reverse krdo stack abhi ulta hai value iske liye new stack bnao aur purane stack ki value isme bhejte jao khud hi reverse ho jaega
+    
+    stack<vector<int>>newst;     new stack bna liya
+    
+    while(st.size()>0)     abb purane stack ki value new stack meeh bhej rha hai 
+    {
+        newst.push(st.top());   
+        st.pop();
+    }
+    
+    //print newst
+    vector<vector<int>>finalans;   abb newstack see value nikal kr 2D ans meeh daldo  2D vector return krna hai jitne overlapping pair bnne honge wo vector meeh ajaenge
+    while(newst.size()>0)
+    {
+        vector<int>final=newst.top();  
+        newst.pop();
+        finalans.push_back(final);
+    }
+    return finalans;  
+}
