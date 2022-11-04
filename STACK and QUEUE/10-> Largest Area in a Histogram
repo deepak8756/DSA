@@ -26,6 +26,7 @@ int main()
     int ans=0;
     for(int i=0;i<n;i++)   //ye main loop hai 
     {
+    //pehle jiss index par hai uss index ko current meeh add krdo fir uske left right wale bdde ya brabar hue to utne hi times add krte chle jao mtlb ki wo box left right phailta ja rha hai
         int curr=v[i];   //jiss index ko le rhe hai pehle usko current meeh push krdo fir niche uss index ke left right meeh check krlenge ki usse bdde ya brabar hai agar 
                           //left pura ya jha takk bhi same for right tabhi to ageee jaega manlo 2 ke left meeh 1 hai to 2 -> 1 ke andar kaise smaega 2 ki height 1 see bddi hai  isliye bdaa ya brabar rhe left bhi right bhi
                           for ex:- mere pass 2 box hai ek ki size:- 3 ek ki size:- 5 || to 3 wala 5 ke andar to ajega lekin 5 wala 3 ke andar kaise smaega
