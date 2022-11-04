@@ -1,0 +1,60 @@
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Bruteforce O(n)2:-
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> v;
+    for(int i=0;i<n;i++)
+    {
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+
+    //----------2 1 5 6 2 3------------  iss input par chla lo
+
+    int ans=0;
+    for(int i=0;i<n;i++)   //ye main loop hai 
+    {
+        int curr=v[i];   //jiss index ko le rhe hai pehle usko current meeh push krdo fir niche uss index ke left right meeh check krlenge ki usse bdde ya brabar hai agar 
+                          //left pura ya jha takk bhi same for right tabhi to ageee jaega manlo 2 ke left meeh 1 hai to 2 -> 1 ke andar kaise smaega 2 ki height 1 see bddi hai  isliye bdaa ya brabar rhe left bhi right bhi
+                          for ex:- mere pass 2 box hai ek ki size:- 3 ek ki size:- 5 || to 3 wala 5 ke andar to ajega lekin 5 wala 3 ke andar kaise smaega
+        for(int j=i-1;j>=0;j--)  // ye loop har i ke left meeh jake check krega tab taak jab tak i ki value see bddi ya brabar uske left meeh mill rhi hai 
+                                //current meeh add krta jaega agar koi bhi value left meeh given ith index see chotti milli to break
+        {
+            if(v[j]>=v[i])
+            {
+                curr+=v[i];
+            }
+            else{
+                break;
+            }
+        }
+
+        for(int k=i+1;k<n;k++)// ye loop har i ke right meeh jake check krega tab taak jab tak i ki value see bddi ya brabar uske right meeh mill rhi hai 
+                                //current meeh add krta jaega agar koi bhi value right meeh given ith index see chotti milli to break
+        {
+             if(v[k]>=v[i])
+            {
+                curr+=v[i];
+            }
+            else{
+                break;
+            }
+        }
+        ans=max(ans,curr);   //ab ans aur jo current abhi aya usse compare kralo kaun saa bdda hai wii ans meeh daldo
+    }
+    cout<<ans<<endl;
+    return 0;
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
