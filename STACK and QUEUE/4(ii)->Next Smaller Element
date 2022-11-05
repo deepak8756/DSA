@@ -22,7 +22,8 @@ vector<int> nextSmallerElement(vector<int> &arr, int n)
     {
         if(s.size()==0)
         {
-            ans.push_back(-1);
+            ans.push_back(-1); //histogram meeh index daal rhe hai agar nhi milta hai to isliye wha n daal de rhe hai i=0 see start less than n
+                               //jaega agar koi element ka next smaller nhi milla to n daal do 
         }
         else if(s.size()>0 && s.top()<arr[i])
         {
@@ -36,7 +37,8 @@ vector<int> nextSmallerElement(vector<int> &arr, int n)
             }
             if(s.size()==0)
             {
-                ans.push_back(-1);
+                ans.push_back(-1); // yha par bhi n daal denge yha to -1 daal diye pta chal gya ki koi next smaller nhi hai par historgram meeh (ps-ns-1)
+                               //krte to ps aur ns vector meeh index store rehta jaise yha value store hoti hai bass wha inhi value ka index store hota hai
             }
             else{
                 ans.push_back(s.top());
