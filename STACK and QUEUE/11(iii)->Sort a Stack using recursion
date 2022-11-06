@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+
+Code Studio:- https://www.codingninjas.com/codestudio/problems/sort-a-stack_985275
+gfg:-   https://practice.geeksforgeeks.org/problems/sort-a-stack/1
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include <bits/stdc++.h> 
+void insert(int &x,stack<int> &st) //yha value aegi jab niche see to check hoga stack empty hai ya jo value stack ke top meeh hai wo chotti honi chahiye 
+{                                  //x see agar hai to daldo value ko sidha stack meeh nhi to else
+    if(st.size()==0 || st.top()<x)
+    {
+        st.push(x);
+    }
+    else{ //else part meeh agar stack khali nhi hai ya jo value top meeh hai stack ke wo bddi value hai to a meeh store krte jao call stack cal hoga ek ek value store krlega aur pop jab taak chotti na mill jae top ya khali na ho jae stack
+        int a=st.top();
+        st.pop();
+        insert(x,st);
+        st.push(a); //last meeh jab if execute ho jaega to control upar wali line meeh aega uske baad ye line execute hogi aur stack meeh push krdega a ko jo value stack meeh thi pehle ee but bddi hone ki vkaj see unhe htaya tha unhe abb daldo wapas
+    }
+}
+void sortStack(stack<int> &st) //yha see start hoga ye dekhega ki stack khali hai ya fill ..fill hoga to usko khali krdega aur sarri value ko har call
+{                              //stack jab call hoga to one by one x meeh store krlega value ab waaps lautega to insert ko piche see wii value dega aur khali stack dega
+	// Write your code here
+    if(st.size()>0)
+    {
+        int x=st.top();
+        st.pop();
+        sortStack(st);
+        insert(x,st); abb call stack ke last frame meeh jha b condition false hui hogi wha taak jo jo value x meeh gai hogi har call stack ke call hone par wo value one by one insert ko dega
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
