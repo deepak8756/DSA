@@ -1,0 +1,32 @@
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution{
+public:
+    void insert(stack<int> &st,int &x)  //pehle niche wale function see start hoga reverse see ( ye function jab niche see call hoga to ye chlega insert krega value)
+    {
+        if(st.size()==0)   agar size zero hui to sidha jo bhi x niche ee aya hai push krdega nhi to else
+        {
+            st.push(x);
+        }
+        else{
+            int a=st.top();  //mtlb ki stack khali nhi hai to ye fir see stack ke top element ko bcchaaa kr rkhega
+            st.pop();   //top ko pop krdo upar save kiya hai har baar har call stack ke liye uski value alag hoti hai
+            insert(st,x); //isko call kro ab check kro stack khali hua agar to agla call stack call hoga value ko push krega usme aur yha wapas ajaega aur niche wali line chlegi
+            st.push(a); //yha aya to sab kuch kra ke aya hoga ab jo value ko upar bcchaa ke rkhe the haar call stack meeh unhe yha daal do.
+        }
+    }
+    void Reverse(stack<int> &st){  //ye function stack agar bhara hai to usse khali kr rha hai isme 
+        if(st.size()>0)
+        {
+            int x=st.top();   stack ki top value ko lega har baar jab taak stack empty nhi ho jata
+            st.pop();   usse pop kradega har baar
+            Reverse(st);   baar baar yii functn call krega(call stack) jab taak if condition true hogi jab kbhi if false hui to laut kr yii aega wapas 
+            insert(st,x); //jab if false ho jaegi to wapas lautega upar wali line meeh uske niche ye line hai fir ye execute hogi aur insert functn upar hai
+        }
+    }
+};
