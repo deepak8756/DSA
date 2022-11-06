@@ -1,0 +1,24 @@
+
+
+Code Studio:-  https://www.codingninjas.com/codestudio/problems/reversing-queue_1170046
+gfg:-  https://practice.geeksforgeeks.org/problems/queue-reversal/1
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+void reverse(queue < int > & q) {
+    // Write your code here.
+    if(q.size()==0)
+    {
+        return;
+    }
+    else{
+        int x=q.front();
+        q.pop();
+        reverse(q);
+        q.push(x);
+        return;
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
