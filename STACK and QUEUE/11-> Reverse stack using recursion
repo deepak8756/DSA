@@ -26,7 +26,7 @@ public:
     void Reverse(stack<int> &st){  //ye function stack agar bhara hai to usse khali kr rha hai isme 
         if(st.size()>0)
         {
-            int x=st.top();   stack ki top value ko lega har baar jab taak stack empty nhi ho jata
+            int x=st.top();   stack ki top value ko lega har baar jab taak stack empty nhi ho jata jab recursion krte hai to data hmara recursion stack meeh store hota hai call stck
             st.pop();   usse pop kradega har baar
             Reverse(st);   baar baar yii functn call krega(call stack) jab taak if condition true hogi jab kbhi if false hui to laut kr yii aega wapas 
             insert(st,x); //jab if false ho jaegi to wapas lautega upar wali line meeh uske niche ye line hai fir ye execute hogi aur insert functn upar hai
