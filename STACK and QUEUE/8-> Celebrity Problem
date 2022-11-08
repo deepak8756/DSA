@@ -70,6 +70,52 @@ class Solution
     }
 };
 
+
+-------varaibles thode meaningfull liye hai O(n)2 approach hi hai bass variable change hai na smjh aae to ya dekhlo
+
+people naam ka array milla hai
+celebrity naam ka array bnalo jittne loog usse janenge utna point uska increment hoga agar n loog aae hai party meeh to ek celebrity confirm hai usse htado
+to (n-1) log baach gae to utne loog celebrity ko jante rhe 
+
+crowd normal people hai manlo 0 1 2 -> 1 celebrity hai to 0 aur 2 par ek ek increment krdo kyuki wo kisi ko jante hai par 1 par increment na kro wo celebrity 
+hai wo kiski ko nhi janta
+
+
+class Solution 
+{
+    public:
+    //Function to find if there is a celebrity in the party or not.
+    int celebrity(vector<vector<int> >& people, int n) 
+    {
+        // code here 
+        int celebritY[n]={0};
+        int crowd[n]={0};
+        
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(people[i][j]==1)
+                {
+                    celebritY[j]++;
+                    crowd[i]++;
+                }
+            }
+        }
+        
+        for(int i=0;i<n;i++)   ye wala loop har index par jake dekh rha hai koi hai jo n-1 loog jante ho jisse wi celebrity hai aur ussi celebrity index meeh crowd meeh check kr rha wha 0 hena chhahiye kyuki wo kisi ko nhi janta manlo abb 
+        0  1  2 -> 1 celebrity hai --->  to celebrity wale array meeh 1 index par 2 increment ho jaega kyuki usse 0 aur 2 jante hai aur crowd meeh to celebrity bhi
+        consider hoga na ek trah see dekhe to crowd wale array meeh wo index dekhlo jisse celebrity meeh sab jante hai kyuki celebrity kissi ko nhi janta agar 
+        crowd meeh uske index par 0 rha to wii celebrity hai
+        {
+            if(celebritY[i]==n-1 && crowd[i]==0)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+};
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
