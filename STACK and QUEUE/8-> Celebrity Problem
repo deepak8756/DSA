@@ -118,4 +118,35 @@ class Solution
 };
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+O(n) approach:-
+
+class Solution 
+{
+    public:
+    //Function to find if there is a celebrity in the party or not.
+    int celebrity(vector<vector<int> >& m, int n) 
+    {
+        // code here 
+        int c=0;//yha assume krlo ki c=0 hai celebrity manlo o wala hai start meeh
+        for(int i=1;i<n;i++) //abb i=1 see less than n taak jao
+        {
+            if(m[c][i]==1)  yha check krlo kya jisse celebrity manna hai agar wo kisi ko janega to jisse celebirty manna hai wo nhi hoga celebrity to jisse jaan gya usse celebity bnado
+            {
+                c=i;
+            }
+        }
+        
+        for(int i=0;i<n;i++)
+        {
+            if(i!=c && (m[c][i]==1 or m[i][c]==0))  yha ppar i!=c isliye hai kyuki loop meeh ek na ek baar c wala index aega jisse celebrity manna hai isliye
+            {                      aur bracket ke andar dono false condition likhi hai ek bhi true hogai to pura if false m[c][i]==1 mtlb ki c kisi insaan ko janta hai to condition false ya m[i][c]==0 mtlb koi insaan janta hi nhi celebrity ko to bhi condition false inme see koi ek bhi sii hua to puri cindition false ho jaegi
+                return -1;
+            }
+        }
+        return c;
+    }
+};
+
