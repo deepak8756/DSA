@@ -1,0 +1,67 @@
+
+
+
+Code Studio:- https://www.codingninjas.com/codestudio/problems/longest-path_3210613?leftPanelTab=0
+gfg:- https://practice.geeksforgeeks.org/problems/sum-of-the-longest-bloodline-of-a-tree/1
+
+
+iss question meeh sabse lamba path lena hai aur sath hi sath uska sum nikalte rho longest path jo bhi hoga uska jo b sum hoga whi ans hoga
+agar do longest path hogae same size ke manlo ya jitne b ho tab unme compare krlo kiska wala sum bdda hai manlo level3 par sum aya 12 aur fir see krte
+gae koi aur path aissa milla jiska level fir 3 aya same upar wale jitna par iss path ka sum 14 aya to dono ko match krlo agar level same hai to uss
+wale path o lo jiska sum max hai ...pehle to yii motive rkho longest path ka sum nikalte jao jo b aae ..agar to longest path hue mtlb same level to dono meeh
+jo max ho uska sum lelo maxsum meeh
+
+
+
+        4        
+       / \       
+      2   5      
+     / \ / \     
+    7  1 2  3    
+      /
+     6
+     
+     
+ek path 4 2 7 
+ek path 4 2 1 6
+ek path 4 5 2
+ek path 4 5 3
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution
+{
+public:
+    void solve(Node* root,int level,int &maxlevel,int sum,int &maxsum)
+    {
+        if(root==NULL)//base condition hai ye agar NULL hogya tab ye check hoga mtlb koi side ke end par phuch gya 
+        {
+            if(level>maxlevel) level kya bdda hai maxlevel see hai to maxlevel ko update krdo aur level ko bhi
+            {
+                maxlevel=level;
+                maxsum=sum;
+            }
+            else if(level==maxlevel)  //end par to phuch gya koi path ke aur null hogya  par level aur maxlevel same hai to dono ke sum meeh jo max hai wo lo
+            {
+                maxsum=max(maxsum,sum);
+            }
+            return;
+        }
+        sum+=root->data; ye sum meeh add krta jaega value ko left right jha b jae 
+        solve(root->left,level+1,maxlevel,sum,maxsum);  abb left left bhejte rho jab taak null na ho wo pura ek path baan jaega 
+        solve(root->right,level+1,maxlevel,sum,maxsum); aisse hi right meeh
+    }
+    int sumOfLongRootToLeafPath(Node *root)
+    {
+        //code here
+        int level=0;
+        int maxlevel=0;
+        
+        int sum=0;
+        int maxsum=INT_MIN;
+        
+        solve(root,level,maxlevel,sum,maxsum);
+        return maxsum;
+    }
+};
