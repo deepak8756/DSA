@@ -99,3 +99,42 @@ int noWays(TreeNode < int > * root, int k) {
     find(root,v,k);
     
 }
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+code Studio solution:-
+
+
+void find(BinaryTreeNode<int> *root, int k,vector<vector<int> > &ans,vector<int>&v)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    v.push_back(root->data);
+    find(root->left,k,ans,v);
+    find(root->right,k,ans,v);
+    int f=0;
+    for(int i=v.size()-1;i>=0;i--)
+    {
+        vector<int>temp;
+        f+=v[i];
+        if(f==k)
+        {
+            for(int j=i;j<=v.size()-1;j++)
+            {
+                temp.push_back(v[j]);
+            }
+            ans.push_back(temp);
+        }
+    }
+    v.pop_back();
+    
+}
+vector<vector<int>> kPathSum(BinaryTreeNode<int> *root, int k) {
+    // Write your code here.
+    vector<vector<int> > ans;
+    vector<int>v;
+    find(root,k,ans,v);
+    return ans;
+}
+
