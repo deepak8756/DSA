@@ -1,0 +1,54 @@
+
+
+
+gfg:-  https://practice.geeksforgeeks.org/problems/children-sum-parent/1
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution{
+    public:
+    //Function to check whether all nodes of a tree have the value 
+    //equal to the sum of their child nodes.
+    bool check(Node* &root)
+    {
+        if(root==NULL || root->left==NULL && root->right==NULL)
+        {
+            return true;
+        }
+        
+        int l=0;
+        int r=0;
+        
+        if(root->left!=NULL)
+        {
+            l=root->left->data;
+        }
+        if(root->right!=NULL)
+        {
+            r=root->right->data;
+        }
+        
+        bool checks=root->data==l+r;
+        
+        bool left=check(root->left);
+        bool right=check(root->right);
+        
+        if(checks && left && right)
+        {
+            return true;
+        }
+        return false;
+        
+    }
+    int isSumProperty(Node *root)
+    {
+     // Add your code here
+     return check(root);
+    }
+};
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
