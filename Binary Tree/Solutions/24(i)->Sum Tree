@@ -1,0 +1,46 @@
+
+
+
+
+isme root ke left par jitne bhi tree baan rhe hai sabka sum brabar ho root ke chahe jo root ho uske left par jitne bhi tree hai left right unka sum uss root ke brabar 
+hona chahiye 
+
+
+ children sum tree meeh sirf hme left aur right ka sum dekhna hai ki root ke brabar hai ki nhi 
+sum tree root ke left pr jitne sub tree hai sabka sum dekhna paad rha hai ki root ke brabar hai ki nhi diffrenc hai dhyan do dono meeh
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution
+{
+    public:
+    int f=1;  //global declare krlo 1 krdo manlo abhi sum tree hai
+    
+    int check(Node* root,int &f)  check krr rha hai ye function
+    {
+        if(root==NULL)  root null to return 0 krdo 
+        {
+            return 0;
+        }
+        if(root->left==NULL && root->right==NULL) left right dono null hai tabhi root hi return krdo
+        {
+            return root->data;
+        }
+        int l=check(root->left,f);
+        int r=check(root->right,f);
+        
+        if(l+r!=root->data)
+        {
+            f=0;
+        }
+        return l+r+root->data;
+    }
+    
+    bool isSumTree(Node* root)
+    {
+         // Your code here
+         f=1;
+         check(root,f);
+         return f;
+    }
+};
