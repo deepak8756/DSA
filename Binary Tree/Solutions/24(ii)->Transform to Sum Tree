@@ -1,0 +1,58 @@
+
+
+
+
+
+left + right + root->val in teeno ka sum jo bhi aae whi hai root ki new value bass
+question
+             10
+          /      \
+        -2        6  
+       /   \     /  \
+     8     -4   7    5
+
+Output:
+            20
+          /    \
+        4        12
+       /  \     /  \
+     0     0   0    0
+     
+     
+ Explanation:
+
+           (4-2+12+6)
+          /           \
+      (8-4)          (7+5)
+       /   \         /  \
+      0     0       0    0
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+public:
+  
+    // Convert a given tree to a tree where every node contains sum of values of
+    // nodes in left and right subtrees in the original tree
+    int make(Node* root)
+    {
+        if(root==NULL)
+        {
+            return 0;
+        }
+        
+        int a=make(root->left);
+        int b=make(root->right);
+        
+        int x=root->data;
+        root->data=a+b;
+        return a+b+x;
+    }
+    void toSumTree(Node *node)
+    {
+        // Your code here
+        make(node);
+    }
+};
