@@ -1,0 +1,53 @@
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+using loop O(n) approach using map;
+
+map<int,int>m;
+    
+    
+    int ans=0;
+   
+    
+    for(int i=0;i<A.size();i++)
+    {
+        if(m.find(A[i]-B)!=m.end()||m.find(A[i]+B)!=m.end())  agr jo dhund rhe hai usko target see plus ya minus krne par wo map meeh nhi milta to usse map meeh daldo
+        {
+            ans=1;
+            return ans;
+        }
+        m[A[i]]=1;
+    }
+    return ans;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+two pointer
+
+
+int Solution::solve(vector<int> &A, int B) {
+    sort(A.begin(),A.end());
+    B=abs(B);    //b minus mmeh b ho skta hai isliye reverse krdo abs mtlb postv
+    int i=0,j=1;   do pointer lelo ek array ke 0 th index see start hoga ek 1th index;
+    while(j<A.size())  jab taak array ki size see kaam hai
+    {
+        int d=A[j]-A[i];   differnce nikal lo dono pointer ke beech ka
+        if(B==d && i!=j)    abb b brabar hai d ke i brabar nhi hai j ke to mtlb do pair mill gae jo 1 de rhe hai ans 
+        {
+            return 1;
+        }
+        else if(d<B)   aur agar arr[i]-arr[j] ko minus krne par jo diff aya wo b see kaam hai mtlb j ko agee agee bdhao tabhi to i wala bddi j ki value
+ see minus hoke bdda diff  dega array sorted hai na j=2, i=1 ||j-i=1|| j ko bdhaya manlo ye example hai baas j=3 abb j-i kro diff bdda aega to yii krte krte target ke pass jao
+        {
+            j++;
+        }
+        else{  aur agar 
+            i++;
+        }
+    }
+    return 0;
+}
