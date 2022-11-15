@@ -1,0 +1,38 @@
+
+Interview Bit:-  https://www.interviewbit.com/problems/maximum-ones-after-modification/
+
+refrence:-  https://www.youtube.com/watch?v=hzueK-imcXg
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+int Solution::solve(vector<int> &A, int B) {
+    
+    int flip=0;  flip le liye hai kittno baar flip hua uska count isme rkhenge
+    int i=0,j=0;   iaur j pointer jo abhi array ke 0th index ko point kr rhe hai
+    int ans=0;   ans store kraenge
+    int n=A.size();   n ke vector A ki size nikala hai
+    
+    while(i<n)    i pointer hai jo agee bdhega to ye n ke brabar ya isse bdda na ho choota hi rhe 
+    {
+        if(A[i]==0)   agar A[i] index zero hua to flip ko increment krdo
+        {
+            flip++;
+        }
+        while(flip>B)  check kro khi flip increase hoke B see jada to nhi ho gya sirf utne hi flip kr skte hai jitna B bool rha hai utne zero ko 1 bna skte aissa manlo usse jada nhi jisse longest subaary mille 1 ka
+        {
+            if(A[j]==0)  agar j wala 0 th index par hai to flip ko -- krdo 
+            {
+                flip--;
+            }
+            j++;   j ko bdha do agle par flip wala minus krne ke baad bhi abb j smjhlo new index ka start point baan gya hai kyuki btae hue flip see jada flip hue to flip kaam hua mtlb koi zero jisse 1 bnaya wapas see 0 bna diya hmne
+        } j agee badh jaega abb 
+            ans=max(ans,i-j+1);  ab ans meeh max dekho ans max hai ya jiss index par i hai jiss index par j hai unka diffrence nikal ke +1 krdo
+        i++;
+    }
+    return ans;
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------
