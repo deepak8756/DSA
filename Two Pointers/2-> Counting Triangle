@@ -1,0 +1,50 @@
+
+Refrence:- https://www.youtube.com/watch?v=XGzCUpy_aFk
+
+Interview Bit:-  https://www.interviewbit.com/problems/counting-triangles/
+
+For example,
+
+A = [1, 1, 1, 2, 2]
+
+Return: 4
+index= 0  1  2  3  4
+A =   [1, 1, 1, 2, 2]
+
+  c=4th index
+  b=3rd index
+  a=0th index
+  
+  a+b>c
+  1+2>2=3>2 yes mtlb ab a=0 th index see leke bth index tk sab bdde hi honge c see kyuki soretd vector hai har baar koi na koi ek dusre see bdda ya brbar hoga
+   to ye krdo b ka index minus a ka index utne count honge jo c see bdee hongi  b=3rd index ||a=0th index  b-a=3-0=3count hogya
+   
+   
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+int Solution::nTriang(vector<int> &A) {
+    sort(A.begin(),A.end());
+    
+    long long ans=0;
+    int n=A.size();
+    
+    for(int c=n-1;c>=2;c--)  //c n-1 mtlb last index aur 2 th index par jake rukk jaega kyu kyuki a aur b bhi to place honge na wha pr line se khda kre to 
+    {
+        int a=0;  a apna haar baar 0 th index see chalu hoga jab jab c ki value change hogi
+        int b=c-1;  b ... c ke ek piche see chlega
+        
+        while(a<b)   //a chotta rhe b see
+        {
+            if(A[a]+A[b]>A[c])    ye condition satisfy kre triangle ki do side bddi honi chahiye teesri side see to c ko highest lelo sort krke vector ko piche see chla do
+            {                       bddi value milegi abb aur b ko add krke aissa bnao ki wo c see bdda ho jae agar a +b >c hai tooo niche wali line dekho
+                ans+=b-a%1000000007;   agar a ki kuch value hai sorted vector meeh b ki bhi kuch value hai agar a+b >c hai mtlb ki abb a ke baad ki jitni value hai wo c see bddi hongi
+                b--;                        to wo krdo aur b ko less krdo abb b ko minus krdo agar ye condition satisfy hai to a har baar 0 see start hoga
+            }                           b ko minus krdo ab fir see  constraint change hongae hai a b c ke abb fir whhi kro manlo fas=lse hua to a incrmnt krdo
+            else{
+                a++;
+            }
+        }
+    }
+    return ans%1000000007;
+}
