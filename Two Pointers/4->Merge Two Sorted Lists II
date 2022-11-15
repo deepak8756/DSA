@@ -1,0 +1,45 @@
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+void Solution::merge(vector<int> &A, vector<int> &B) {
+    int n=A.size();     A ki size nikal lo n meeh
+    int m=B.size();    B ki size nikal lo m meeh
+    int i=n-1;         i ek pointer bnao jo A wale vector ke last wale ko point kr rha hai  
+    int j=m-1;          j ek pointer bnao jo B wale vector ke last wale ko point kr rha hai 
+    
+     A.resize(n+m); //  A wale vector meeh hi changes krke return krna hai constant space meeh dono ko compare krke khi dusre vector meeh nhi dalna hai 
+     to A ki size bdha  do jo element a meeh hai wo rhenge hi usme B wale ki size add krdo jo n meeh nikali hai to A ke range baad gai abb b wale ke liye
+     jgah hai a ke pass  manlo a ki size hai 4 aur b ki size hai 3 to abb a ki size 7 hogai hai  wii (n+m) kiya hai
+     
+    int k=(n+m)-1; // abb k wale pointer ko bhi jo a ki size bdhae hai wha lgado aur piche see k pr insert kraenge a meeh ek pointer already lgae hi the
+    uski size bdhane see pehle fir size bdha diye to ek aur lga diya last meeh abb compare hoga niche jo bdda hua usko k insert kraega a meeh aur k-- hoga
+    piche jata jaega
+    
+  
+    
+    while(j>=0)    j isliye likhe hai kyuki j hi khtam krna hai bakki a meeh to insert kr rhe hai to jab taak j meeh value hai tab taak a meeh insert hogi chotti bddi ke hisab see
+    {
+        if(i>=0 && A[i]>B[j])  i check krlo 0 na ho jae
+        {
+            A[k]=A[i];
+            k--;
+            i--;
+        }
+        else{
+            A[k]=B[j];
+            k--;
+            j--;
+        }
+    }
+    
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------
