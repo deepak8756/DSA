@@ -1,0 +1,36 @@
+
+
+
+Refrence :-  https://www.youtube.com/watch?v=e0kiAdtRGk8&t=89s
+
+interview bit:- https://www.interviewbit.com/problems/container-with-most-water/
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+int Solution::maxArea(vector<int> &A) {
+    
+    int left=0;  left right 2 pointer bnalo left ko 0 see start kro aur right ko last index see
+    
+    int right=A.size()-1;
+    int ans=0;
+    while(left<right)
+    {                                   right - left smjh lo length hai tank ki 
+        int diff=min(A[left],A[right])*(right-left);  //minimum dhundo left aur right meeh kyu socho ek tank hai jiski keft aur right diwal hai left wali diwal 6 
+       //ft ki hai right wali diwal 4 ft ki hai to tank kitna panni store krega 4 ft taak na kyuki right side ki diwal 4 ft ki hi hai to 6 thodi store krega 4 ft
+        //ke upar level gya bhle hi diwal right wali 6 ft ki ho ek side to kaam hai to 4 ft ke baad panni nhi bhar paega yii hai isme
+        
+        ans=max(ans,diff);   abb sabke sath krte jao jo jada paani store krega wo ans meeh store hota jaega update hoga jab bh koi tank jada paani store krega
+        
+        if(A[left]<=A[right])    abb agar left wali diwal right wali diwal see chotti ya brabar hai to chotti ke case meeh kya hi krenge left ko agee bdhao
+        {                         bddi wali diwal ko rehne do ho skta hai agee koi left wali see bddi diwal mille aur right hai hi bddi to jada store hoga
+            left++;                     iss case meeh left useless hai
+        }
+        else{
+            right--;  same yii right meeh bhi
+        }
+    }
+    return ans;
+}
