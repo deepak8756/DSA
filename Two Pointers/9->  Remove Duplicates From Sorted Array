@@ -10,7 +10,7 @@ inplace par hi changes krna hai aur size return krdo duplicate htake to j+1 isli
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 int Solution::removeDuplicates(vector<int> &A) {
-   int i=0,j=-1,n=A.size();    
+   int j=-1,n=A.size();    
    
    for(int i=0;i<n;i++)
    {
