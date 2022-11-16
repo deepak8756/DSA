@@ -1,0 +1,47 @@
+
+
+Interview Bit:- https://www.interviewbit.com/problems/max-continuous-series-of-1s/
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+vector<int> Solution::maxone(vector<int> &A, int B) {
+    int i=0;
+    int j=0;
+    int x=0,y=0;
+    int flip=0;
+    int n=A.size();
+    
+    while(i<n)
+    {
+        if(A[i]==0)
+        {
+            flip++;
+        }
+        
+        while(flip>B)
+        {
+            if(A[j]==0)
+            {
+                flip--;
+            }
+            j++;
+        }
+        if(y-x<i-j)  yha check kre rhe hai max ko unko y aur x meeh rkh le rhe hai fir ans meeh push krdenge
+        {
+            x=j;
+            y=i;
+        }
+        i++;
+    }
+    vector<int>ans;
+    for(int k=x;k<=y;k++)
+    {
+        ans.push_back(k);
+    }
+    return ans;
+}
