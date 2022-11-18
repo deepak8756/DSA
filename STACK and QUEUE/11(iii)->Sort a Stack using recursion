@@ -10,8 +10,23 @@ Code Studio:- https://www.codingninjas.com/codestudio/problems/sort-a-stack_9852
 gfg:-   https://practice.geeksforgeeks.org/problems/sort-a-stack/1
 
 
+Stack: 
+	
+	41
+	3
+	32
+	2
+	11
 
 
+ans:-  41 32 11 3 2
+		
+		
+		2
+		3
+		11
+		32
+		41
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
