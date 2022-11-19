@@ -20,47 +20,43 @@ Node* segregateEvenOdd(Node* head)
     {
         return head;
     }
-    Node* even=NULL;
-    Node* odd=NULL;
-    Node* e=NULL;
-    Node* o=NULL;
+    
+    Node* even=new Node(-1);
+    Node* etemp=even;
+    Node* odd=new Node(-1);
+    Node* otemp=odd;
     
     Node* temp=head;
-    
     while(temp!=NULL)
     {
-        int n=temp->data;
-        if(n%2==0)
+        if(temp->data%2==0)
         {
-            if(even==NULL)
-            {
-                even=temp;
-                e=even;
-            }
-            else
-            {
-                e->next=temp;
-                e=e->next;
-            }
+            etemp->next=temp;
+            etemp=etemp->next;
         }
-        else
-        {
-            if(odd==NULL)
-            {
-                odd=temp;
-                o=odd;
-            }
-            else
-            {
-               o->next=temp;
-                o=o->next;
-            }
+        else{
+            otemp->next=temp;
+            otemp=otemp->next;
         }
         temp=temp->next;
     }
     
-   if(even!=NULL) e->next=odd; //agar even null nhi hai tbhi to join krunga na e (e mera tail manlo jo add krwa rha hai element ko) e mera odd ko point krega
-   if(odd!=NULL) o->next=NULL; //agar odd null nhi hai tbhi to join krunga na o (o mera tail manlo jo add krwa rha hai element ko) o mera NULL ko point krega uske agee koi nhi hai na
-    if(even!=NULL) return even;//ab return krte time bhi puch lo agar even null nhi hai to to upar even ko set kr hi diya hai join wgera krke odd see return krdo
-    return odd;//agar even null hai to ispr aega odd ko bhi upar set krhi diya tha odd ka jo tail bna tha o uske next ko NULL krhidiya tha odd return krdo
+    if(even->next!=NULL)
+    {
+        etemp->next=odd->next;
+    }
+    if(odd->next!=NULL)
+    {
+        otemp->next=NULL;
+    }
+    
+    
+    if(even->next!=NULL)
+    {
+        return even->next;
+    }
+    return odd->next;
+    
 }
+    
+  
