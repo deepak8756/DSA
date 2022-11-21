@@ -61,8 +61,14 @@ int main()
     return 0;
 }
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+    A=      2  1  5  6  2  3
+index=      0  1  2  3  4  5
 
+prev smaller iska aega isme hum index store kr rhe hai :- -1  -1  1  2  1  4
+prev smaller iska aega isme hum index store kr rhe hai :-  1   6  4  4  6  6
 
+har index ke uske left meeh aur right meeh check krenge ki usss index ki value see choota uske left meeh kaun see index par aega aur yii kaam right meeh 
+krenge agar koi choota nhi milla to left smaller meeh -1 krdenge add  aur right smaller meeh index last index ke ek agee wale ka index
 public:
     //Function to find largest rectangular area possible in a given histogram.
     vector<long long> prevsmaller(long long *arr,int n)
