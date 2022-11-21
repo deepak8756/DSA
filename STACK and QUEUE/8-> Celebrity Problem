@@ -140,9 +140,12 @@ class Solution
         }
         
         for(int i=0;i<n;i++)
-        {
-            if(i!=c && (m[c][i]==1 or m[i][c]==0))  yha ppar i!=c isliye hai kyuki loop meeh ek na ek baar c wala index aega jisse celebrity manna hai isliye
-            {                      aur bracket ke andar dono false condition likhi hai ek bhi true hogai to pura if false m[c][i]==1 mtlb ki c kisi insaan ko janta hai to condition false ya m[i][c]==0 mtlb koi insaan janta hi nhi celebrity ko to bhi condition false inme see koi ek bhi sii hua to puri cindition false ho jaegi
+        {              (iss condition ka mtlb hai pehli wali m[c][i]==1 mtlb celebrity kisi admi ko janta hai kaisa celebrity hai jo normal logo ko janta hai aur 
+                        dusri condition m[i][c]==0 loog celebrity ko nhi jante jisko celebrity janta hai usse wii nhi janta matlb wo celebrity nhi hai koi b 
+                        true hua to andar jaega aur pehla wala i!=c tabhi false hoga manlo 1 celebrity hai c=1 aur loop meeh i=1 kibarri aai to ye false hoga to
+                        pura nhi chalega nhi to bakki time ye chlega dono true hue left right tp andar chla jaega
+            if(i!=c && (m[c][i]==1 or m[i][c]==0))  
+            {                 
                 return -1;
             }
         }
