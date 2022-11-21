@@ -71,7 +71,7 @@ public:
     }
     
     void put(int key, int value) {
-        //case1:
+        //case1:agar key brabar nhi hai last key ke mtlb ki wo map meeh hai to wo linked list meeh khi bhi ho skti hai usse wha see htake agee add kro
         if(m.find(key)!=m.end())
         {
             erase(m[key]);
