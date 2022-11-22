@@ -5,6 +5,27 @@ kth smallest mtlb ek no diya hoga uspe btana hai kuan saa element hai tree ka us
 approach 1:-   tree ka inorder traversal nikal lo bst ka vector meeh inorader hai bst ka to sorted hi hoga 
 abb manlo aissa kuch aya  v=[ 1  2  3  4  5  6  7]   aur k=2 diya hai   mtlb 
 v[2] index return krdo 3 ho jaega ans kth smallest element
+
+#BRUTEFORCE inorder nikal ke k search krlo vector meeh -1 isliye kiya kyuki return question meeh 0 th based indexing nhi hai 1 based ha aur sol 0 th based index par hai
+void ino(BinaryTreeNode<int>* root,vector<int> &store)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    ino(root->left,store);
+    store.push_back(root->data);
+    ino(root->right,store);
+   
+}
+int kthSmallest(BinaryTreeNode<int>* root, int k) {
+    // Write your code here.
+    vector<int>store;
+     ino(root,store);
+    if(k>store.size())
+        return -1;
+    return store[k-1];
+}
 TC:- O(n) hai kyuki hum inorder nikal kr vector meeh bhar rhe hai har item par ek ek baar traverse kr rhe hai n item par n time to O(n).
 SC:- O(n) kyuki ek vector li liya
 
