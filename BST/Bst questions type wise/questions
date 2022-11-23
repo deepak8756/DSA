@@ -1,14 +1,44 @@
-------------------------------------------------------Type 1:-----------------------------------------------------------------------------------------------
-previous lo ek root ke piche lgado aur krte jao:- 
-
-Question 1:- Check if a tree is a BST or not
-CODING NINJA:-  https://www.codingninjas.com/codestudio/problems/check-if-a-binary-tree-is-bst_5975?leftPanelTab=0 
-GFG:-   https://practice.geeksforgeeks.org/problems/check-for-bst/1
-
-
-Question 2:- Populate Inorder successor of all nodes
-Code Studio:- https://www.codingninjas.com/codestudio/problems/populate-inorder-successor-of-all-nodes-of-a-binary-tree_1118625
-GFG:- https://practice.geeksforgeeks.org/problems/populate-inorder-successor-for-all-nodes/1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question 1:- Merge Two BSTs
+codestudio:-  https://www.codingninjas.com/codestudio/problems/h_920474?leftPanelTab=0
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Question 2:-  Binary Tree to BST
+gfg:-  https://practice.geeksforgeeks.org/problems/binary-tree-to-bst/1
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 3:-  Check for BST
+gfg:-  https://practice.geeksforgeeks.org/problems/check-for-bst/1
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 4:- Construct Binary Search Tree from Preorder Traversal
+Leetcode:- https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/description/
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 5:- k-th smallest element in BST
+gfg:-  https://practice.geeksforgeeks.org/problems/find-k-th-smallest-element-in-bst/1
+
+Question 6:- Kth largest element in BST
+gfg:-  https://practice.geeksforgeeks.org/problems/kth-largest-element-in-bst/1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 7:- Search a node in BST
+gfg:-  https://practice.geeksforgeeks.org/problems/search-a-node-in-bst/1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 8:- Lowest Common Ancestor in a BST
+gfg:-  https://practice.geeksforgeeks.org/problems/lowest-common-ancestor-in-a-bst/1
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 9:- Minimum element in BST (max bhi pucha agar to right jao bass aur right part hai hi nhi agar tree meeh root hi bdda hua )
+gfg:-  https://practice.geeksforgeeks.org/problems/minimum-element-in-bst/1
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 10:- Populate Inorder Successor for all nodes
+gfg:- https://practice.geeksforgeeks.org/problems/populate-inorder-successor-for-all-nodes/1
