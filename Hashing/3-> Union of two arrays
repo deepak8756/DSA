@@ -1,0 +1,51 @@
+
+jo jo element  ho dono meeh wo btao aur dono meeh agar element ek jaise hai to unka duplicate na ho abb btao dono ka union
+
+set use kiya dono array ko set meeh daldo manlo dono meeh koi element same bhi rha to duplicacy nhi goti hau set meeh ab set ka count btado kitna hai
+
+
+gfg:- https://practice.geeksforgeeks.org/problems/union-of-two-arrays3538/1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution{
+    public:
+    //Function to return the count of number of elements in union of two arrays.
+    int doUnion(int a[], int n, int b[], int m)  {
+        //code here
+        unordered_set<int>s;
+        
+        for(int i=0;i<n;i++)
+        {
+            s.insert(a[i]);
+        }
+        for(int i=0;i<m;i++)
+        {
+            s.insert(b[i]);
+        }
+        
+        return s.size();
+        
+    }
+};
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+//map solution
+class Solution{
+    public:
+    //Function to return the count of number of elements in union of two arrays.
+    int doUnion(int a[], int n, int b[], int m)  {
+        //code here
+        unordered_map<int,int>mn;
+        
+        for(int i=0;i<n;i++)
+        {
+            mn[a[i]]++;
+        }
+        for(int i=0;i<m;i++)
+        {
+            mn[b[i]]++;
+        }
+        
+        return mn.size();
+        
+    }
+};
