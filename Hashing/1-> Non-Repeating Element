@@ -1,0 +1,47 @@
+gfg:-  https://practice.geeksforgeeks.org/problems/non-repeating-element3958/1
+youtube:-  https://www.youtube.com/watch?v=KpjXziZMHwI&list=PLzjZaW71kMwQ-D3oxCEDHAvYu8VC1XOsS&index=8
+
+
+yha wo element btana hai jo ek see jada na aya ho aur agar aisse kaffi element hue to wo element btao jo array meeh sabse pehli baar aya ho
+STEPS:-
+1.yha par map meeh sare elements daal do unki frquency ke sath kaun kitni baar aya hai map ye btadega
+2.fir see loop lgao ek ek no ko uthao array ke start see usse key type ke variable meeh bhar lo aur pucho kya ye element map meeh khi map.end ke brabar to
+nhi jiska mtlb wo eleemnt map meeh present hi nhi to pehle ye check krlo abb
+3. agar present hai to ye dekhlo uska auto it=m.find(key) see hme iterator mill gya ab it see puchlo if lgake kya it->second ==1 hai hua to yhii ans ho jaega
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    unordered_map<int,int>m;
+    int arr[]={-1,2,-1,3,2};
+
+    int n=sizeof(arr)/sizeof(arr[0]);
+    for(int i=0;i<n;i++)
+    {
+        m[arr[i]]++;
+    }
+
+    int ans=0;
+    for(int i=0;i<n;i++)
+    {
+        int key=arr[i];
+        auto it=m.find(key);
+        if(it->second==1)
+        {
+            ans=key;
+            break;
+        }
+    }
+    cout<<ans<<endl;
+    for(auto it=m.begin();it!=m.end();it++)
+    {
+        cout<<it->first<<" "<<it->second<<endl;
+    }
+    return 0;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
