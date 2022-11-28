@@ -1,0 +1,54 @@
+
+
+ek set lelo usme kisi ek array ko pura push krdo to duplicate bhi haat jaenge abb dusre wale array ke element ko set meeh find krlo agar mill gya set meeh
+mtlb ki wo aissa element hai jo dono meeh present hai to count bdha do  aur set meeh see erase bhi krdo uss eleemnt ko abb kaam ho hi gya hai,aur array
+ke next index par chle jao dusre wale jisse set meeh nhi dale ho fir compare krao erase isliye kr rhe hai manlo  
+dekho:-
+  yha par ye dekhna hai ki dono element meeh common element dekho agar hai to count ek bdha do chahe wo element dono meeh do do baar hi kyu na aya ho hme
+  to baas ye check krna hai ki element dono meeh aya ho ex:- array 1:- {4,4} || array 2:- {1,4,2,3,5,4}  abb 4 ko dekho dono meeh do do baar aya
+  hai mtlb ye nhi ki count 2 baar bdha do 4 dono meeh present hai na baas count bdhao ab 4 kitni baa bhi ho usse mtlb nhi 
+  isloye set liye wo pehle hi duplicate htadega ab check krlo maanlo set meeh array 1 push krdiye 4,4 hai to ek baar 4 jaega set meeh set{4}
+  abb 1 4 2 3 5 4 ko check kro pehli baaar 4 mill gya set meeh count bdha do ab agar set meeh iss key ko erase nhi kroge 4 ko to jab wo 2,3,5 ke liye to
+  theek 4 fir see jab jaega set meeh check hone to count fir bdha dega count 2 ho jaega tabki 4 ek baar mill gya na kaam khtam isliye hmne erase kiya set see
+  ab set meeh pehle hi duplicate nhi hai aur jo no mill gya usse count bdha ke set see erase bhi krdiye to anothr array meeh wo no repeat bhi hua agar to
+  set meeh match hi nhi krega kyuki ye pehle mill chuka hai aur erase isliye kiya tha
+  
+  
+  refrence:- https://www.youtube.com/watch?v=zgLtdM8-6CE&list=PLzjZaW71kMwQ-D3oxCEDHAvYu8VC1XOsS&index=10
+  gfg:- https://practice.geeksforgeeks.org/problems/intersection-of-two-arrays2404/1
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+  public:
+    // Function to return the count of the number of elements in
+    // the intersection of two arrays.
+    int NumberofElementsInIntersection(int a[], int b[], int n, int m) {
+        // Your code goes here
+        unordered_set<int>s;
+        
+        for(int i=0;i<n;i++)
+        {
+            s.insert(a[i]);
+        }
+        int count=0;
+        
+        for(int j=0;j<m;j++)
+        {
+            int key=b[j];
+            
+            if(s.find(key)!=s.end())
+            {
+                count++;
+            }
+            s.erase(key);
+        }
+        return count;
+    }
+};
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
