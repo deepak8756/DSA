@@ -1,0 +1,55 @@
+
+
+
+
+sarree array ke element ko map meeh bhar do ab pehle eleemnt map meeh see uthao aur usse x see minus krdo ab jo result aya uss no ko check kro kya wo
+no map meeh present hai kya agar hua mtlb aisse 2 pair mill jinko x see minus kroge to wo zero ho jaega x;
+BUT  ek flaw hai manlo  
+x=8 hai aur mao meeh 4 7 3 6  ye hai to ab manlo pehla element uthaya map see key= 4 jo ki ek hi baar aya hai 4->0 4 ki value zero hai map meeh aissa kuch hoga
+abb x-key  ||key variable hai jo ek ek krke map see value utha rha hai 8-4 =4hogya ab ek pair to maine maan liya4 hai jisko x see minus kiya to bhi 4 arha hai
+abb map meeh dhundna rehta hai dusra pair to jab dhudenge 4 fir see repeat ho jaega par 4 ko to ek baar minus kaar hi chuke hai to start meeh hi do variable
+bna lo key value naam ka key=m->first,value=m->second to value ye btadega ki 4 ek hi baar aya hai ya 2 baar 2 baar aya hoga to theek hai true krdo return 
+aur ek baar aya hoga to map meeh check kroge to fir see wii 4 dikh jaega to glat hojaega isliye check krlo agar jo ans aya wo == key ke hua to key ki jo value
+hai wo value>1 ho mtlb value meeh frequency lete hai na ki kitni baar ay hai no to 1 see jada ho atleast
+
+
+gfg:- https://practice.geeksforgeeks.org/problems/key-pair5616/1
+refrence:-  https://www.youtube.com/watch?v=7xx1YcXXEYU&list=PLzjZaW71kMwQ-D3oxCEDHAvYu8VC1XOsS&index=12
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution{
+public:	
+	// Function to check if array has 2 elements
+	// whose sum is equal to the given value
+	bool hasArrayTwoCandidates(int arr[], int n, int x) {
+	    // code here
+	    unordered_map<int,int>m;
+	    for(int i=0;i<n;i++)
+	    {
+	        m[arr[i]]++;
+	    }
+	    
+	    for(auto it=m.begin();it!=m.end();it++)
+	    {
+	        int key=it->first;
+	        int value=it->second;
+	        
+	        int pair=x-key;
+	        
+	        if(pair==key)
+	        {
+	            if(value>1)
+	            {
+	                return true;
+	            }
+	        }
+	        else{
+	            if(m.find(pair)!=m.end())
+	            {
+	                return true;
+	            }
+	        }
+	    }
+	    return false;
+	}
+};
+------------------------------------------------------------------------------------------------------------------------------------------------------------
