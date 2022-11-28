@@ -1,0 +1,44 @@
+
+
+
+
+
+
+gfg:- https://practice.geeksforgeeks.org/problems/subarray-with-0-sum-1587115621/1
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+BRUTEFORCE:-   O(n)2
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int arr[]={4,2,0,1,6};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int sum=0;
+    int i,j;
+    for(i=0;i<n;i++)
+    {
+        sum=0;
+        sum+=arr[i];
+        if(sum==0)
+        {
+            cout<<"ans"<<i<<endl;
+        }
+        //cout<<sum<<"|";
+        for(j=i+1;j<n;j++)
+        {
+            sum+=arr[j];
+           // cout<<sum<<"|";
+            if(sum==0)
+            {
+                cout<<"ans"<<i<<j<<endl;
+            }
+        }
+    }
+    return 0;
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------
