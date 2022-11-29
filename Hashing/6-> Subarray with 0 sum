@@ -9,6 +9,27 @@ gfg:- https://practice.geeksforgeeks.org/problems/subarray-with-0-sum-1587115621
 
 
 
+LOGIC OF OPTIMIZATION CODE:- 
+
+Arr=[4,2,-3,1,6]
+iska prefix sum nikal lo prefix=[4,6,3,4,10]
+
+ab ye prex sum ki value of ek ek krke map meeh dalo aur wha find kro kya prefix ka ith index map meeh hai agar nhi hai to daldo aur agar mill gya prefix
+ka koi value map meeh mtlb ki return true krdo
+upar prefix sum 4 hai 0th index paar abb agr wo fir see 4 ho jaega agee khi mtlb ki uske baad ke jitne bhi hai wo zero bna rhe hai tabhi wo no fir see
+repeat hua
+Arr=   [4,2,-3,1,6]
+prefix=[4,6,3,4,10]
+index=  0 1 2 3  4
+
+arr[0] meeh pehle 4 aya wo prefix sum meeh gya
+arr[1] meeh 2 aya 4+2=6 hua prefix meeh gya
+arr[2] meeh -3 aya 6-3=3 ho gya prefix sum meeh gya
+arr[3] meeh 1 aya  3+1=4 4 pehle bhi khi mill chuka hai ye hum hashmap meeh sath sath dalte jaenge jaise hi koi no repeat milla smjh jao zero bna
+abb dekho pehle prefix meeh 4 aya fir badh ke 6 hua fir 3 hua fir 4 hua mtlb ki zero index ke baad see koi no aissa aya jo isse zero bna diya
+ye logic hai dhyan see smjho
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 BRUTEFORCE:-   O(n)2
 #include<bits/stdc++.h>
@@ -42,3 +63,38 @@ int main()
     return 0;
 }
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Solution{
+    public:
+    //Complete this function
+    //Function to check whether there is a subarray present with 0-sum or not.
+    bool subArrayExists(int arr[], int n)
+    {
+        //Your code here
+        int prefix[n];
+        prefix[0]=arr[0];
+        
+        for(int i=1;i<n;i++)
+        {
+            prefix[i]=prefix[i-1]+arr[i];
+        }
+        
+        unordered_map<int,int>m;
+        m.insert({0,1});
+        
+        for(int i=0;i<n;i++)
+        {
+            if(m.find(prefix[i])!=m.end())
+            {
+                return true;
+            }
+            else{
+                m[prefix[i]]++;
+            }
+        }
+        
+        return false;
+    }
+};
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
