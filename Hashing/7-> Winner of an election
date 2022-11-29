@@ -1,0 +1,89 @@
+
+
+
+
+
+gfg:-  https://practice.geeksforgeeks.org/problems/winner-of-an-election-where-votes-are-represented-as-candidate-names-1587115621/1
+
+
+map meeh dalldo sabko map meeh key string aur value int type ki bnegi
+
+fir do variable lelo name aur maxvote 
+
+
+ab map meeh iterate kro aur wha 2 variable bnalo key jo ki string type ki hogi kyuki wo name store krr rhi hai AUR value int type ki wo vote ki frequency 
+hai ki maap meeh ek naam kitti baar aae hai jitti baar aae hai utne vote mille hai 
+ab condition lgalo map see pehla key value uthao value ko check kro kya maxvote see chotti hai chotti hai agar to maxvote ko value see update kro aur name 
+ko key see update kro ABB agar map see key aur value uthaya aur jo value mtlb jo votes hai wo brabar hai maxvote ke mtlb 2 candidate aisse hogae hai jinko
+votes same milla hai to ab uss wale candidate ko ans bnao jiska naam lexicographically chotta hai to kya krenge else if codition lgado agar
+jo value map see uthai hai wo aur maxvote dono brabar hai to check kro key variable ko jisme name store kiya hai kya wo choota hai name see agar hai to
+name ko update krdo nhi to rehne do 
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+    string arr[]={"john","johnny","jackie","johnny","john",
+"jackie","jamie","jamie","john","johnny","jamie",
+"johnny","john"};
+
+        int size=sizeof(arr)/sizeof(arr[0]);
+        cout<<size<<endl;
+
+        unordered_map<string,int>m;
+
+        for(int i=0;i<size;i++)
+        {
+            m[arr[i]]++;
+        }
+
+        string name="";
+        int maxvote=0;
+        for(auto it=m.begin();it!=m.end();it++)
+        {
+            string key=it->first;
+            int value=it->second;
+            if(value>maxvote)
+            {
+                maxvote=value;
+                name=key;
+            }
+            else if(value==maxvote)
+            {
+                if(key<name)
+                {
+                    name=key;
+                }
+            }
+
+        }
+
+        vector<string>ans;
+        ans.push_back(name);
+        string temp=to_string(maxvote);
+        ans.push_back(temp);
+
+        cout<<"Ans is : "<<endl;
+        for(int i=0;i<ans.size();i++)
+        {
+            cout<<ans[i]<<" ";
+        }
+
+        cout<<endl;
+
+
+        //agar print krana hai map ko to chla lo niche wala loop
+        for(auto it=m.begin();it!=m.end();it++)
+        {
+            cout<<it->first<<" "<<it->second<<endl;
+        }
+    return 0;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
