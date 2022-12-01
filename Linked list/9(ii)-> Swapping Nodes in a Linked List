@@ -1,0 +1,74 @@
+
+Leetcode:- https://leetcode.com/problems/swapping-nodes-in-a-linked-list/description/
+
+steps1-> pehle linked list ki size pta krlo  temp=head aur size=0;see
+steps 2-> fir pehla aur akhri chahhiye to do temp1 aur temp2 bnalo dono start meeh head par rhenge
+steps3-> shuru wale k taak to easy hai phuchna count=1 kro jo less than k rhe aur temp1 ko move kro wo k index par phuch jaega temp1
+steps4-> agee see kth move chle gae par piche see kth move ke liye jo size nikala hai usme size-k+1 krdo to wo index mill jaega jisme piche see kth index
+chahiye hoga jaise dekho:-
+      1-> 2-> 3-> 4-> 5
+      k=2 hai
+      start see k=2 par jaenge to temp1 hmara 2 wale node par phuch jaega
+aur piche see k=2 count par jana hai mtlb ki 4 par to 4 par phuchne ke liye pure ki size nikal jo ki 5 hai usme size-k+1 krdo travel= 5-2+1=4 travel=4 aya
+issi par jana hai temp2  ko count=1 kro temp2 null na ho aur count< travel iski help see piche see bhi count krne par k count par phuch jaega
+
+abb temp1 ki value ko x meeh bhar lo
+aur temp2 ki value ko y meeh bhar lo 
+abb temp1->val=y krdo jo temp2 ki value thi
+aur
+temp2->val=x krdo (x mera temp1 ki value thi ho gya swap)
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+public:
+    ListNode* swapNodes(ListNode* head, int k) {
+        if(head==NULL)
+        {
+            return head;
+        }
+
+        ListNode* temp=head;
+        int count=0;
+        while(temp!=NULL)
+        {
+            count++;
+            temp=temp->next;
+        }
+
+        int end=count-k+1;
+
+        ListNode* temp1=head;
+        ListNode* temp2=head;
+
+        count=1;
+
+        while(temp1!=NULL && count<k)
+        {
+            count++;
+            temp1=temp1->next;
+        }
+
+        count=1;
+        while(temp2!=NULL && count<end)
+        {
+            count++;
+            temp2=temp2->next;
+        }
+
+        int x=temp2->val;
+        int y=temp1->val;
+
+        temp1->val=x;
+        temp2->val=y;
+        return head;
+
+
+    }
+};
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
