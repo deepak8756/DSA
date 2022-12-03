@@ -1,0 +1,51 @@
+
+Leetcode:- https://leetcode.com/problems/custom-sort-string/description/
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+public:
+    string customSortString(string order, string s) {
+        map<char,int>m;
+
+        for(int i=0;i<s.length();i++)
+        {
+            m[s[i]]++;
+        }
+
+        string ans="";
+
+        for(int i=0;i<order.length();i++)
+        {
+            char key=order[i];
+
+            if(m.find(key)!=m.end())
+            {
+                int x=m[key];
+                while(x--)
+                {
+                    ans+=key;
+                }
+                m.erase(key);
+            }
+        }
+
+        for(auto it=m.begin();it!=m.end();it++)
+        {
+            int x=it->second;
+            int y=it->first;
+            while(x--)
+            {
+                ans+=y;
+            }
+        }
+        return ans;
+    }
+};
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
