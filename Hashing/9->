@@ -1,0 +1,144 @@
+
+
+Input:
+N = 11 
+M = 4
+A1[] = {2, 1, 2, 5, 7, 1, 9, 3, 6, 8, 8}
+A2[] = {2, 1, 8, 3}
+Output: 
+2 2 1 1 8 8 3 5 6 7 9
+
+----------------------------
+
+Input:
+N = 11 
+M = 4
+A1[] = {2, 1, 2, 5, 7, 1, 9, 3, 6, 8, 8}
+A2[] = {99, 22, 444, 56}
+Output: 
+1 1 2 2 3 5 6 7 8 8 9
+
+
+yha par A2 meeh jo no aae hai upar wale array meeh bhi wo wo no pehle aae jab niche wala pura array issi trah khtam ho jaega to bcche hue ko des to asc lgado
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+VS solution:- 
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  int n=11;
+  int a[n]={2, 1, 2, 5, 7, 1, 9, 3, 6, 8, 8};
+  int m=4;
+  int b[m]={99, 22, 444, 56};
+
+  map<int,int>mp;  //order map isliye wo sort manner meeh lgaega niche wale ke corresponding value nikal ke ans meeh lelo aur erase krdo A2 ke jo jo ke 
+        leke kaam krte jao erase krte jao jo baach jaenge wo siddha ans meeh daldo isliye sorted liya map maine unorderd nhi liya
+
+  for(int i=0;i<n;i++)
+  {
+    mp[a[i]]++;   //map meeh push krdo A1 pura value meeh frequency
+  }
+
+  vector<int>ans;
+
+  for(int i=0;i<m;i++)
+  {
+    int data=b[i];   A2  ko uthao data meeh dalo ek ek krke
+    
+    if(mp.find(data)!=mp.end())   map meeh data dhundo agar hua to andar jao
+    {
+      int x=mp[data];        ab x meeh uss data ko jo A2 see uthaya uski frequency dekhlo map meeh kitni baar aai mtlb wo no A1 meeh kitni baar aya hai 
+     
+      while(x--)     utni baar wo no ans meeh daldo
+      {
+        ans.push_back(data);
+        
+      }
+    }
+    mp.erase(data);   abb A2 ka jo index hota ja rha hai usse map meeh see htate jao
+  }
+
+  for(auto it=mp.begin();it!=mp.end();it++)   abb map sorted tha kuch value bacch gai hongi jo A2 meeh nhi hongi to map see bhi erase nhi hui hongi
+  {                       unko sidha push krdo vector meeh
+    int x=it->first;
+    int y=it->second;    
+
+    while(y--){
+    ans.push_back(it->first);
+    }
+  }
+
+  for(int i=0;i<ans.size();i++)
+  {
+    cout<<ans[i]<<" ";
+  }
+
+
+ cout<<endl; 
+  for(auto it=mp.begin();it!=mp.end();it++)
+  {
+    cout<<it->first<<" "<<it->second<<endl;
+  }
+  return 0;
+}
+
+
+
+-----------------------------------------------------------------------
+
+gfg:- 
+class Solution{
+    public:
+    
+    vector<int> sortA1ByA2(vector<int> A1, int N, vector<int> A2, int M) 
+    {
+        //Your code here
+        
+        map<int,int>m;
+        
+        for(int i=0;i<N;i++)
+        {
+            m[A1[i]]++;
+        }
+        
+        vector<int>ans;
+        
+        for(int i=0;i<M;i++)
+        {
+            int data=A2[i];
+            if(m.find(data)!=m.end())
+            {
+                int x=m[data];
+                while(x!=0)
+                {
+                    ans.push_back(data);
+                    x--;
+                }
+                m.erase(data);
+            }
+        }
+        
+        for(auto it=m.begin();it!=m.end();it++)
+        {
+            int x=it->first;
+            int y=it->second;
+            while(y!=0)
+            {
+                ans.push_back(x);
+                y--;
+            }
+        }
+        return ans;
+    } 
+};
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
