@@ -15,9 +15,7 @@ Refrence:-  https://www.youtube.com/watch?v=3c6PgDfPqf8
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-class LRUCache {
-public:
-    class Node
+class Node
     {
         public:
         int key;
@@ -33,7 +31,8 @@ public:
             prev=NULL;
         }
     };
-
+class LRUCache {
+public:
     int cap;
     int count;
     Node* head;
