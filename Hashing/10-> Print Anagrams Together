@@ -1,0 +1,47 @@
+
+
+
+
+
+gfg:- https://practice.geeksforgeeks.org/problems/print-anagrams-together/1
+
+Input:
+N = 5
+words[] = {act,god,cat,dog,tac}
+Output:
+act cat tac 
+god dog
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution{
+  public:
+    vector<vector<string> > Anagrams(vector<string>& str) {
+        //code here
+        unordered_map<string,vector<string>>m;
+        
+        for(int i=0;i<str.size();i++)   //act,god,cat,dog,tac
+        {
+            string y=str[i];          //ek ek string ko uthao jaise act uthaya,god uthaya
+            sort(y.begin(),y.end());  //manlo upar act uthaya usse sort krogr to act hi aega || god uthaya sort kroge to dgo aega
+            m[y].push_back(str[i]);  //abb mnalo god liya usse sort kiya dgo aya to dgo ke corresponding value rkhdo god jab jab koi aissa word sort krne
+                                    //par dgo aya to ussi dgo wali key meeh vector bna hai ussi meeh jaega
+        }                                                       key -> Value(vector meeh store hogi value key ke correspond)
+       //act,god,cat,dog,tac iss input par map aissa bnega kuch act-> [act,cat,tac]
+                                                                dgo-> [god,dog]
+        
+        vector<vector<string> >ans;  //2d vector bnalo isme har key ke correspond ek vector hai wo dalenge isme
+        
+        for(auto it=m.begin();it!=m.end();it++)  iterate kro key par
+        {
+            vector<string>take=it->second;   vector bnalo string type ka uske andar iterator ka second mtlb vector hoga wo pura isme lelo take mee
+            ans.push_back(take); abb 2 d meeh push krdo take ko
+        }
+        return ans;
+        
+    }
+};
