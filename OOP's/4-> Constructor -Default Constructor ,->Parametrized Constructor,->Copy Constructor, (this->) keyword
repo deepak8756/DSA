@@ -1,0 +1,251 @@
+
+
+Manlo ek Hero Ramesh naam ka object bnaya  
+to jab bhi hum koi object create krte sab se pehli cheez call hoti hai Constructor  jab bhi koi object ko create krte hai..
+
+1->Object creation ke time pe invoke hota hai.
+2->iska koi return type nhi hota
+
+
+to jab hu likhte hai Hero ramesh iska behind the scene kya hota  ramesh.Hero() ramesh object ka hero wala class call krdiya
+
+aur ye by deafult rehta hai jab bhi class bnta aur object create hota ye khud see wha rehta par dikhta nhi hai isse hum khud see bhi likh skte hai
+
+1-> default constructor wo jisme kuch na koi parameter na ho khali ho 
+2->aissa construcotr jisme kuch parameter honge
+------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+
+class Hero{
+    
+    private:
+    int health;
+    public:
+    char level;
+
+    //constructor bna liya  default constructor hai ye
+    Hero(){
+        cout<<"constructor call"<<endl;
+    }
+
+   //getter private par bhi kaam krta hai aur public par bhi
+    int getHealth(){
+        return health;
+    }
+
+    char getLevel(){
+        return level;
+    }
+
+    //setter private par bhi kaam krta hai aur public par bhi
+
+    void setHealth(int h){
+        health=h;
+    }
+
+    void setLevel(char c){
+        level=c;
+    }
+    
+};
+
+int main()
+{
+    //object create statically
+    cout<<"hi"<<endl;
+    Hero ramesh;  // ye likha ye upar gya aur constructor call hogya abb khud see likh diye hai isliye dikh rha hai output
+    cout<<"Hello"<<endl;
+    
+    //dynamically meeh bhi same constructor hi call hoga
+    Hero *shyam=new Hero();   //ye bhi wii print krega
+
+
+    return 0;
+}
+------------------------------------------
+#Output:
+hi
+constructor call
+Hello
+constructor call
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+jaise hi hum apni khud ki constructor ki implementation likh dete hai default wali haat jati hai inbuilt wali jo compiler ne bnaya tha wo gya abb exist nhi
+krega jo humne bnaya hai abb wo exist krega
+--------------------------
+
+2-> Parametrized Constructor  (YHA ATA HAI this keyword)
+
+
+*****************************this keyword:- jo bhi mera object hoga na uska address this keyword ke andar store hota abb constructor meeh aissa likh diya
+manlo
+-----------------
+#include<bits/stdc++.h>
+using namespace std;
+
+class Hero{
+    
+    private:
+    int health;
+    public:
+    char level;
+
+    //constructor bna liya ye default hai isme kuch nhi arha hai value niche see parameter isliye default kehte hai isse
+    Hero(){
+        cout<<"constructor call"<<endl;
+    }
+
+    //parametrized constructor
+    Hero(int h){
+        this->health=h;   // ye this mera line 90 wale ka adress liya hua hai health ka abb jo h aya niche see iss health ki int value dalne ke liye to
+    }                                               //this see daal lo
+      
+     Hero(int h,char c){
+        this->health=h;
+        this->level=c;
+    }
+    
+    
+   //getter private par bhi kaam krta hai aur public par bhi
+    int getHealth(){
+        return health;
+    }
+
+    char getLevel(){
+        return level;
+    }
+
+    //setter private par bhi kaam krta hai aur public par bhi
+
+    void setHealth(int h){
+        health=h;
+    }
+
+    void setLevel(char c){
+        level=c;
+    }
+
+
+    
+};
+
+int main()
+{
+    //object create statically
+    cout<<"hi"<<endl;
+    Hero ramesh(30);
+    cout<<ramesh.getHealth()<<endl;
+    cout<<"Hello"<<endl;
+
+
+    //object create Dynamically
+    Hero *shyam=new Hero(11);
+    cout<<shyam->getHealth()<<endl;
+    cout<<shyam->getLevel()<<endl;
+
+
+    return 0;
+}
+---------------------
+Output:-
+hi
+30
+Hello
+11
+A
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Agar default constructor ke badle apne see koi constructor likh diye jisme value kuch upar jarhi hongi to chlega 
+ex dekho :-
+2 constructor likhe khud see pehle wala health leta hai parameter meeh || dusra wala health aur level leta hai parameter meeh
+abb maine object bnaya  Hero ramesh(20)health dedi to pehla wala call ho jaega theek
+fir ek object bnaya Hero shyam(20,'A')isme health aur level dediya dusra wala call ho jaega constructor
+chahe jitne object bnao agar parameter meeh wo sirf health ya health,level dono de to constructor likha hai but
+
+agar maine ye bnaya Hero shyamu; ye koi parameter nhi derha to default wala constructor nhi hai abb hmare pass ye nhi chlega 
+---------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+
+class Hero{
+    
+    private:
+    int health;
+    public:
+    char level;
+
+  
+
+    //parametrized constructor
+
+    Hero(int h){
+        this->health=h;
+    }
+
+    Hero(int h,char c){
+        this->health=h;
+        this->level=c;
+    }
+
+   //getter private par bhi kaam krta hai aur public par bhi
+    int getHealth(){
+        return health;
+    }
+
+    char getLevel(){
+        return level;
+    }
+
+    //setter private par bhi kaam krta hai aur public par bhi
+
+    void setHealth(int h){
+        health=h;
+    }
+
+    void setLevel(char c){
+        level=c;
+    }
+
+
+    
+};
+
+int main()
+{
+    //object create statically
+    cout<<"hi"<<endl;
+    Hero ramesh(30);
+    cout<<ramesh.getHealth()<<endl;
+    cout<<"Hello"<<endl;
+
+    Hero *shyam=new Hero(11,'A');
+    cout<<shyam->getHealth()<<endl;
+    cout<<shyam->getLevel()<<endl;
+
+
+    Hero tt;  // ye koi parameter nhi derha aur default abb rha nhi kyuki khud see humne 2 constructor likh 
+                                                    // diye to ye nhi chlega
+
+    return 0;
+}
+---------------------
+YE ERROR DEGA tt ke liye koi constructor nhi default wala haat gya kyuki khud ka likh diye hai error aegi keeh rha ki no matching function to call 
+mtlb ki tt koi parameter nhi pass kr rha aur sare parameter pass kr rhe hai health ya level **ISKO FUNCTION KI TRAH TREAT KRO SAME EKDUM**agar niche see 
+value nhi derhe ya koi value kaam derhe hai parameter to kha function par lgti hai same whi 
+---------to iska solution hai ki tt ko default constructor mille aur ya to tt ko value provide kro jo ye upar jake constructor ke jo parameter hai unhe de
+to khali default constructor likh do
+
+ //constructor bna liya ye default hai isme kuch nhi arha hai value niche see parameter isliye default kehte hai isse
+ 
+    Hero(){
+        cout<<"constructor call"<<endl;
+    }
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+AGAR HUMNE EK BHI CONSTRUCTOR KHUD SEE LIKH DIYA TO JO DEFAULT WALA HAI WO HAAT JAEGA JO COMPILER /SYSTEM BNAKE DETA HAI AB WO NHI RHEGA
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
