@@ -247,5 +247,314 @@ AGAR HUMNE EK BHI CONSTRUCTOR KHUD SEE LIKH DIYA TO JO DEFAULT WALA HAI WO HAAT 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+                           COPY CONSTRUCTOR:- 
+                           ________________
+ 
+ 
+ Copy Constructor simply ek object ki value dusre assigned object ko copy krdeta hai 
+ ex:- manlo likha hai   Hero Suresh;  -> iski value hai health =70 aur level='A';
+ 
+ to agar ek aur object bnao Hero Ramesh(Suresh)-> mtlb ki jo health suresh ki thi whi health suresh ki bhi hai 
+ -----------------
+    Hero suresh;
+    suresh.setHealth(70);
+    suresh.level='A';
+    cout<<suresh.getHealth()<<endl;
+    cout<<suresh.level<<endl;
+
+
+    Hero Ramesh(suresh);  //ye copy kiya yha paar
+    cout<<suresh.getHealth()<<endl;
+    cout<<suresh.level<<endl;
+----------------------------
+
+
+Copy constructor khud ka bhi likh lo
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Hero{
+    
+    private:
+    int health;
+    public:
+    char level;
+
+    //constructor bna liya
+    Hero(){
+        cout<<"constructor call"<<endl;
+    }
+
+    //parametrized constructor
+
+    Hero(int h){
+        this->health=h;
+    }
+
+    Hero(int h,char c){
+        this->health=h;
+        this->level=c;
+    }
+
+    //copy constructor
+
+    Hero(Hero &temp){ //mpercent isliye likhe niche see pass by refrence hora nhi likhenge to copy bnegi fir usme value nhi jaegi jo niche see hero aya 
+       this->health=temp.health;  // hai jisme value copy honi hai usme nhi hogi
+       this->level=temp.level;                                 
+    }
+    
+   //getter private par bhi kaam krta hai aur public par bhi
+    int getHealth(){
+        return health;
+    }
+
+    char getLevel(){
+        return level;
+    }
+
+    //setter private par bhi kaam krta hai aur public par bhi
+
+    void setHealth(int h){
+        health=h;
+    }
+
+    void setLevel(char c){
+        level=c;
+    }
+
+    //print krne ke liye class meeh chahe jitne function bnao
+    void print(){
+        cout<<"health is: "<<this->health<<endl;
+        cout<<"level is: "<<this->level<<endl;
+    }
+    
+};
+
+int main()
+{
+
+
+
+    Hero suresh;
+    suresh.setHealth(70);
+    suresh.level='A';
+    cout<<suresh.getHealth()<<endl;
+    cout<<suresh.level<<endl;
+
+    Hero Ramesh(suresh);  //copy constructor ko suresh wala object bhej de rhe hai 
+    Ramesh.print();
+    
+
+   
+    return 0;
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+DEEP AND SHALLOW COPY:-
+
+shallow copy meeh:- manlo hero1 kaa naam best rkh diya  abb hero2 ko copy krdiya hero 1 ka sab kuch hero2 ke pass b hai mtlb ki hero2 ka naam bhi best hogya
+        ab hero2 ka naam change krdiya best ka b htake f mtlb ki fest to ye changes hero1 ke naam bhi dikhenge kyuki hero2 aur hero1 ki memory to same 
+        hai na to changes kiya to dono jgah krega change isliye dono hero1 meeh bhi fest hua aur hero2 meeh bhi . isliye default copy constructor
+        shallow copy krta hai
+        
+        
+Deep copy :- ye nhi krta 
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DESTRUCTOR:- memory ko De-allocate krne krne ke liye use hote(memory ko free krta hai) ye
+jab koi object ka scope khtam ho jata hai to destructor uski space free krdeta hai
+
+
+int main()
+{
+    Hero suresh;   
+}       // jaise hi compiler yha phucha 376 line par mtlb ab cheeze khtam hai to destructor call ho jaega apne aap aur memory ko free kradega
+
+class create hote hi automatically destructor bhi create ho jata hai khud bhi create kr skte hai iska bhi naam class ki naam see same rehta no return type
+no input parameter
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Hero{
+    
+    private:
+    int health;
+    public:
+    char level;
+
+    //constructor bna liya
+    Hero(){
+        cout<<"constructor call"<<endl;
+    }
+
+    //parametrized constructor
+
+    Hero(int h){
+        this->health=h;
+    }
+
+    Hero(int h,char c){
+        this->health=h;
+        this->level=c;
+    }
+
+    //copy constructor
+
+    Hero(Hero &temp){ //mpercent isliye likhe niche see pass by refrence hora nhi likhenge to copy bnegi fir 
+           this->health=temp.health;
+           this->level=temp.level;                                 //usme value nhi jaegi j niche see hero aya hai
+    }
+    
+   //getter private par bhi kaam krta hai aur public par bhi
+    int getHealth(){
+        return health;
+    }
+
+    char getLevel(){
+        return level;
+    }
+
+    //setter private par bhi kaam krta hai aur public par bhi
+
+    void setHealth(int h){
+        health=h;
+    }
+
+    void setLevel(char c){
+        level=c;
+    }
+
+    //print krne ke liye class meeh chahe jitne function bnao
+    void print(){
+        cout<<"health is: "<<this->health<<endl;
+        cout<<"level is: "<<this->level<<endl;
+    }
+
+    //destructor
+    ~Hero(){
+        cout<<"Destructor Bhai called: "<<endl;
+    }
+    
+};
+
+int main()
+{
+
+
+        //statically
+    Hero suresh;
+
+    //dynamically
+    Hero *Ramesh=new Hero();
+
+}
+OUTPUT:- 
+constructor call
+constructor call
+Destructor Bhai called:  
+yha dekho constructor to do baar call horha but destructor ek baar aissa kyu
+Reason:- jo statically wala object create kiya suresh naam ka uske liye destructor automatically called ho gya
+BUT  jo dynamically allocate krte hai uske liye nhi hua dynamically ke liye manually call krna hota hai destuctor manually kaise 
+LIHO MANUALLY MEEH ye (delete Ramesh;)
+                                                                    
+ example:- 
+ 
+ #include<bits/stdc++.h>
+using namespace std;
+
+class Hero{
+    
+    private:
+    int health;
+    public:
+    char level;
+
+    //constructor bna liya
+    Hero(){
+        cout<<"constructor call"<<endl;
+    }
+
+    //parametrized constructor
+
+    Hero(int h){
+        this->health=h;
+    }
+
+    Hero(int h,char c){
+        this->health=h;
+        this->level=c;
+    }
+
+    //copy constructor
+
+    Hero(Hero &temp){ //mpercent isliye likhe niche see pass by refrence hora nhi likhenge to copy bnegi fir 
+           this->health=temp.health;
+           this->level=temp.level;                                 //usme value nhi jaegi j niche see hero aya hai
+    }
+    
+   //getter private par bhi kaam krta hai aur public par bhi
+    int getHealth(){
+        return health;
+    }
+
+    char getLevel(){
+        return level;
+    }
+
+    //setter private par bhi kaam krta hai aur public par bhi
+
+    void setHealth(int h){
+        health=h;
+    }
+
+    void setLevel(char c){
+        level=c;
+    }
+
+    //print krne ke liye class meeh chahe jitne function bnao
+    void print(){
+        cout<<"health is: "<<this->health<<endl;
+        cout<<"level is: "<<this->level<<endl;
+    }
+
+    //destructor
+    ~Hero(){
+        cout<<"Destructor Bhai called: "<<endl;
+    }
+    
+};
+
+int main()
+{
+
+
+        //statically
+    Hero suresh;
+
+    //dynamically
+    Hero *Ramesh=new Hero();
+    delete Ramesh;
+}
+OUTPUT:- 
+constructor call
+constructor call
+Destructor Bhai called: 
+Destructor Bhai called:  abb sii hai ek apne app delete hogya suresh wala kyuki statically tha aur Ramesh dynamically tha to usko likh diye delete Ramesh;
+
+
+
+IMPORTANT:- Jaise har object ke creation par constructor ek hi baar call hota jab koi object create hota hai aisse hi DESTRUCTOR bhi ek hi baar call hota
+hai jab uske DESTRUCTION KA TIME HOTA Hai.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                                                                    
+                                                                    
 
 
