@@ -1,0 +1,150 @@
+
+
+Manlo ek Hero Ramesh naam ka object bnaya  
+to jab bhi hum koi object create krte sab se pehli cheez call hoti hai Constructor  jab bhi koi object ko create krte hai..
+
+1->Object creation ke time pe invoke hota hai.
+2->iska koi return type nhi hota
+
+
+to jab hu likhte hai Hero ramesh iska behind the scene kya hota  ramesh.Hero() ramesh object ka hero wala class call krdiya
+
+aur ye by deafult rehta hai jab bhi class bnta aur object create hota ye khud see wha rehta par dikhta nhi hai isse hum khud see bhi likh skte hai
+
+1-> default constructor wo jisme kuch na koi parameter na ho khali ho 
+2->aissa construcotr jisme kuch parameter honge
+------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+
+class Hero{
+    
+    private:
+    int health;
+    public:
+    char level;
+
+    //constructor bna liya  default constructor hai ye
+    Hero(){
+        cout<<"constructor call"<<endl;
+    }
+
+   //getter private par bhi kaam krta hai aur public par bhi
+    int getHealth(){
+        return health;
+    }
+
+    char getLevel(){
+        return level;
+    }
+
+    //setter private par bhi kaam krta hai aur public par bhi
+
+    void setHealth(int h){
+        health=h;
+    }
+
+    void setLevel(char c){
+        level=c;
+    }
+    
+};
+
+int main()
+{
+    //object create statically
+    cout<<"hi"<<endl;
+    Hero ramesh;  // ye likha ye upar gya aur constructor call hogya abb khud see likh diye hai isliye dikh rha hai output
+    cout<<"Hello"<<endl;
+    
+    //dynamically meeh bhi same constructor hi call hoga
+    Hero *shyam=new Hero();   //ye bhi wii print krega
+
+
+    return 0;
+}
+------------------------------------------
+#Output:
+hi
+constructor call
+Hello
+constructor call
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+jaise hi hum apni khud ki constructor ki implementation likh dete hai default wali haat jati hai inbuilt wali jo compiler ne bnaya tha wo gya abb exist nhi
+krega jo humne bnaya hai abb wo exist krega
+--------------------------
+
+2-> Parametrized Constructor  (YHA ATA HAI this keyword)
+
+
+*****************************this keyword:- jo bhi mera object hoga na uska address this keyword ke andar store hota abb constructor meeh aissa likh diya
+manlo
+-----------------
+#include<bits/stdc++.h>
+using namespace std;
+
+class Hero{
+    
+    private:
+    int health;
+    public:
+    char level;
+
+    //constructor bna liya
+    Hero(){
+        cout<<"constructor call"<<endl;
+    }
+
+    //parametrized constructor
+    Hero(int h){
+        this->health=h;   // ye this mera line 90 wale ka adress liya hua hai health ka abb jo h aya niche see iss health ki int value dalne ke liye to
+    }                                               //this see daal lo
+      
+     Hero(int h,char c){
+        this->health=h;
+        this->level=c;
+    }
+    
+    
+   //getter private par bhi kaam krta hai aur public par bhi
+    int getHealth(){
+        return health;
+    }
+
+    char getLevel(){
+        return level;
+    }
+
+    //setter private par bhi kaam krta hai aur public par bhi
+
+    void setHealth(int h){
+        health=h;
+    }
+
+    void setLevel(char c){
+        level=c;
+    }
+
+
+    
+};
+
+int main()
+{
+    //object create statically
+    cout<<"hi"<<endl;
+    Hero ramesh(30);
+    cout<<ramesh.getHealth()<<endl;
+    cout<<"Hello"<<endl;
+
+
+    //object create Dynamically
+    Hero *shyam=new Hero(11);
+    cout<<shyam->getHealth()<<endl;
+    cout<<shyam->getLevel()<<endl;
+
+
+    return 0;
+}
+
