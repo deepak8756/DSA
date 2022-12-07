@@ -1,0 +1,76 @@
+
+Dynamically:-jab bhi hum ye likhte hai:-  int *i=new int; iska mtlb i naam ka pointer bna usse kuch space milli aur new int heap memory meeh create hogya 
+                                                                     jake jisse 4 byte ki space milli heap meeh i point krega ye hai dynamically allocation
+                                                                                              
+ -----------------------------------------------------------------------------------------------------------------------------------------------------------
+ aisse hi object ko bhi dynamically allocate krskte hai 
+ manlo class ka naam Hero hai
+ 
+ Hero *h1=new Hero; ->hogya dynamically allocate
+ 
+ h1 ko kuch space milla jo ki point kr rha hoga heap memory meeh usse iss Hero ko jitni space deni hai utni space heap memory meeh de di gai hogi hero class 
+ ke variable ke hisab see
+ 
+ 
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------
+ #include<bits/stdc++.h>
+using namespace std;
+
+class Hero{
+    
+    private:
+    int health;
+    public:
+    char level;
+
+   //getter private par bhi kaam krta hai aur public par bhi
+    int getHealth(){
+        return health;
+    }
+
+    char getLevel(){
+        return level;
+    }
+
+    //setter private par bhi kaam krta hai aur public par bhi
+
+    void setHealth(int h){
+        health=h;
+    }
+
+    void setLevel(char c){
+        level=c;
+    }
+
+
+    
+};
+
+int main()
+{
+    //statically allocate
+    Hero ramesh;
+    ramesh.setHealth(70);
+    ramesh.level='A'; // ye krlo ya setlevel ki help see bhi kr skte hai level ko set par ye public hai to aisse hi krlo
+    cout<<"ramesh health is: "<<ramesh.getHealth()<<endl;
+    cout<<"ramesh level is "<<ramesh.level<<endl;
+
+
+
+    //dyamically allocation
+    Hero * ramu=new Hero;
+    (*ramu).setHealth(80);
+    (*ramu).setLevel('B');
+    cout<<"ramu health is: "<<(*ramu).getHealth()<<endl;
+    cout<<"ramu level is: " <<(*ramu).level<<endl;
+    
+    
+    //point ka symbol use krke bhi derefrencing krskte hai jo kaam star bnake krrhe (dynamic allocation meeh)
+    ramu->setHealth(90);
+    ramu->setLevel('D');
+    cout<<"ramu health is: "<<ramu->getHealth()<<endl;
+    cout<<"ramu level is: " <<ramu->level<<endl;
+    
+    
+    return 0;
+}
