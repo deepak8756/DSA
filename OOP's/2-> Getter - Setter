@@ -1,0 +1,87 @@
+ 
+ GETTER /SETTER
+ -> agar private data ko access krna hai class ke bahar to getter aur setter ka use krte hai hum
+ -----------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ -----------------------------
+ #include<bits/stdc++.h>
+using namespace std;
+
+class Hero{
+    
+    private:
+    int health;  //health private hai usse niche access kr rha hu abhi error arhi hai getter /setter bnado
+    public:
+    char level;
+    
+};
+
+int main()
+{
+    Hero h1;
+    h1.health=70;
+    h1.level='A';
+
+    cout<<h1.health<<endl;
+    cout<<h1.level<<endl
+    return 0;
+}
+---------------------------------
+
+
+GETTER -> getter class meeh see private data ko dega bahar isliye getter bnate hai.
+SETTER-> setter class ke private data ki value set krta hai isliye setter mtlb ek trah private data member ko class ke bahar see input dena wo kaam setter 
+krta //getter setter ek function hai jo class ke andar bnate hai class ki priavte sath hi sath public wali chezzo ko get ya set krne meeh
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Hero{
+    
+    private:
+    int health;
+    public:
+    char level;
+
+   //getter private par bhi kaam krta hai aur public par bhi
+    int getHealth(){
+        return health;
+    }
+
+    char getLevel(){
+        return level;
+    }
+    
+    
+    //setter private par bhi kaam krta hai aur public par bhi
+
+    void setHealth(int h){ // yha logic bhi lga skte isme hum chahte hai sirf user A naam ka hi banda set kr pae health to function meeh char name bhejdo
+        health=h;                                                               //condtion lgado if name=='A' hai to set kro nhi to nhi kroge
+    }
+
+    void setLevel(char c){
+        level=c;
+    }
+};
+
+int main()
+{
+    Hero ramesh;
+
+    //getter ka use -------------- 
+    cout<<"Ramesh health is : "<<ramesh.getHealth()<<endl;  //ye dekho ye class ke private member ko main meh access kr rha hai
+
+    //setter ka use---------------
+    ramesh.setHealth(70); 
+    //ab print kro private member class ka jo health hai usski health set krdi
+    cout<<"Ramesh health is : "<<ramesh.getHealth()<<endl; 
+
+    //ye to public hai isse chahe sidha aisse krlo ya upar wale ke jaise setter lgake krlo
+    ramesh.level='A';
+
+    cout<<"ramesh level is: "<<ramesh.level<<endl;
+    
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
