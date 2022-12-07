@@ -1,0 +1,95 @@
+
+
+Access Modifiers are of 3 Types:-  1.public   ||  2. private  || 3.protected
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. public:-
+
+public class meeh hum class meeh koi bhi variables ko bnae usse hum bahar class ke bahar bhi access kr skte hai .This is know as Public.
+----------------------------
+#include<bits/stdc++.h>
+using namespace std;
+
+class Hero{  //class bnadi
+
+    public:   //agar public nhi likhoge aur niche variable define krdoge to by default wo private mana jata hai isliye public likhte hai
+    char level;
+};
+
+int main()
+{
+    Hero h1;      // object create kiya class ka
+    h1.level='A';  //value daal di ussme
+    
+    cout<<h1.level<<endl;
+    
+    
+    return 0;
+}
+--------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2-> private:-
+private meeh hum jisko private rkehnge usse sirf class ke andar hi access kr paenge class ke baahr access nhi kr skte
+--------------------------------
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Hero{  //class bnadi
+    
+    int x;   // ye private hai kyuki public nhi likha to by default ye private baan gya
+    
+};
+
+int main()
+{
+    Hero h1;   //object bnaya
+    h1.x=4;   //private class ko access kr rha hu error de rha hai yha ye x ko nhi pehchan rha kyu kyuki wo private hai
+    cout<<h1.x<<endl;
+    
+    
+    return 0;
+}
+
+
+ERROR:-
+error: ‘int Hero::x’ is private within this context
+   13 |     h1.x=4;
+      |        ^
+h.cpp:6:9: note: declared private here
+    6 |     int x;
+      |         ^
+h.cpp:14:14: error: ‘int Hero::x’ is private within this context
+   14 |     cout<<h1.x<<endl;
+      |              ^
+h.cpp:6:9: note: declared private here
+    6 |     int x;
+---------------------------
+
+Agar class ke andar hi access kroge private ko to chlega Aur public class ke andar bahar dono jgah chlta hai
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3-> Protected:- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
