@@ -1,0 +1,34 @@
+
+
+
+
+
+
+
+Interview Bit:-   https://www.interviewbit.com/problems/2-sum/
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+ vector<int>ans;
+    
+ 
+     unordered_map<int,int>m;
+     
+     for(int i=0;i<A.size();i++)
+     {
+         if(m.find(B-A[i])!=m.end())
+         {
+             ans.push_back(m[B-A[i]]+1);
+             ans.push_back(i+1);
+             return ans;
+         }
+         if(m.find(A[i])==m.end()){ //ye isliye likha manlo upar minus krne par na milla
+             m[A[i]]=i; //lekin yha if meeh likho nhi to koi value baar baar aii to index
+         }      //update ho ta jaega
+         
+     }
+     return ans;
