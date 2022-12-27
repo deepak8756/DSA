@@ -7,12 +7,12 @@ to jab bhi hum koi object create krte sab se pehli cheez call hoti hai Construct
 2->iska koi return type nhi hota
 
 
-to jab hu likhte hai Hero ramesh iska behind the scene kya hota  ramesh.Hero() ramesh object ka hero wala class call krdiya
+to jab bhi likhte hai Hero ramesh iska behind the scene kya hota  ramesh.Hero() ramesh object ka hero wala class call krdiya
 
 aur ye by deafult rehta hai jab bhi class bnta aur object create hota ye khud see wha rehta par dikhta nhi hai isse hum khud see bhi likh skte hai
 
-1-> default constructor wo jisme kuch na koi parameter na ho khali ho 
-2->aissa construcotr jisme kuch parameter honge
+1-> Default constructor wo jisme kuch na koi parameter na ho khali ho 
+2-> Parametrized constructor aissa constructor jisme kuch parameter honge
 ------------------------------------
 #include<bits/stdc++.h>
 using namespace std;
