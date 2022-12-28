@@ -1,0 +1,261 @@
+//INHERITANCE
+  
+  //MODE OF INHERITANCE:- public
+//   PUBLIC HAI MODE OF INHERITANCE MTLB HUMAN KO MALE INHERIT KREGI AUR AB MALE BHI WHI SAB 
+//   PROPERTY CONTAIN KREGI PAR MALE MEEH SET KRSKTE HAI KI JO CHEEZ INHERIT KIYA MALE NE
+//   HUMAN SEE USSE KYA BNANA HAI TO YHA MEEH MODE OF INHERIT (PUBLIC DERHA)HUMAN SEE INHERIT KI 
+//   GAI SARRI CHEEZ MALE MEEH PUBLIC HOGI.
+
+//human class bhi public hai aur mode of inheritance bhi public hai to public hoga
+
+
+    //HUMAN ABHI PUBLIC HAI USSE INHERIT KRWAO MALE SEE TEENO ACCESS MODIFIERS SEE
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Human{
+    
+    public:  //ye private krdiya agr to inheit nhi kr paega male 
+    int age;
+    int weight;
+    int height;
+
+    int getage(){
+        return age;
+    }
+
+    void setage(int a){
+        this->age=a;
+    }
+};
+
+class Male:public Human{
+
+    public:
+    string colour;
+
+};
+
+int main()
+{
+    Male m1;
+    cout<<m1.age<<endl;
+    m1.setage(32);
+    cout<<m1.age<<endl;
+    return 0;
+}
+
+//---------------------------------------------------------
+
+
+
+//human class  public hai aur mode of inheritance bhi PROTECTED HAI hai to public hoga
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Human{
+    public:
+    int age;
+    int weight;
+    int height;
+
+    int getage(){
+        return this->age;
+    }
+
+    void setage(int a){
+        this->age=a;
+    }
+};
+
+class Male:protected Human{
+
+    public:
+    string colour;
+
+    int getage(){  //protected see inherit kiya hai human ka sab kuch yha protected hai to
+        return this->age; // getter lgaya hai protected same hotya hai private ki trah apni hi
+    }   //class meeh access kr skte hai protected ko bhi to getter lgake bahar dedo value
+
+};
+
+int main()
+{
+    Male m1;
+    cout<<m1.getage()<<endl;
+    return 0;
+}
+
+//-----------------------------------------------------------
+
+//human class  public hai aur mode of inheritance bhi Private HAI hai to Private  hoga
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Human{
+    public:
+    int age;
+    int weight;
+    int height;
+
+    int getheight()
+    {
+        return this->height;
+    }
+
+    void setheight(int h)
+    {
+        this->height=h;
+    }
+};
+
+
+class Male:private Human{
+
+        public:
+        int getage()
+        {
+            return this->age;
+        }
+
+};
+
+int main()
+{
+    Male m1;
+    cout<<m1.getage()<<endl;
+
+    return 0;
+}
+//----------------------------------------------------------------
+
+
+//hUMAN JO PUBLIC HAI USSE INHERIT KIYA MALE NE TEENO METHOD SEE -ABB HUMAN PROTECTED KRKE DEKHO -
+
+
+//HUMAN WALI CLASS MEEH HEIGHT PROTECTED HAI AGAR INHERIT KREGA MALE PUBLIC SEE TO PROTECTED AEGA
+//-#
+//->HUMAN WAI CLASS PROTECTED HAI MODE OF INHERITANCE PUBLIC HAI RESULT DERIVED MEEH PROTECTED RHEGA
+
+
+//human meeh jruri nhi height hi protected rhe koi bhi protected rhe agar inherit kiye to protected
+//ko to jo inherit krega wha bhi wo protected hi rhe rhega
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Human{
+    protected:
+    int height;
+
+    public:
+    int weight;
+    int age;
+
+
+    int getheight(){
+        return this->height;
+    }
+
+    void setheight(int h){
+        this->height=h;
+    }
+};
+
+class Male:public Human{
+
+};
+
+int main()
+{
+    Male m1;
+    m1.setheight(54);
+    cout<<m1.getheight()<<endl;
+
+    return 0;
+}
+
+//---------------------------------------------------------------------------
+//human class  protected hai aur mode of inheritance bhi PROTECTED HAI hai to public hoga
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Human{
+    protected:
+    int weight;
+
+    public:
+    int height;
+    int age;
+
+    int getweight(){
+        return this->weight;
+    }
+
+    void setweight(int h){
+        this->weight=h;
+    }
+};
+
+class Male:protected Human{
+
+    public:
+
+    int getweight(){
+        return this->weight;
+    }
+};
+
+int main()
+{
+    Male m1;
+    cout<<m1.getweight()<<endl;
+
+    return 0;
+}
+
+//-------------------------------------------------------
+
+//human class Protected rhegi ab aur mode of inherit private rhega
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Human{
+    protected:
+    int age;
+    int weight;
+    int height;
+
+    public:
+
+    int getage(){
+        return this->age;
+    }
+
+    void setage(int a){
+        this->age=a;
+    }
+};
+
+class Male:private Human{
+
+    public:
+    int getage(){
+        return this->age;
+    }
+};
+
+int main()
+{
+    Male m1;
+    cout<<m1.getage();
+    return 0;
+}
+
+//------------------------------------------------------------------------------------
+
