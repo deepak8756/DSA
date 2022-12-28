@@ -258,4 +258,39 @@ int main()
 }
 
 //------------------------------------------------------------------------------------
+//KISI BHI CLASS KE PRIVATE MEMBER KO INHERIT NHI KR SKTE CHAHE BASE CLASS JISS BHI MODE SEE
+//INHERIT KYU NA KRE
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Human{
+    private:
+    int age;
+
+    public:
+    int getage(){
+        return this->age;
+    }
+
+
+};
+
+class Male:public Human{
+
+    public:
+    int getage(){
+        return this->age;
+    }
+};
+
+int main()
+{
+    Male m1;
+    cout<<m1.age<<endl;
+    return 0;
+}
+
+//------------------------------------------------------------------------------
+
 
