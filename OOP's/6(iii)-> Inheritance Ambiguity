@@ -1,0 +1,102 @@
+
+*******INHERITANCE AMBIGUITY*******
+____________________________________
+
+
+INHERITANCE AMBIGUITY:- isme manlo A ek class hai B ek class hai  dono meeh function bna hai same naam ka f1() ye function dono meeh hai same naam ka
+                    Abb C aya usne inherit krliya A,B dono ko but jab C ko A ka function call krna hai but wo to mismatch hoga kyuki A ,B dono ke function 
+                     naam same hi hai C wala kaise pehchanega ki kisko call krna hai to yha ata hai kyuki dono ke function naam to same hai to yha ata hai
+                     "INHERITANCE AMBIGUITY"
+                     isko solve krne ka trike scope resolution use krlo ye hai scope resolution ::
+                     
+                     jiska function use krna hai wo likho 
+                     obj mera C class ka object jo inherit kiya hai A B ko 
+                     obj.A::func();  //ye keh rha obj ko A ka function use krna hai
+                     
+  ----------------------------------------------------------------------------------
+  DEKHO YE ERROR AEGI
+  #include<bits/stdc++.h>
+using namespace std;
+
+class A{
+    public:
+
+    void f(){
+        cout<<"Hi i am A"<<endl;
+    }
+
+
+};
+
+class B{
+
+    public:
+
+    void f(){
+        cout<<"Hi i am B"<<endl;
+    }
+
+};
+
+class C:public A,public B{ //ye A,B ko inherit kiya A aur B meeh same naam ke function pde hai
+    public:
+};
+
+int main()
+{
+    C c1;
+    c1.f();  //YE PEHCHAN NHI PA RHA HAI ki kaun see class ka function mang rhe ho inherit isne dono ko kiya dono same naam ke function the 
+    return 0;
+}
+
+OUTPUT:-
+
+inheritances.cpp: In function ‘int main()’:
+inheritances.cpp:496:8: error: request for member ‘f’ is ambiguous  //->dekho ye bola na
+  496 |     c1.f();
+      |        ^
+inheritances.cpp:483:10: note: candidates are: ‘void B::f()’
+  483 |     void f(){
+      |          ^
+inheritances.cpp:472:10: note:                 ‘void A::f()’
+  472 |     void f(){
+--------------------------------------------------------------------------------------------------------------------------------------
+
+SOLUTION ISKA:-
+#include<bits/stdc++.h>
+using namespace std;
+
+class A{
+    public:
+
+    void f(){
+        cout<<"Hi i am A"<<endl;
+    }
+
+
+};
+
+class B{
+
+    public:
+
+    void f(){
+        cout<<"Hi i am B"<<endl;
+    }
+
+};
+
+class C:public A,public B{ //ye A,B ko inherit kiya A aur B meeh same naam ke function pde hai
+    public:
+};
+
+int main()
+{
+    C c1;
+    //c1.f();//->error dega pta nhi chal rha kiska function call kra chah rha A ya B 
+    c1.A::f();   //A ka function use krlo
+    c1.B::f();    //B ka function use krlo
+    return 0;
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
