@@ -1,0 +1,130 @@
+
+Polymorphism:-  poly->many
+                morphism->forms
+                (many,forms) ek cheez ki multiple forms ya existance 
+                Example:-    
+                father-> from my side i am his son 
+                father-> from my mother side he is the husband
+                father-> from  my sister side she's the daughter
+                yha father ke kitti sarri existance hai hai ek hi but role alag alag hai yii hai one thing many froms
+                
+                
+                JAB EK CHEEZ MULTIPLE FORMS MEEH EXIST KRTI HAI TO POLYMORPHISM HO RHA HAI:-
+                
+                2 TYPES:-
+                1-> COMPILE TIME POLYMORPHISM.(static Polymorphism)
+                2-> RUN TIME POLYMORPHISM.(Dynamic Polymorphism)
+                
+                
+                
+  -----------------------------------------------------------------------
+  1.COMPILE TIME POLYMORPHISM:- 
+  2 Types:-
+  1(i)->Function OverLoading.
+  1(ii)-> Operator Overloading.
+  
+  1->Function Overloading :- 
+  ek class meeh same type ke function name rkh do but jo parameter hai wo different rhe same name rhe ya return type kuch bhi rhe but parameter different
+  rhe kisi ka bhi parameter same na ho jisse signature kehte to jab niche see call hoga wo class meeh jake signature match krega
+  ex:- 
+  
+  class C1{
+  void sayhello()
+  void sayhello(string name)
+  int sayhello(int i)-> yha par return type change krdo aissa nhi parameter change krna jruri hai nhi to niche see ake yha confuse hoga to sayhello ko 
+  }                     parameter do koi  .
+                         
+  abb manlo niche see C1 c;
+  c.sayhello();->ye upar jake signature match krega kisse match krr rha hai line no 32 see wha b parameter meeh kuch nhi hai yha bhi to wo chal jaega
+  c.sayhello("deepak"); -> ye jake 33 wale see signature match kr jaega 
+  
+  EXAMPLE DEKHO:-   SAME FUNCTION RHEGA DIFFERENT DIFFERENT ARGUMENTS WALA
+  
+  #include<bits/stdc++.h>
+using namespace std;
+
+class Calling{
+
+    public:
+    void sayhello(){
+        cout<<"Hello"<<endl;
+    }
+
+    void sayhello(string title){
+        cout<<title<<" Deepak singh"<<endl;
+    }
+
+
+    int sayhello(int i)
+    {
+        cout<<"Age is: "<<i<<endl;
+        return i;
+    }
+};
+
+int main()
+{
+    Calling c1;
+    c1.sayhello();      //   ye teeno jake signature match kraega jo jiss function see match kr gya wo chal jaega
+    c1.sayhello("MR");
+    c1.sayhello(25);
+    return 0;
+}
+
+ 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+2-> Operator Overloading:-  jo plus operator hai(+) wo add krleta hai  ya koi bhi operator hai yha + ki baat krr rha hu ha to jo plus operator hai 
+wo do cheezo ko add kra deta hai int ki String ke case meeh concatenate kra leta hai dono ko BUT MEEH YHA CHAHTA HU KI ISS OPERATOR KA USE KRKE MEEH
+KUCH BHI KRWANA CHAHTA HU AUR YE KRKE DE ADD KRTA HAI NA MEEH ISSE CHAHTU HU YE ADD(subtract krke de) ya meeh chahte hu ye add operator mera naam print
+kr wa ke de
+
+operator overloading see wo kaam krwa skte hai jo kaam hme krwana chahiye
+--------------------------------------END-------------------------------------------------------------------------------------------------------------------
+
+
+---------------------------------
+
+RUN TIME POLYMORPHISM:- Run time polymorphism meeh inheritance jruri hai uske binna ye nhi ho skta 
+1-> Method OverRiding:-
+                  yha par A ko inherit krega B to sare function B ke pass aajanege A ke par ka koi function hai jo mujhe override krna hai to same wo
+                  A wala function b meeh lao same name same return type sab kuch ab jo changes krne hai krlo 
+                  
+#include<bits/stdc++.h>
+using namespace std;
+
+class Animal{
+    public:
+
+    void voice(){
+        cout<<"speaking"<<endl;
+    }
+
+    void volume()
+    {
+        cout<<"30%"<<endl;
+    }
+};
+
+class Dog:public Animal{     //dog animal ko inherit kiya but animal meeh speak hai voice naam ka function but dog bark krega to wo pura function 
+    public:                    // yha paste krlo aur changes krdo yaad rkho return type aur function naam same rhega bakki animal ka volume inherit
+                                // kiya hi hai niche dekhlo simple call krdiya
+    void voice(){
+        cout<<"Barking"<<endl;
+    }
+};
+
+int main()
+{
+    Dog d1;
+    d1.voice();
+    d1.volume();
+    return 0;
+}
+
+Example:- manlo A meeh 10 function pdde hai aur B ne  A ko inherit krliya to mtlb ki B ke pass bhi 10 function a gae but B ko 8 hi use krne hai bakki 2
+usse apne khud ke use krne hai to yii hai method overriding
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
