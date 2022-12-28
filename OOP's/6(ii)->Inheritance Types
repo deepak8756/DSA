@@ -1,0 +1,179 @@
+Types of Inheritance:-
+1.Single Inheritance.
+2.Multi-level Inheritance.
+3.Multiple Inheritance.
+4.Hierarchical Inheritance.
+5.Hybrid Inheritance.
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+//1-> SINGLE INHERITANCE  example:- JAB EK DERIVED CLASS EK BASS CLASS KOI INHERIT KRE
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Animal{
+    public:
+    int weight;
+    int age;
+
+    public:
+    int getweight()
+    {
+        return this->weight;
+    }
+
+    void setweight(int w){
+        this->weight=w;
+    }
+
+    public:
+    void f(){
+        cout<<"animal voice"<<endl;
+    }
+
+};
+
+class Dog:public Animal{
+    public:
+    
+};
+
+int main()
+{
+    Dog a1;
+    cout<<a1.age<<endl;
+    a1.f();
+    return 0;
+}
+//----------------------------------------------------------------------------
+
+//2-> MULTI LEVEL INHERITANCE :- A ne B ko inherit kiya abb c ne B ko inherit kiya ab D ne C ko
+//inherit kiya level wise A<-B<-C<-D<-E   yii hi jab derived class bass ko inherit kre aur fir
+//ussi derived class ko teesra koi inherit krle to wo dervied ab bass baan gai yii process chlega
+
+//Example:-
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Animal{
+    public:
+    int age;
+    int weight;
+
+    public:
+
+    void f(){
+        cout<<"speaking";
+    }
+};
+
+class Dog:public Animal{
+
+};
+
+class Labra:public Dog{
+
+};
+
+int main()
+{
+    Labra l1;
+    l1.f();
+
+    return 0;
+}
+
+//--------------------------------------------------------------------------------
+
+//3-> MULTIPLE INHERITANCE  :- assume 2 class hai A and B aur c kehti hai dono ko inherit kregi 
+
+//Example:-
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Animal{
+    public:
+
+    void f(){
+        cout<<"voice"<<endl;
+    }
+};
+
+class Dog{
+    public:
+
+    void f1(){
+        cout<<"Bark"<<endl;
+    }
+};
+
+//now doing multiple inheritance aniaml dog dono ko le rhe hai labra meeh
+class Labra:public Animal,public Dog{
+
+};
+
+int main()
+{
+    Labra l1;
+    l1.f();
+    l1.f1();
+
+    return 0;
+}
+
+//-------------------------------------------------------------------------------
+
+//4-> Hierarchical Inheritance. Tree smjhlo parent child manlo parent ke 2 child to unn 2 child 
+//                              ka wo parent rhega ex:- A parent hai (bass class) aur B and C
+// child hai derived class yii hai ab b ke child honge usse koi inherit kiya to wo parent uskw child
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Human{
+    public:
+
+    int age;
+    int weight;
+    int height;
+
+    public:
+    void h(){
+        cout<<"Ancestors"<<endl;
+    }
+};
+
+class Male:public Human{
+
+};
+
+class Female:public Human{
+
+};
+int main()
+{
+    Male m1;
+    Female f1;
+    m1.h();
+    f1.h();
+    return 0;
+}
+
+//-------------------------------------------------------------------------------------
+
+//5-> Hybrid Inheritance:- sab ko mila do A ko B inherit krega B ko C inherit kre D ->A,B,C
+                        // teeno ko inherit kre aissa hi kuch apne see kuch bhi krlo yii hai
+                        
+                        
+  -------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
