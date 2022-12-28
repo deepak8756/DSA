@@ -72,6 +72,11 @@ Agar class ke andar hi access kroge private ko to chlega Aur public class ke and
 
 3-> Protected:- 
 
+Protected is same as Private bass protected meeh data members class ke andar hi use kr skte hai aur ya protected wali class ko koi inherit krle derived
+class bnke tab uske members ko access kr skte hai.
+tabki private base class ke members ko koi subclas/base class access nhi krskti
+private meeh bass wo ya to class ke andar call krskte hai ya getter setter lgake bahar do
+
 
 
 
