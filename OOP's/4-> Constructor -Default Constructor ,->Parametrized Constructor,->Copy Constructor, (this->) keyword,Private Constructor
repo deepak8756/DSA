@@ -555,7 +555,38 @@ hai jab uske DESTRUCTION KA TIME HOTA Hai.
 
 
                                                                     
-PRIVATE CONSTRUCTOR:-
+PRIVATE CONSTRUCTOR:-   friend function ki help see bhi krskte friend function agar koi hai to wo uss class ka sab kuch access kr skta hai
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class A{
+    private:    A ka constructor private hai to main see object nhi baan paega
+    A(){
+        cout<<"A constructor "<<endl;
+    }
+    friend class B;   //B ko friend bna diya isne
+};
+
+class B{
+    public:   
+    B(){     
+        A a1;   // ye a ko access kr skta hai kyuki ye friend hai abb a ka object bna rha hai ye a1 upar gya apna constructor call krdiya print krdega jo hai
+        cout<<"B constructor "<<endl;  //fir ye apna khud ka print krega b ke constructor meeh hai hi
+    }
+};
+
+
+int main()
+{
+    B b1;
+    return 0;
+}
+
+#output:- 
+
+A constructor 
+B constructor
 _____________________
 
 #include<bits/stdc++.h>
