@@ -555,6 +555,43 @@ hai jab uske DESTRUCTION KA TIME HOTA Hai.
 
 
                                                                     
-                                                                    
+PRIVATE CONSTRUCTOR:-
+_____________________
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Admin{
+    
+    Admin(){
+        cout<<"This is Private Constructor"<<endl;
+    }
+
+    public:
+    void f1(){
+        cout<<"working "<<endl;
+    }
+    static Admin* getadmin(){  //static member class ko belong krte hai object ko nhi binna obj ke call honge
+        Admin *ptr=new Admin;
+        return (ptr);
+    }
+
+};
+
+int main()
+{
+    Admin *pointadmin;
+    pointadmin=Admin::getadmin();
+
+    pointadmin->f1();
+
+
+
+
+
+    return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
 
 
