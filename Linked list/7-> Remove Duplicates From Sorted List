@@ -27,3 +27,37 @@ Node * uniqueSortedList(Node * head) {
     return head;
  
 }
+
+----------------------------------------------------------ANOTHER SOLUTION--------------------------------------------------------------------------------------
+
+Node * removeDuplicates(Node *head)
+{
+    // Write your code here
+    if(head==NULL || head->next==NULL)
+    {
+        return head;
+    }
+    
+    Node* temp=head->next;
+    Node* tempPrev=head;
+
+    while(temp!=NULL)
+    {
+        if(tempPrev->data!=temp->data)
+        {
+            tempPrev->next=temp;
+            tempPrev=temp;
+            temp=temp->next;
+        }else{
+            temp=temp->next;
+        }
+        
+    }
+    if(tempPrev->next!=NULL){  //ye isliye likha hai kyuki ek baar check krlo at the end meeh tempprev NULL rhe for this test case(1->2->3->4->5->5->5)
+        tempPrev->next=NULL;
+    }
+    return head;
+    
+    
+}
+
