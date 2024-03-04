@@ -96,7 +96,6 @@ public:
 
       WORKING IMPLEMENTATION
 
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -120,6 +119,7 @@ class Stack{
         if(size-top>1){
             top++;
             arr[top]=number;
+            cout<<"pushed this value in stack: "<<arr[top]<<endl;
         }
         else{
             cout<<"Stack underflow : Can't push more please increase size "<<endl;
@@ -171,11 +171,15 @@ int main()
     Stack st(5);
     st.push(29);
     st.push(30);
-    st.pop();
-    cout<<st.sized()<<endl;
-    st.pop();
+    st.push(40);
+    st.push(50);
+    st.push(60);
+    st.push(80);
+    //st.pop();
+    //cout<<st.sized()<<endl;
+    //st.pop();
     //cout<<st.topp()<<endl;
-    st.isEmpty();
+   //st.isEmpty();
     
     return 0;
 }
