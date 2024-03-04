@@ -91,3 +91,91 @@ public:
     }
     
 };
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+      WORKING IMPLEMENTATION
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class Stack{
+
+
+    public:
+    int *arr;
+    int top;
+    int size;
+
+    Stack(int length){
+        this->size=length;
+        arr=new int[size];
+        top=-1;
+    }
+
+
+    void push(int number){
+        if(size-top>1){
+            top++;
+            arr[top]=number;
+        }
+        else{
+            cout<<"Stack underflow : Can't push more please increase size "<<endl;
+        }
+    }
+
+    void pop(){
+        if(top>=0 && top<size){
+            int x=arr[top];
+            top--;
+            cout<<"poped element from the stack is: "<<x<<endl;
+        }
+        else{
+            cout<<"Nothing to pop"<<endl;
+        }
+    }
+
+    int topp(){
+        if(top>=0){
+            return arr[top];
+        }
+        else{
+            cout<<"No element on the top"<<endl;
+            return -1;
+        }
+    }
+
+    void isEmpty(){
+        if(top==-1){
+            cout<<"stack is empty : "<<endl;
+        }
+        else{
+            cout<<"stack is not empty"<<endl;
+        }
+    }
+
+    int sized(){
+        if(top>=0 && top<size){
+            return top+1;
+        }
+        else{
+            return -1;
+        }
+    }
+};
+
+int main()
+{
+    Stack st(5);
+    st.push(29);
+    st.push(30);
+    st.pop();
+    cout<<st.sized()<<endl;
+    st.pop();
+    //cout<<st.topp()<<endl;
+    st.isEmpty();
+    
+    return 0;
+}
