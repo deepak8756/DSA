@@ -1,0 +1,41 @@
+LEETCODE:-   https://leetcode.com/problems/rotate-image/description/
+
+Do transpose then reverse the matrix.
+
+Input: matrix = [[1,2,3]
+                 [4,5,6]
+                 [7,8,9]]
+
+
+step 1 transpose = [[1,4,7]
+                    [2,5,8]
+                    [3,6,9]]
+
+In matrix while doing transpose diagonal element will not change, wo aisse hi rhenge
+
+step 2:-
+
+
+Output: [[7,4,1]
+         [8,5,2]
+         [9,6,3]]
+
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        
+
+        for(int i=0;i<matrix.size();i++)
+        {
+            for(int j=i+1;j<matrix.size();j++)
+            {
+                swap(matrix[i][j],matrix[j][i]);
+            }
+        }
+
+        for(int i=0;i<matrix.size();i++)
+        {
+            reverse(matrix[i].begin(),matrix[i].end());
+        }
+    }
+};
