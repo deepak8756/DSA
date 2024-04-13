@@ -1,0 +1,77 @@
+
+Leetcode -> https://leetcode.com/problems/group-anagrams/description/
+
+
+
+
+
+// inplace of getSort function we can use sort(_) function also .... sort time complexity is (nlog n) thats why we found new way to sort the element based on array
+
+
+
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        
+        // create ans vector 
+        vector<vector<string> > ans;
+
+        //create unordere map to store element key part is sorted 
+        //element and value is original
+        //example tan when we sort it's ant so this is key and value
+        //is tan.... so the final key ---> value part is ant--->tan
+        unordered_map<string,vector<string> > mp;
+
+
+        for(int j=0;j<strs.size();j++)
+        {
+            string word=strs[j]; // iterate on which word of array
+
+            string sorted_word=getSort(word);// sort them using vector
+
+            mp[sorted_word].push_back(word);//now fill the map
+        }
+
+        for(auto it:mp)
+        {
+            vector<string>save=it.second;//now just iterate on map
+            // fetch the value part which is vector 
+            ans.push_back(save);
+
+        }
+
+        return ans;
+
+    }
+private:
+string getSort(string &word)
+    {
+        int arr[26]={0}; //create 26 size empty array where each index
+                            // is 0 in start
+        string finalword;
+        for(auto it:word) // now word contains string iterate on each 
+                            // character
+        {
+            char ch=it;
+            arr[ch-'a']++; // way to insert element on array
+            // suppose ch=d so..d ascii value is 100 and a ascii is 97
+            // now when we do 100 -97 we got 3
+            so just increment ++ on 3rd index || 0 index means a so 
+                                              //3rd index means d
+        }
+        int size=sizeof(arr)/sizeof(arr[0]);
+        for(int i=0;i<size;i++)
+        {
+            if(arr[i]>0)
+            {
+                finalword+=string(arr[i],'a'+i);
+                // this line is iterating on array and where we got 1
+                // we fewtch that index
+//soppose we got one on 2th index means 'a' +i =where i is 2th index
+                // a ascii value is 97 + 2 =99 || ascii value c=99
+                //string(arr[i],'a'+i); and arr[i] index means how 
+                // many characters we want to append string means type
+            }
+        }
+        return finalword;
+    }
+
+};
