@@ -1,0 +1,47 @@
+LEETCODE:- https://leetcode.com/problems/sum-root-to-leaf-numbers/description/
+
+
+void find(TreeNode* &root,int &ans,int total,vector<int>&store,int no)
+    {
+
+        if(root == NULL)
+        {
+            return;
+        }
+        if(root->left==NULL && root->right==NULL)
+        {
+            no=root->val;
+            total=10*total+no;
+            store.push_back(total);
+            return;
+        }
+
+        
+
+        no=root->val;
+        total=10*total+no;
+
+        find(root->left,ans,total,store,no);
+        find(root->right,ans,total,store,no);
+        return;
+
+
+    }
+
+    int sumNumbers(TreeNode* root) {
+        int ans=0;
+        if(root ==NULL)
+        {
+            return ans;
+        }
+        int total=0;
+        int no=0;
+        vector<int>store;
+        find(root,ans,total,store,no);
+
+        for(int i=0;i<store.size();i++){
+            cout<<store[i]<<" ";
+            ans+=store[i];
+        }
+        return ans;
+    }
