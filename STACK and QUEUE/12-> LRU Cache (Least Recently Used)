@@ -116,3 +116,101 @@ public:
     }
 
 };
+
+
+//---------------------------------------------no comments same code------------------------------------------------------------------------------------------
+
+class Node{
+    public:
+    int key;
+    int value;
+    Node* prev;
+    Node* next;
+
+    Node(int key,int value)
+    {
+        this->key=key;
+        this->value=value;
+        prev=NULL;
+        next=NULL;
+    }
+};
+
+class LRUCache {
+public:
+    int cap;
+    int count;
+    Node* head;
+    Node* tail;
+    unordered_map<int,Node*>mp;
+
+    LRUCache(int capacity) {
+       cap=capacity;
+       count=0;
+       head=new Node(0,0);
+       tail=new Node(0,0);
+
+       head->next=tail;
+       head->prev=NULL;
+       tail->next=NULL;
+       tail->prev=head;
+
+    }
+    
+    int get(int key) {
+        if(mp.find(key)!=mp.end())
+        {
+            int ans=mp[key]->value;
+            erase(mp[key]);
+            Node* curr=add(key,ans);
+            mp[key]=curr;
+            return ans;
+        }
+        else{
+            return -1;
+        }
+    }
+    
+    void put(int key, int value) {
+        if(mp.find(key)!=mp.end())
+        {
+            erase(mp[key]);
+            Node* current=add(key,value);
+            mp[key]=current;
+        }
+        else{
+            if(count>=cap)
+            {
+                int remove=tail->prev->key;
+                erase(mp[remove]);
+                mp.erase(remove);
+            }
+            Node* current=add(key,value);
+            mp[key]=current;
+            count=min(count+1,cap);
+        }
+    }
+
+    void erase(Node* it)
+    {
+        Node* next=it->next;
+        Node* prev=it->prev;
+        delete(it);
+        prev->next=next;
+        next->prev=prev;
+
+    }
+
+    Node* add(int key,int val)
+    {
+        Node* newNode=new Node(key,val);
+        Node* next=head->next;
+        newNode->next=next;
+        newNode->prev=head;
+        next->prev=newNode;
+        head->next=newNode;
+        
+        return newNode;
+    }
+};
+
