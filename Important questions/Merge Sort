@@ -1,0 +1,85 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void merge(vector<int>&v,int start,int middle,int end)
+{
+    vector<int>leftside(middle-start+1);
+    vector<int>rightside(end-middle);
+
+    for(int i=0;i<leftside.size();i++)
+    {
+        leftside[i]=v[start+i];
+    }
+
+    for(int i=0;i<rightside.size();i++)
+    {
+        rightside[i]=v[middle+i+1];
+    }
+
+    int left=0,right=0,currentindex=start;
+
+    while(left<leftside.size() && right<rightside.size())
+    {
+        if(leftside[left]<rightside[right])
+        {
+            v[currentindex]=leftside[left];
+            left++;
+        }
+        else{
+            v[currentindex]=rightside[right];
+            right++;
+        }
+        currentindex++;
+    }
+
+    while(left<leftside.size())
+    {
+        v[currentindex]=leftside[left];
+        left++;
+        currentindex++;
+    }
+
+    while(right<rightside.size())
+    {
+        v[currentindex]=rightside[right];
+        right++;
+        currentindex++;
+    }
+    for(int i=0;i<v.size();i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<endl;
+
+}
+
+
+void sort(vector<int>&v,int start,int end)
+{
+    if(start<end)
+    {
+        int middle=(start+end)/2;
+
+
+        sort(v,start,middle);
+        sort(v,middle+1,end);
+
+        merge(v,start,middle,end);
+
+    }
+}
+
+
+int main()
+{
+    vector<int>v{2,-1,5,0,2 ,5,7,3,-5,0};
+
+    sort(v,0,v.size()-1);
+
+    for(int i=0;i<v.size();i++)
+    {
+        cout<<v[i]<<" ";
+    }
+
+    return 0;
+}
