@@ -184,10 +184,11 @@ public:
                 int remove=tail->prev->key;
                 erase(mp[remove]);
                 mp.erase(remove);
+                count--;
             }
             Node* current=add(key,value);
             mp[key]=current;
-            count=min(count+1,cap);
+            count++;
         }
     }
 
