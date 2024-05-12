@@ -75,3 +75,78 @@ string getSort(string &word)
     }
 
 };
+
+
+//----------------------------------------------------ON VS CODE----------------------------------------------------------------------------------------------------
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+string getSort(string str)
+{
+    vector<int>number(25,0);
+    for(int i=0;i<str.length();i++)
+    {
+        char ch=str[i];
+        number[ch-'a']++;
+    }
+    string sortedstring;
+    for(int i=0;i<number.size();i++)
+    {
+        if(number[i]==1)
+        {
+            sortedstring+=string(number[i],i+'a');
+        }
+    }
+    return sortedstring;
+}
+
+int main()
+{
+    vector<string>v{"eat","tea","tan","ate","nat","bat"};
+
+
+    unordered_map<string,vector<string> >mp;
+
+    vector<vector<string> > ans;
+
+    for(int i=0;i<v.size();i++)
+    {
+        string str=v[i];
+
+        string sorted=getSort(str);
+
+        mp[sorted].push_back(str);
+    }
+
+    for(auto it:mp)
+    {
+        //cout<<it.first<<endl;
+        vector<string>temp;
+        for(auto i:it.second)
+        {
+           // cout<<i<<" ";
+           temp.push_back(i);
+        }
+        //cout<<endl;
+        ans.push_back(temp);
+    }
+
+    for(int i=0;i<ans.size();i++)
+    {
+        for(int j=0;j<ans[i].size();j++)
+        {
+            cout<<ans[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+
+
+
+
+
+    return 0;
+}
