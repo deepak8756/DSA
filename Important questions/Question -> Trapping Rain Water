@@ -1,0 +1,64 @@
+
+
+
+
+
+
+Input: height = [4,2,0,3,2,5]
+Output: 9
+
+
+https://leetcode.com/problems/trapping-rain-water/description/
+
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        
+        vector<int>lht(height.size());
+        vector<int>rht(height.size());
+
+        lht[0]=height[0];
+        rht[height.size()-1]=height[height.size()-1];
+
+        for(int i=1;i<height.size();i++)
+        {
+            if(lht[i-1]<height[i])
+            {
+                lht[i]=height[i];
+            }
+            else{   
+                lht[i]=lht[i-1];
+            }
+        }
+
+        for(int j=height.size()-2;j>=0;j--)
+        {
+            if(rht[j+1]<height[j])
+            {
+                rht[j]=height[j];
+            }
+            else{
+                rht[j]=rht[j+1];
+            }
+        }
+
+        int sum=0;
+        for(int i=0;i<height.size();i++)
+        {
+            sum+=min(lht[i],rht[i])-height[i];
+        }
+
+        return sum;
+
+
+
+    }
+};
