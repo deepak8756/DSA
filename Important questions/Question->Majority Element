@@ -1,0 +1,52 @@
+
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+
+isme sirf ek element btana hai  
+
+Majority eleemnt 2 meeh do btana hai
+
+
+
+Boyer–Moore majority vote algorithm se hoga 
+
+pehle element ko manlo jada majority milli hai fir check krte jao agar koi aur aya to uska count bdhega
+
+https://www.youtube.com/watch?v=Q6L5SoS-fTo
+
+
+
+
+
+
+
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        
+        int count=0;
+        int majority=NULL;
+
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]==majority)
+            {
+                count++;
+            }
+            else if(count==0)
+            {
+                majority=nums[i];
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+
+        // no need to verify because question meeh likha hai ek majority to exist kregi hi direct return krdo
+
+        return majority;
+    }
+};
