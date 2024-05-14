@@ -1,0 +1,83 @@
+
+n/3 bola see jada ho accurance to do hi element bnenege
+
+manlo 10 size a vector hai , to n/3 kroge agar to 3 aega, Mtlb ki 10 size ke vector meeh aisse element btao jsiki ocurance 3 see jada ho 3 na ho na kaam jada ho 
+to manlo agar wo 4 baar bhi aya hai, aur ab bcche 6 element to ek aur element ka occurance manlo 4 hua to 8 hogae total abb 2 hi bcche iska mtlb ki 
+n/3 meeh aisse do hi element ke pair bnenge bass. 
+
+aur n/2 meeh ek pair bnega bass hmesha yhii hoga har case meeh 
+
+
+
+https://www.youtube.com/watch?v=Q6L5SoS-fTo
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        
+        // 2,2,1,1,1,2,2
+
+        //[2,1,1,3,1,4,5,6]
+
+        int count1=0,count2=0;
+        int maj1=NULL,maj2=NULL;
+
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]==maj1)
+            {
+                count1++;
+            }
+            else if(nums[i]==maj2)
+            {
+                count2++;
+            }
+            else if(count1==0)
+            {
+                maj1=nums[i];
+                count1=1;
+            }
+            else if(count2==0)
+            {
+                maj2=nums[i];
+                count2=1;
+            }
+            else{
+                count1--;
+                count2--;
+            }
+
+        }
+
+        int frq1=-0,frq2=0;
+
+        vector<int>ans;
+
+        for(auto it:nums)
+        {
+            if(maj1==it)
+                frq1++;
+            else if(maj2==it)
+                frq2++;
+            
+        }
+
+        if(frq1>nums.size()/3)
+        {
+            ans.push_back(maj1);
+        }
+
+        if(frq2>nums.size()/3)
+        {
+            ans.push_back(maj2);
+        }
+        return ans;
+    }
+};
