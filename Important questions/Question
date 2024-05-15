@@ -1,0 +1,55 @@
+
+
+
+
+
+
+
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+
+
+jab pointer ko shift krenge to dekhenge kaam height wala jo pointer hoga usko shift kro kyuki bdee wale no ka kaam paad skta hai
+usko ek trah see wall smjho jiski height bddi chahiye hme length ke sath
+
+area=l*b
+to length to pointer ki help see pta krlenge right -left krke, abb baat atti hai height ki to wo bddi rhe,isliye pointer shift krte ye dhyan do chotte wale ko hi bdhao
+
+
+
+https://leetcode.com/problems/container-with-most-water/description/
+
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        
+        int maxarea=0;
+        int left=0;
+        int right=height.size()-1;
+
+
+        while(left<right)
+        {
+            int cal_area=min(height[left],height[right]) * (right-left);
+
+            if(maxarea<cal_area)
+            {
+                maxarea=cal_area;
+            }
+
+            if(height[left]<height[right])
+            {
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+         return maxarea;
+    }
+   
+};
