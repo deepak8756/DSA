@@ -1,0 +1,105 @@
+LEETCODE:-  https://leetcode.com/problems/next-greater-element-iii/description/
+
+
+Input: n = 12
+Output: 21
+Example 2:
+
+Input: n = 21
+Output: -1
+
+//--------------------------------------------------------------------------------------------------------------------------
+
+Algorithm:- 
+ye same as next permutation hai bass isme vector na deke varible meeh store hai no, btana just next greater no hi hai
+
+step 1:- pehle check krlo kya jo no hai wo 9 ya uss see chota hai kyuki next permutation ke liye do no hone chahiye
+          to return krdo wii no
+
+step 2:- pehle no ko tood kr vector meeh bhar lo.
+
+step 3:- check kro piche see kya mere left wali value choti hai right see agar hai to wo left wali value par left pointer lgado 
+          bakki uske right meeh jo bhi hai usko right mark krdo.
+
+step 4:- agar left abhi bhi -1 hai mtlb step 3 wali condition arise hi nhi hui.
+
+step 5:- abb agar left -1 nhi hai to left meeh koi index mill gya hai, abb usse left index par jo value hai uss see just 
+          greater no ko dhundo, aur swap krdo, no to baan gya par just next greater nhi hoga to reverse krdo right see.
+
+STEP 5 Abb right see end taak reverse krke return krdo.
+
+step 6:- ab vector ready hai to usse int variable meeh wapas see change kro aur return krdo
+//-------------------------------------------------------------------------------------------------------------------------
+
+
+class Solution {
+public:
+    int nextGreaterElement(int n) {
+        if(n<=9)
+        {
+            return -1;
+        }
+        vector<int>v;
+
+        while(n!=0)
+        {
+            int x=n%10;
+            v.push_back(x);
+            n=n/10;
+        }
+        reverse(v.begin(),v.end());
+
+        int left=-1;
+        int right=-1;
+
+        for(int i=v.size()-2;i>=0;i--)
+        {
+            if(v[i]<v[i+1])
+            {
+                left=i;
+                right=i+1;
+                break;
+            }
+        }
+
+        for(int i=v.size()-2;i>=0;i--)
+        {
+            if(v[i]<v[i+1])
+            {
+                left=i;
+                right=i+1;
+                break;
+            }
+        }
+       
+        if(left==-1)
+        {
+            
+            return -1;
+        }
+
+        for(int i=v.size()-1;i>=0;i--)
+        {
+            if(v[left]<v[i])
+            {
+                swap(v[left],v[i]);
+                break;
+            }
+        }
+        reverse(v.begin()+right,v.end());
+        long long mul=1;
+        long long ans=0;
+        for(int i=v.size()-1;i>=0;i--)
+        {
+            int x=v[i]%10;
+            ans=ans+x*mul;
+            mul=mul*10;
+        }
+        if(ans>INT_MAX)
+        {
+            return -1;
+        }
+        return ans;
+
+    }
+};
