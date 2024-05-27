@@ -1,0 +1,72 @@
+
+
+
+Leetcode:-  https://leetcode.com/problems/next-permutation/
+
+
+Example:-   3  9  7  8  6  ------------------> 3  9  8  6  7
+
+
+Algorithm:-
+
+
+1. Pehle piche see check kro jiss point paar left wala no right wale see chota hua smjh jao ki whi change hoga, aur uss index ko
+    left mark krdo , aur uske agee wale ko right wo pura right part hoga.
+
+  AGAR LEFT ==-1 HAI iska mtlb koi no nhi milla simply reverse krke retrun krdo 
+  Ex:- 3 2 1 --->  iska next permuation 1 2 3 hi hoga 
+  
+2. jo left index par no hai uss see just bdda no uske right part meeh dhundo
+    piche see dhundlo, kyuki sorted hai jo no pehle milla left index see bdda whi just greater hoga
+
+3. usse mille hue no see swap krado.
+
+4.  abb right part greater to baan gya hai but just greater nhi to right part to reverse krdo and return krdo.
+
+
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        int left=-1;
+        int right=-1;
+
+        for(int i=nums.size()-2;i>=0;i--)
+        {
+            if(nums[i]<nums[i+1])
+            {
+                left=i;
+                right=i+1;
+                break;
+            }
+        }
+
+        if(left==-1)
+        {
+            reverse(nums.begin(),nums.end());
+            return;
+        }
+
+        for(int i=nums.size()-1;i>=0;i--)
+        {
+            if(nums[left]<nums[i])
+            {
+                swap(nums[left],nums[i]);
+                break;
+            }
+        }
+
+        reverse(nums.begin()+right,nums.end());
+        return;
+    }
+};
