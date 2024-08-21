@@ -1,0 +1,211 @@
+Leetcode:- https://leetcode.com/problems/lru-cache/description/
+
+Code Studio:- https://www.codingninjas.com/codestudio/problems/lru-cache-implementation_670276
+
+
+Refrence:-  https://www.youtube.com/watch?v=3c6PgDfPqf8
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+class Node
+    {
+        public:
+        int key;
+        int value;
+        Node* next;
+        Node* prev;
+
+        Node(int x,int y)
+        {
+            key=x;
+            value=y;
+            next=NULL;
+            prev=NULL;
+        }
+    };
+class LRUCache {
+public:
+    int cap;
+    int count;
+    Node* head;
+    Node* tail;
+    unordered_map<int,Node*>m;
+
+    LRUCache(int capacity) {
+        cap=capacity;
+        count=0;
+        head=new Node(0,0);
+        tail=new Node(0,0);
+        head->next=tail;
+        head->prev=NULL;
+        tail->prev=head;
+        tail->next=NULL;
+    }
+
+    
+    int get(int key) {
+//get meeh agar key present hai to uska node return krdo lekin piche see htake agee add krod
+//ye agee piche isliye itna kr rhe jo frequently use horha hai wo agee ajaega doubly LL meeeh agar koi call hua
+//to chahe wo linked meeh jha khi b ho wo wha see haatke agee add ho jaega aur dusra case agar nhi mill wo key
+// get meeh to -1 return krdo matlb wo mere cache meeh nhi hai  mtlb map meeh nhi hai wo cheez 
+        if(m.find(key)!=m.end())
+        {
+            int ans=m[key]->value;//ans meeh lelo return krna hai
+            erase(m[key]); // erase krdo doubly linked list meeh jha khi ho piche beech meeh
+            Node* curr=add(key,ans);//agee add krdo kyuki just abhi use hua hai
+            m[key]=curr; //map meeh uss key ke corespond wo new node daldo
+            return ans; //return krdo ans
+        }
+        else{
+            return -1;//wo key map meeh hai hi nhi to -1 return krdo
+        }
+    }
+    
+    void put(int key, int value) {
+        //case1:agar key brabar nhi hai last key ke mtlb ki wo map meeh hai to wo linked list meeh khi bhi ho skti hai usse wha see htake agee add kro
+        if(m.find(key)!=m.end())
+        {
+            erase(m[key]);
+            Node* curr=add(key,value);
+            m[key]=curr;
+        }
+        else{
+            if(count==cap)
+            { //count cap ke brabar ya bdda hai to head tail to fix hai to tail ke piche wala uthao usse remove
+                int key=tail->prev->key; //kro aur jo nya aya hai usse agee add krdo head ke next par;
+    //tail ke prev ki key nikal li isse mujhe uss key ka address mill jaega map meeh usse bhejo erase ke pass
+                erase(m[key]); // wo node ka address chla gya hoga aur node apna haat jaegi;
+                m.erase(key);// usko map see b htao abb wo gya finally har jgah see aur jo new aya usko dalo
+            }
+            //aissa bhi hoskta hai capacity full na ho piche see remove na krna pde bass insert krdo kyuki 
+            //abhi to jgah hai to else ke andar ka ye part chlega to ye niche wala line chlega
+            Node* curr=add(key,value);//add function meeh jake krdega apna
+            m[key]=curr;//map meeh bhi update krdo isse
+            count=min(count+1,cap);//count ko bddha do jo sbse kaam hoga wii lenge kyuki cap see jada ni leskte
+        }
+    }
+
+    //erase function erase in O(1)
+    void erase(Node* it)
+    {
+        Node* prev=it->prev;
+        Node* next=it->next;
+        delete(it);
+        prev->next=next;
+        next->prev=prev;
+    }
+
+    //add function add in O(1)
+    Node* add(int key,int val)
+    {
+        Node *newNode=new Node(key,val);
+        Node* next=head->next;
+        newNode->next=next;
+        newNode->prev=head;
+        next->prev=newNode;
+        head->next=newNode;
+        return newNode;
+    }
+
+};
+
+
+//---------------------------------------------no comments same code------------------------------------------------------------------------------------------
+
+class Node{
+    public:
+    int key;
+    int value;
+    Node* prev;
+    Node* next;
+
+    Node(int key,int value)
+    {
+        this->key=key;
+        this->value=value;
+        prev=NULL;
+        next=NULL;
+    }
+};
+
+class LRUCache {
+public:
+    int cap;
+    int count;
+    Node* head;
+    Node* tail;
+    unordered_map<int,Node*>mp;
+
+    LRUCache(int capacity) {
+       cap=capacity;
+       count=0;
+       head=new Node(0,0);
+       tail=new Node(0,0);
+
+       head->next=tail;
+       head->prev=NULL;
+       tail->next=NULL;
+       tail->prev=head;
+
+    }
+    
+    int get(int key) {
+        if(mp.find(key)!=mp.end())
+        {
+            int ans=mp[key]->value;
+            erase(mp[key]);
+            Node* curr=add(key,ans);
+            mp[key]=curr;
+            return ans;
+        }
+        else{
+            return -1;
+        }
+    }
+    
+    void put(int key, int value) {
+        if(mp.find(key)!=mp.end())
+        {
+            erase(mp[key]);
+            Node* current=add(key,value);
+            mp[key]=current;
+        }
+        else{
+            if(count>=cap)
+            {
+                int remove=tail->prev->key;
+                erase(mp[remove]);
+                mp.erase(remove);
+                count--;
+            }
+            Node* current=add(key,value);
+            mp[key]=current;
+            count++;
+        }
+    }
+
+    void erase(Node* it)
+    {
+        Node* next=it->next;
+        Node* prev=it->prev;
+        delete(it);
+        prev->next=next;
+        next->prev=prev;
+
+    }
+
+    Node* add(int key,int val)
+    {
+        Node* newNode=new Node(key,val);
+        Node* next=head->next;
+        newNode->next=next;
+        newNode->prev=head;
+        next->prev=newNode;
+        head->next=newNode;
+        
+        return newNode;
+    }
+};
