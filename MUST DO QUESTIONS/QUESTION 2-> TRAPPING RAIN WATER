@@ -1,0 +1,76 @@
+
+
+
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+
+
+Steps1:-  ek prefix array bnao left side jiski incremental height rhegi [1,8,8,8,8,8,8,8,8]
+          el postfix height bnao right side see piche see incremental height rhe [7,7,8,8,8,8,8,8,8]
+
+
+steps 2:- abb two pointer rkho left_side=0, right_side=height.size()-1; last ko point kre right_side wala
+
+steps 3:- abb left vector aur right vector meeh minimum nikalo kyu kyuki jo minimum height hogi water utna hi contain kr paega bs
+          then right_side ko minus krdo left_side see and upar jo minimum milla hai uss see multiply krdo mtlb ki width itni hui ek tank ki
+
+Step 4:- left_side , right_side ko update kro jo chottti height hogi wo kam water contain kregi to usko agee bdhado, issi concept see left_side, right_side move kro.
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+int maxArea(vector<int>& height) {
+        vector<int>lht(height.size());
+        vector<int>rht(height.size());
+
+        lht[0]=height[0];
+        rht[height.size()-1]=height[height.size()-1];
+
+
+        for(int i=1;i<height.size();i++)
+        {
+            if(lht[i-1]>height[i])
+            {
+                lht[i]=lht[i-1];
+            }
+            else{
+                lht[i]=height[i];
+            }
+        }
+
+        for(int i=height.size()-2;i>=0;i--)
+        {
+            if(rht[i+1]>height[i])
+            {
+                rht[i]=rht[i+1];
+            }
+            else{
+                rht[i]=height[i];
+            }
+        }
+
+        int ans=0;
+
+        int left=0;
+        int right=height.size()-1;
+
+        while(left<right)
+        {
+            int sum=min(lht[left],rht[right])*(right-left);
+            if(ans<sum)
+            {
+                ans=sum;
+            }
+            if(lht[left]<rht[right])
+            {
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+        return ans;
+    }
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
